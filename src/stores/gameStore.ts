@@ -133,24 +133,24 @@ export const useGameStore = create<GameState>((set, get) => ({
 
     const matches = findAllMatches(grid);
     if (matches.length === 0) {
-      // Match yok, idle'a dön
-      // Hamle bitti mi kontrol et
+      // Match yok - seviye durumunu kontrol et
+      // Hedef skora ulaşıldı mı? (hamle kalmasa bile)
+      if (levelConfig && score >= levelConfig.targetScore && movesLeft <= 0) {
+        const stars = getStars(score, levelConfig.starThresholds);
+        set({ phase: 'levelComplete', stars });
+        return;
+      }
+      // Hamle bitti ama hedef tutmadı
       if (movesLeft <= 0 && levelConfig) {
-        if (score >= levelConfig.targetScore) {
-          const stars = getStars(score, levelConfig.starThresholds);
-          set({ phase: 'levelComplete', stars });
-        } else {
-          set({ phase: 'gameOver' });
-        }
+        set({ phase: 'gameOver' });
+        return;
+      }
+      // Geçerli hamle var mı kontrol et
+      if (!hasValidMoves(grid)) {
+        const newGrid = createGrid();
+        set({ grid: newGrid, phase: 'idle' });
       } else {
-        // Geçerli hamle var mı kontrol et
-        if (!hasValidMoves(grid)) {
-          // Grid'i yeniden oluştur
-          const newGrid = createGrid();
-          set({ grid: newGrid, phase: 'idle' });
-        } else {
-          set({ phase: 'idle' });
-        }
+        set({ phase: 'idle' });
       }
       return;
     }
@@ -163,6 +163,19 @@ export const useGameStore = create<GameState>((set, get) => ({
     const newCombo = Math.min(100, comboMeter + comboGain);
 
     const newScore = score + result.totalScore;
+
+    // Hedef skora tam erişildi mi? (hamle devam etse bile seviyeyi tamamla)
+    if (levelConfig && newScore >= levelConfig.targetScore && movesLeft <= 0) {
+      const stars = getStars(newScore, levelConfig.starThresholds);
+      set({
+        grid: result.finalGrid,
+        score: newScore,
+        comboMeter: newCombo,
+        phase: 'levelComplete',
+        stars,
+      });
+      return;
+    }
 
     set({
       grid: result.finalGrid,
@@ -182,3 +195,8 @@ export const useGameStore = create<GameState>((set, get) => ({
       unlockedLevel: Math.max(s.unlockedLevel, s.currentLevel + 1),
     })),
 }));
+
+// Debug: store'u global'e koy (geliştirme sırasında)
+if (typeof window !== 'undefined') {
+  (window as unknown as Record<string, unknown>).__gameStore = useGameStore;
+}

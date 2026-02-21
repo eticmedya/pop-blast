@@ -1,8 +1,8 @@
 import React, { useEffect, useCallback } from 'react';
 import { View, StyleSheet, StatusBar } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Board from '../components/Board';
 import ScoreBar from '../components/ScoreBar';
+import Cannon from '../components/Cannon';
 import LevelCompleteModal from '../components/LevelCompleteModal';
 import GameOverModal from '../components/GameOverModal';
 import { useGameStore } from '../stores/gameStore';
@@ -41,36 +41,32 @@ export default function GameScreen({ level = 1, onBack }: Props) {
   }, [phase, unlockNextLevel, onBack]);
 
   return (
-    <GestureHandlerRootView style={styles.root}>
-      <View style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor={BG_COLOR} />
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor={BG_COLOR} />
 
-        <ScoreBar />
+      <ScoreBar />
 
-        <View style={styles.boardWrapper}>
-          <Board />
-        </View>
-
-        <LevelCompleteModal
-          visible={phase === 'levelComplete'}
-          onNext={handleNextLevel}
-          onMenu={handleMenu}
-        />
-
-        <GameOverModal
-          visible={phase === 'gameOver'}
-          onRestart={handleRestart}
-          onMenu={handleMenu}
-        />
+      <View style={styles.boardWrapper}>
+        <Board />
+        <Cannon />
       </View>
-    </GestureHandlerRootView>
+
+      <LevelCompleteModal
+        visible={phase === 'levelComplete'}
+        onNext={handleNextLevel}
+        onMenu={handleMenu}
+      />
+
+      <GameOverModal
+        visible={phase === 'gameOver'}
+        onRestart={handleRestart}
+        onMenu={handleMenu}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     backgroundColor: BG_COLOR,
