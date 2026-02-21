@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState, useRef, useMemo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -11,13 +11,13 @@ import { useGameStore } from '../stores/gameStore';
 import { usePowerUpStore, PowerUpType } from '../stores/powerupStore';
 import { useStatsStore } from '../stores/statsStore';
 import { executeRowBomb, executeColBomb, executeColorBomb, shuffleGrid } from '../game-engine/powerups';
-import { GRID_BG_COLOR } from '../constants/colors';
 import {
   TILE_SIZE,
   BOARD_WIDTH,
   GRID_ROWS,
   GRID_COLS,
 } from '../constants/dimensions';
+import { getWorldTheme } from '../constants/themes';
 import AnimatedTile from './AnimatedTile';
 import ScorePopup from './ScorePopup';
 import ComboEffect from './ComboEffect';
@@ -46,6 +46,7 @@ export default function Board() {
   const setGrid = useGameStore((s) => s.setGrid);
   const addScore = useGameStore((s) => s.addScore);
   const setPhase = useGameStore((s) => s.setPhase);
+  const currentLevel = useGameStore((s) => s.currentLevel);
 
   const activePowerUp = usePowerUpStore((s) => s.activePowerUp);
   const usePowerUp = usePowerUpStore((s) => s.usePowerUp);
@@ -56,6 +57,9 @@ export default function Board() {
   const [popups, setPopups] = useState<PopupData[]>([]);
   const [showCombo, setShowCombo] = useState(false);
   const [entryKey, setEntryKey] = useState(0);
+
+  // Tema bilgisi
+  const worldTheme = useMemo(() => getWorldTheme(currentLevel), [currentLevel]);
 
   // --- Screen Shake shared values ---
   const shakeX = useSharedValue(0);
@@ -86,14 +90,13 @@ export default function Board() {
     if (phase === 'matching') {
       soundManager.playMatchCascade();
 
-      // Haptic feedback for matching
       if (lastMatchCount >= 4) {
         hapticService.heavyMatch();
       } else {
         hapticService.match();
       }
 
-      // Screen shake for big matches (4+ matches or cascades > 1)
+      // Screen shake for big matches
       if (lastMatchCount >= 4 || lastCascadeCount > 1) {
         const intensity = Math.min(lastMatchCount * 1.5, 12);
         shakeX.value = withSequence(
@@ -141,7 +144,6 @@ export default function Board() {
     (row: number, col: number) => {
       if (phase !== 'idle') return;
 
-      // Haptic tap feedback
       hapticService.tap();
 
       // --- Power-up handling ---
@@ -197,7 +199,6 @@ export default function Board() {
     return Gesture.Pan()
       .minDistance(TILE_SIZE / 4)
       .onStart((e) => {
-        // Determine which tile the touch started on
         const col = Math.floor(e.x / TILE_SIZE);
         const row = Math.floor(e.y / TILE_SIZE);
         if (row >= 0 && row < GRID_ROWS && col >= 0 && col < GRID_COLS) {
@@ -213,12 +214,10 @@ export default function Board() {
         const { translationX, translationY } = e;
         const threshold = TILE_SIZE / 3;
 
-        // Determine swipe direction
         let targetRow = start.row;
         let targetCol = start.col;
 
         if (Math.abs(translationX) > Math.abs(translationY)) {
-          // Horizontal swipe
           if (Math.abs(translationX) >= threshold) {
             targetCol = translationX > 0 ? start.col + 1 : start.col - 1;
           } else {
@@ -226,7 +225,6 @@ export default function Board() {
             return;
           }
         } else {
-          // Vertical swipe
           if (Math.abs(translationY) >= threshold) {
             targetRow = translationY > 0 ? start.row + 1 : start.row - 1;
           } else {
@@ -235,14 +233,11 @@ export default function Board() {
           }
         }
 
-        // Bounds check
         if (targetRow < 0 || targetRow >= GRID_ROWS || targetCol < 0 || targetCol >= GRID_COLS) {
           swipeStartTile.current = null;
           return;
         }
 
-        // Execute via selectTile: first select the start tile, then the target
-        // This reuses the existing game logic (adjacency check, match validation)
         const { phase: currentPhase, selectedTile: currentSelected } = useGameStore.getState();
         if (currentPhase !== 'idle') {
           swipeStartTile.current = null;
@@ -251,15 +246,12 @@ export default function Board() {
 
         hapticService.tap();
 
-        // If no tile is selected, select start then target to trigger swap
         if (!currentSelected) {
           selectTile(start.row, start.col);
-          // Use setTimeout to let the first selectTile process
           setTimeout(() => {
             selectTile(targetRow, targetCol);
           }, 16);
         } else {
-          // If a tile is already selected, just select the target
           selectTile(targetRow, targetCol);
         }
 
@@ -274,10 +266,30 @@ export default function Board() {
 
   if (grid.length === 0) return null;
 
+  const tileEmojis = worldTheme.tileTheme.emojis;
+  const tileShape = worldTheme.tileTheme.shape;
+
   return (
     <View style={styles.container}>
+      {/* Karakter - Board'un sol altında */}
+      <Image
+        source={worldTheme.character}
+        style={styles.character}
+        resizeMode="contain"
+      />
+
       <GestureDetector gesture={panGesture}>
-        <Animated.View style={[styles.board, { width: BOARD_WIDTH }, shakeStyle]}>
+        <Animated.View
+          style={[
+            styles.board,
+            {
+              width: BOARD_WIDTH,
+              backgroundColor: worldTheme.boardBg,
+              borderColor: worldTheme.boardBorder,
+            },
+            shakeStyle,
+          ]}
+        >
           {Array.from({ length: GRID_ROWS }, (_, r) => (
             <View key={r} style={styles.row}>
               {grid[r]?.map((tile, c) => {
@@ -298,6 +310,8 @@ export default function Board() {
                     fallDistance={0}
                     isNew={entryKey > 0}
                     entryDelay={r * 30 + c * 20}
+                    emoji={tileEmojis[tile.color % tileEmojis.length]}
+                    shape={tileShape}
                   />
                 );
               })}
@@ -333,12 +347,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   board: {
-    backgroundColor: GRID_BG_COLOR,
-    borderRadius: 16,
+    borderRadius: 20,
     overflow: 'hidden',
     padding: 2,
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)',
+    borderWidth: 2,
+    // Gölge efekti
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 16,
+    elevation: 12,
   },
   row: {
     flexDirection: 'row',
@@ -346,5 +364,13 @@ const styles = StyleSheet.create({
   emptyCell: {
     width: TILE_SIZE,
     height: TILE_SIZE,
+  },
+  character: {
+    position: 'absolute',
+    bottom: -50,
+    left: -30,
+    width: 80,
+    height: 80,
+    zIndex: 10,
   },
 });

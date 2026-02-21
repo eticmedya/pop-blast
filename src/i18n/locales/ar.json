@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "مكافأة السلسلة مفعّلة!"
   },
+  "levelStart": {
+    "level": "المستوى {{number}}",
+    "goal": "الهدف",
+    "moves": "الحركات",
+    "boosters": "اختر تعزيزاً"
+  },
   "common": {
     "ok": "حسناً",
     "cancel": "إلغاء",

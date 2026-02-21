@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useCallback, useState, useMemo } from 'react';
 import { View, StyleSheet, StatusBar, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Board from '../components/Board';
@@ -10,12 +10,13 @@ import GameOverModal from '../components/GameOverModal';
 import NoLivesModal from '../components/NoLivesModal';
 import AchievementPopup from '../components/AchievementPopup';
 import GradientBackground from '../components/GradientBackground';
+import LevelStartModal from '../components/LevelStartModal';
 import { useGameStore } from '../stores/gameStore';
 import { useSettingsStore } from '../stores/settingsStore';
 import { useLivesStore } from '../stores/livesStore';
 import { useStatsStore } from '../stores/statsStore';
 import { useAchievementStore } from '../stores/achievementStore';
-import { BG_COLOR, WORLD_COLORS } from '../constants/colors';
+import { getWorldTheme } from '../constants/themes';
 import { GRID_PADDING } from '../constants/dimensions';
 import { soundManager } from '../services/SoundManager';
 import { hapticService } from '../services/HapticService';
@@ -51,18 +52,17 @@ export default function GameScreen({ level = 1, resume = false, onBack }: Props)
   const checkAchievements = useAchievementStore((s) => s.checkAchievements);
 
   const [showNoLives, setShowNoLives] = useState(false);
+  const [showLevelStart, setShowLevelStart] = useState(!resume);
 
-  // Determine world theme based on level
-  const worldIndex = Math.floor((currentLevel - 1) / 5);
-  const worldTheme = WORLD_COLORS[worldIndex % WORLD_COLORS.length];
-  const gradientColors: [string, string, string] = [worldTheme.bg, BG_COLOR, '#0A0A1A'];
+  // Dünya teması
+  const worldTheme = useMemo(() => getWorldTheme(resume ? currentLevel : level), [level, resume, currentLevel]);
+  const gradientColors = worldTheme.bgGradient as [string, string, ...string[]];
 
   useEffect(() => {
-    // Devam ediyorsa yeni seviye başlatma
-    if (!resume) {
+    if (!resume && !showLevelStart) {
       startLevel(level);
     }
-  }, [level, resume, startLevel]);
+  }, [level, resume, startLevel, showLevelStart]);
 
   // Handle level complete
   useEffect(() => {
@@ -86,6 +86,11 @@ export default function GameScreen({ level = 1, resume = false, onBack }: Props)
       resetWinStreak();
     }
   }, [phase === 'gameOver']);
+
+  const handleStartLevel = useCallback(() => {
+    setShowLevelStart(false);
+    startLevel(level);
+  }, [level, startLevel]);
 
   const handleRestart = useCallback(() => {
     if (!hasLives) {
@@ -125,19 +130,38 @@ export default function GameScreen({ level = 1, resume = false, onBack }: Props)
   const isPlaying = phase === 'idle' || phase === 'swapping' || phase === 'matching' || phase === 'falling';
 
   return (
-    <GradientBackground colors={gradientColors}>
+    <GradientBackground
+      colors={gradientColors}
+      showBubbles
+      bubbleColors={worldTheme.particleColors}
+    >
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+
+      {/* Seviye Başlangıç Modalı */}
+      {showLevelStart && !resume && (
+        <LevelStartModal
+          level={level}
+          onStart={handleStartLevel}
+          onBack={handleHome}
+        />
+      )}
 
       {/* Üst aksiyon butonları */}
       <View style={styles.actionBar}>
-        <Pressable style={styles.actionBtn} onPress={handleHome}>
-          <Ionicons name="home-outline" size={22} color="rgba(255,255,255,0.7)" />
+        <Pressable
+          style={[styles.actionBtn, { backgroundColor: worldTheme.headerBg }]}
+          onPress={handleHome}
+        >
+          <Ionicons name="home-outline" size={22} color="rgba(255,255,255,0.85)" />
         </Pressable>
-        <Pressable style={styles.actionBtn} onPress={toggleSound}>
+        <Pressable
+          style={[styles.actionBtn, { backgroundColor: worldTheme.headerBg }]}
+          onPress={toggleSound}
+        >
           <Ionicons
             name={soundEnabled ? 'volume-high' : 'volume-mute'}
             size={22}
-            color={soundEnabled ? 'rgba(255,255,255,0.7)' : 'rgba(255,80,80,0.7)'}
+            color={soundEnabled ? 'rgba(255,255,255,0.85)' : 'rgba(255,80,80,0.85)'}
           />
         </Pressable>
       </View>
@@ -181,12 +205,16 @@ const styles = StyleSheet.create({
     paddingTop: 4,
   },
   actionBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255,255,255,0.08)',
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 4,
   },
   boardWrapper: {
     flex: 1,

@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Бонус серии активен!"
   },
+  "levelStart": {
+    "level": "УРОВЕНЬ {{number}}",
+    "goal": "ЦЕЛЬ",
+    "moves": "Ходы",
+    "boosters": "Выберите усиление"
+  },
   "common": {
     "ok": "ОК",
     "cancel": "Отмена",

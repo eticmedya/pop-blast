@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Reeks Bonus Actief!"
   },
+  "levelStart": {
+    "level": "LEVEL {{number}}",
+    "goal": "DOEL",
+    "moves": "Zetten",
+    "boosters": "Kies een Booster"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Annuleren",

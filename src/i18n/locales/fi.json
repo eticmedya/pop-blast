@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Putkibonus aktiivinen!"
   },
+  "levelStart": {
+    "level": "TASO {{number}}",
+    "goal": "TAVOITE",
+    "moves": "Siirrot",
+    "boosters": "Valitse tehostus"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Peruuta",

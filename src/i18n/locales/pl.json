@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Bonus za serię aktywny!"
   },
+  "levelStart": {
+    "level": "POZIOM {{number}}",
+    "goal": "CEL",
+    "moves": "Ruchy",
+    "boosters": "Wybierz Wzmocnienie"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Anuluj",

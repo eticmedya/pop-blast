@@ -122,6 +122,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Seri Bonusu Aktif!"
   },
+  "levelStart": {
+    "level": "SEVİYE {{number}}",
+    "goal": "HEDEF",
+    "moves": "Hamle",
+    "boosters": "Güçlendirici Seç"
+  },
   "common": {
     "ok": "Tamam",
     "cancel": "İptal",

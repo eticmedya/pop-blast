@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useEffect, useMemo } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -8,10 +8,12 @@ import Animated, {
   withSpring,
   Easing,
 } from 'react-native-reanimated';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useTranslation } from 'react-i18next';
 import { useGameStore } from '../stores/gameStore';
-import { ACCENT_COLOR, TEXT_COLOR, SCORE_COLOR, DANGER_COLOR } from '../constants/colors';
+import { getWorldTheme } from '../constants/themes';
+import { SCREEN_WIDTH } from '../constants/dimensions';
 import { hapticService } from '../services/HapticService';
 import AnimatedButton from './AnimatedButton';
 
@@ -25,6 +27,9 @@ export default function GameOverModal({ visible, onRestart, onMenu }: Props) {
   const { t } = useTranslation();
   const score = useGameStore((s) => s.score);
   const levelConfig = useGameStore((s) => s.levelConfig);
+  const currentLevel = useGameStore((s) => s.currentLevel);
+
+  const worldTheme = useMemo(() => getWorldTheme(currentLevel), [currentLevel]);
 
   const bgOpacity = useSharedValue(0);
   const modalTranslateY = useSharedValue(300);
@@ -42,18 +47,18 @@ export default function GameOverModal({ visible, onRestart, onMenu }: Props) {
     return t('gameOver.subtitle');
   };
 
-  const getProximityColor = (): string => {
-    if (progress >= 0.9) return SCORE_COLOR;
-    if (progress >= 0.75) return '#FFA502';
-    if (progress >= 0.5) return ACCENT_COLOR;
-    return 'rgba(255,255,255,0.5)';
+  const getProgressColor = (): string => {
+    if (progress >= 0.9) return '#F59E0B';
+    if (progress >= 0.75) return '#FB923C';
+    if (progress >= 0.5) return worldTheme.accent;
+    return '#EF4444';
   };
 
   useEffect(() => {
     if (visible) {
       hapticService.failure();
 
-      bgOpacity.value = withTiming(0.8, { duration: 300 });
+      bgOpacity.value = withTiming(0.7, { duration: 300 });
       modalTranslateY.value = withSpring(0, { damping: 14, stiffness: 100 });
       contentOpacity.value = withDelay(200, withTiming(1, { duration: 400 }));
       buttonsOpacity.value = withDelay(800, withTiming(1, { duration: 400 }));
@@ -97,54 +102,88 @@ export default function GameOverModal({ visible, onRestart, onMenu }: Props) {
       <Animated.View style={[styles.overlay, bgStyle]} />
 
       <Animated.View style={[styles.modalContainer, modalStyle]}>
-        <View style={styles.modal}>
-          <Animated.View style={contentStyle}>
-            <View style={styles.iconContainer}>
-              <MaterialIcons name="sentiment-dissatisfied" size={52} color={DANGER_COLOR} />
-            </View>
-            <Text style={styles.title}>{t('gameOver.title')}</Text>
-            <Text style={[styles.subtitle, { color: getProximityColor() }]}>
-              {getProximityMessage()}
-            </Text>
+        <View style={styles.card}>
+          <LinearGradient
+            colors={['#FFFBF0', '#FFF5E1', '#FFEED4']}
+            style={styles.cardGradient}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+          >
+            {/* Kırmızı banner */}
+            <LinearGradient
+              colors={['#EF4444', '#DC2626']}
+              style={styles.banner}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Text style={styles.title}>{t('gameOver.title').toUpperCase()}</Text>
+            </LinearGradient>
 
-            {/* Ghost progress bar */}
-            <View style={styles.ghostProgressContainer}>
-              <View style={styles.ghostProgressBg}>
-                <Animated.View
-                  style={[
-                    styles.ghostProgressFill,
-                    progressFillStyle,
-                    { backgroundColor: getProximityColor() },
-                  ]}
-                />
-                {/* Target marker */}
-                <View style={styles.targetMarker} />
+            {/* Karakter (üzgün poz) */}
+            <Image
+              source={worldTheme.character}
+              style={styles.character}
+              resizeMode="contain"
+            />
+
+            <Animated.View style={[styles.contentSection, contentStyle]}>
+              <Text style={styles.subtitle}>{getProximityMessage()}</Text>
+
+              {/* İlerleme çubuğu */}
+              <View style={styles.progressContainer}>
+                <View style={styles.progressBg}>
+                  <Animated.View
+                    style={[
+                      styles.progressFill,
+                      progressFillStyle,
+                      { backgroundColor: getProgressColor() },
+                    ]}
+                  />
+                  <View style={styles.targetMarker} />
+                </View>
+                <Text style={[styles.progressLabel, { color: getProgressColor() }]}>
+                  {Math.round(progress * 100)}%
+                </Text>
               </View>
-              <Text style={styles.ghostProgressLabel}>
-                {Math.round(progress * 100)}%
-              </Text>
-            </View>
 
-            <View style={styles.scoreRow}>
-              <Text style={styles.scoreLabel}>{t('game.score')}</Text>
-              <Text style={styles.scoreValue}>{score.toLocaleString()}</Text>
-            </View>
-            <View style={styles.scoreRow}>
-              <Text style={styles.scoreLabel}>{t('gameOver.target', { target: '' })}</Text>
-              <Text style={styles.targetValue}>
-                {levelConfig?.targetScore.toLocaleString()}
-              </Text>
-            </View>
-          </Animated.View>
+              {/* Skor detayları */}
+              <View style={styles.scoreSection}>
+                <View style={styles.scoreRow}>
+                  <View style={styles.scoreLeft}>
+                    <Ionicons name="trophy" size={16} color="#F59E0B" />
+                    <Text style={styles.scoreLabel}>{t('game.score')}</Text>
+                  </View>
+                  <Text style={styles.scoreValue}>{score.toLocaleString()}</Text>
+                </View>
+                <View style={styles.scoreRow}>
+                  <View style={styles.scoreLeft}>
+                    <Ionicons name="flag" size={16} color="#9E9E9E" />
+                    <Text style={styles.scoreLabel}>{t('gameOver.target', { target: '' })}</Text>
+                  </View>
+                  <Text style={styles.targetValue}>
+                    {levelConfig?.targetScore.toLocaleString()}
+                  </Text>
+                </View>
+              </View>
+            </Animated.View>
 
-          <Animated.View style={[styles.buttonsContainer, buttonsStyle]}>
-            <AnimatedButton style={styles.retryBtn} onPress={onRestart}>
-              <Text style={styles.retryText}>{t('gameOver.retry')}</Text>
-            </AnimatedButton>
-            <AnimatedButton style={styles.menuBtn} onPress={onMenu}>
-              <Text style={styles.menuText}>{t('gameOver.mainMenu')}</Text>
-            </AnimatedButton>
-          </Animated.View>
+            <Animated.View style={[styles.buttonsContainer, buttonsStyle]}>
+              <AnimatedButton style={styles.retryBtn} onPress={onRestart}>
+                <LinearGradient
+                  colors={[worldTheme.accent, worldTheme.secondary]}
+                  style={styles.retryBtnGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                >
+                  <Ionicons name="refresh" size={20} color="#fff" />
+                  <Text style={styles.retryText}>{t('gameOver.retry')}</Text>
+                </LinearGradient>
+              </AnimatedButton>
+              <AnimatedButton style={styles.menuBtn} onPress={onMenu}>
+                <Text style={styles.menuText}>{t('gameOver.mainMenu')}</Text>
+              </AnimatedButton>
+            </Animated.View>
+          </LinearGradient>
         </View>
       </Animated.View>
     </View>
@@ -167,52 +206,72 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
   },
   modalContainer: {
-    width: '80%',
+    width: SCREEN_WIDTH * 0.85,
     zIndex: 201,
   },
-  modal: {
-    backgroundColor: '#1A1A2E',
+  card: {
     borderRadius: 28,
-    padding: 32,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'rgba(255,71,87,0.3)',
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.4,
+    shadowRadius: 20,
+    elevation: 16,
   },
-  iconContainer: {
+  cardGradient: {
     alignItems: 'center',
-    marginBottom: 8,
+    paddingBottom: 24,
+  },
+  banner: {
+    width: '100%',
+    paddingVertical: 18,
+    alignItems: 'center',
   },
   title: {
-    color: DANGER_COLOR,
-    fontSize: 28,
+    color: '#fff',
+    fontSize: 24,
     fontWeight: '900',
+    letterSpacing: 2,
+    textShadowColor: 'rgba(0,0,0,0.3)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 4,
+  },
+  character: {
+    width: 70,
+    height: 70,
+    marginTop: -16,
     marginBottom: 4,
-    textAlign: 'center',
+    opacity: 0.7,
+  },
+  contentSection: {
+    width: '85%',
+    alignItems: 'center',
   },
   subtitle: {
     fontSize: 16,
     fontWeight: '700',
-    marginBottom: 16,
+    color: '#5D4037',
+    marginBottom: 12,
     textAlign: 'center',
   },
-  ghostProgressContainer: {
+  progressContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
     gap: 8,
-    marginBottom: 20,
+    marginBottom: 16,
   },
-  ghostProgressBg: {
+  progressBg: {
     flex: 1,
-    height: 12,
-    backgroundColor: 'rgba(255,255,255,0.08)',
-    borderRadius: 6,
+    height: 14,
+    backgroundColor: 'rgba(0,0,0,0.06)',
+    borderRadius: 7,
     overflow: 'hidden',
     position: 'relative',
   },
-  ghostProgressFill: {
+  progressFill: {
     height: '100%',
-    borderRadius: 6,
+    borderRadius: 7,
   },
   targetMarker: {
     position: 'absolute',
@@ -220,65 +279,83 @@ const styles = StyleSheet.create({
     top: -2,
     bottom: -2,
     width: 3,
-    backgroundColor: 'rgba(255,255,255,0.4)',
+    backgroundColor: 'rgba(0,0,0,0.15)',
     borderRadius: 2,
   },
-  ghostProgressLabel: {
-    color: 'rgba(255,255,255,0.6)',
-    fontSize: 13,
-    fontWeight: 'bold',
-    minWidth: 38,
+  progressLabel: {
+    fontSize: 14,
+    fontWeight: '800',
+    minWidth: 42,
     textAlign: 'right',
+  },
+  scoreSection: {
+    width: '100%',
+    marginBottom: 8,
   },
   scoreRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '100%',
-    marginBottom: 8,
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.04)',
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 10,
+    marginBottom: 4,
+  },
+  scoreLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
   },
   scoreLabel: {
-    color: 'rgba(255,255,255,0.6)',
-    fontSize: 16,
+    color: '#5D4037',
+    fontSize: 14,
+    fontWeight: '600',
   },
   scoreValue: {
-    color: SCORE_COLOR,
+    color: '#F59E0B',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '900',
   },
   targetValue: {
-    color: 'rgba(255,255,255,0.4)',
+    color: '#9E9E9E',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '700',
   },
   buttonsContainer: {
-    width: '100%',
+    width: '85%',
     alignItems: 'center',
+    marginTop: 8,
   },
   retryBtn: {
-    backgroundColor: ACCENT_COLOR,
-    paddingHorizontal: 40,
-    paddingVertical: 14,
-    borderRadius: 18,
-    marginTop: 24,
     width: '100%',
-    alignItems: 'center',
-    shadowColor: ACCENT_COLOR,
+    borderRadius: 20,
+    overflow: 'hidden',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 6,
   },
+  retryBtnGradient: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 16,
+  },
   retryText: {
-    color: TEXT_COLOR,
+    color: '#fff',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '800',
   },
   menuBtn: {
-    paddingVertical: 12,
-    marginTop: 12,
+    paddingVertical: 14,
+    marginTop: 8,
   },
   menuText: {
-    color: 'rgba(255,255,255,0.4)',
+    color: '#9E9E9E',
     fontSize: 14,
+    fontWeight: '600',
   },
 });

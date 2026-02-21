@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "連勝加成啟動！"
   },
+  "levelStart": {
+    "level": "關卡 {{number}}",
+    "goal": "目標",
+    "moves": "步數",
+    "boosters": "選擇增強道具"
+  },
   "common": {
     "ok": "確定",
     "cancel": "取消",

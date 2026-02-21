@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "연승 보너스 활성화!"
   },
+  "levelStart": {
+    "level": "레벨 {{number}}",
+    "goal": "목표",
+    "moves": "이동 횟수",
+    "boosters": "부스터 선택"
+  },
   "common": {
     "ok": "확인",
     "cancel": "취소",

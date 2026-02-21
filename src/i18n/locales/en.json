@@ -122,6 +122,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Streak Bonus Active!"
   },
+  "levelStart": {
+    "level": "LEVEL {{number}}",
+    "goal": "GOAL",
+    "moves": "Moves",
+    "boosters": "Choose a Booster"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Cancel",

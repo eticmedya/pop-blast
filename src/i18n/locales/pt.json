@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Bônus de sequência ativo!"
   },
+  "levelStart": {
+    "level": "NÍVEL {{number}}",
+    "goal": "META",
+    "moves": "Jogadas",
+    "boosters": "Escolha um Reforço"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Cancelar",

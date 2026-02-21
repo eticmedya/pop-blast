@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -10,13 +10,15 @@ import Animated, {
   withSpring,
   Easing,
 } from 'react-native-reanimated';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
-import { TEXT_COLOR, ACCENT_COLOR, SCORE_COLOR, TILE_COLORS } from '../constants/colors';
+import { TILE_COLORS } from '../constants/colors';
 import { useDailyRewardStore } from '../stores/dailyRewardStore';
 import { useGameStore } from '../stores/gameStore';
 import GradientBackground from '../components/GradientBackground';
 import AnimatedButton from '../components/AnimatedButton';
+import { SCREEN_WIDTH } from '../constants/dimensions';
 
 interface Props {
   onPlay: () => void;
@@ -25,13 +27,13 @@ interface Props {
   onDailyReward: () => void;
 }
 
-function FloatingBall({ color, delay, x, y }: { color: string; delay: number; x: number; y: number }) {
+function FloatingEmoji({ emoji, delay, x, y }: { emoji: string; delay: number; x: number; y: number }) {
   const translateY = useSharedValue(0);
   const translateX = useSharedValue(0);
   const opacity = useSharedValue(0);
 
   useEffect(() => {
-    opacity.value = withDelay(delay, withTiming(0.6, { duration: 500 }));
+    opacity.value = withDelay(delay, withTiming(0.5, { duration: 500 }));
     translateY.value = withDelay(
       delay,
       withRepeat(
@@ -64,11 +66,13 @@ function FloatingBall({ color, delay, x, y }: { color: string; delay: number; x:
   return (
     <Animated.View
       style={[
-        styles.floatingBall,
-        { backgroundColor: color, left: x, top: y },
+        styles.floatingEmoji,
+        { left: x, top: y },
         animStyle,
       ]}
-    />
+    >
+      <Text style={styles.floatingEmojiText}>{emoji}</Text>
+    </Animated.View>
   );
 }
 
@@ -112,20 +116,26 @@ export default function MenuScreen({ onPlay, onContinue, onSettings, onDailyRewa
     transform: [{ scale: btnScale.value }],
   }));
 
-  const floatingBalls = [
-    { color: TILE_COLORS[0], delay: 0, x: 30, y: 120 },
-    { color: TILE_COLORS[1], delay: 200, x: 280, y: 80 },
-    { color: TILE_COLORS[2], delay: 400, x: 60, y: 500 },
-    { color: TILE_COLORS[3], delay: 600, x: 300, y: 450 },
-    { color: TILE_COLORS[4], delay: 300, x: 180, y: 600 },
-    { color: TILE_COLORS[5], delay: 500, x: 320, y: 250 },
+  const floatingEmojis = [
+    { emoji: '🍬', delay: 0, x: 30, y: 120 },
+    { emoji: '🐵', delay: 200, x: SCREEN_WIDTH - 70, y: 90 },
+    { emoji: '🍭', delay: 400, x: 50, y: 480 },
+    { emoji: '🐧', delay: 600, x: SCREEN_WIDTH - 80, y: 440 },
+    { emoji: '💎', delay: 300, x: SCREEN_WIDTH / 2 - 10, y: 580 },
+    { emoji: '🦁', delay: 500, x: SCREEN_WIDTH - 50, y: 260 },
+    { emoji: '🍩', delay: 150, x: 20, y: 300 },
+    { emoji: '🌟', delay: 450, x: SCREEN_WIDTH / 2 + 40, y: 150 },
   ];
 
   return (
-    <GradientBackground colors={['#1A0533', '#0F0F23', '#0A1628']}>
+    <GradientBackground
+      colors={['#7B2FF7', '#4A90D9', '#67D5B5', '#A8E6CF']}
+      showBubbles
+      bubbleColors={['#FF6B9D', '#C471ED', '#12CBC4', '#FFC312', '#A3CB38', '#FDA7DF']}
+    >
       <View style={styles.content}>
-        {floatingBalls.map((ball, i) => (
-          <FloatingBall key={i} {...ball} />
+        {floatingEmojis.map((item, i) => (
+          <FloatingEmoji key={i} {...item} />
         ))}
 
         <Animated.View style={[styles.titleContainer, titleAnimStyle]}>
@@ -135,21 +145,32 @@ export default function MenuScreen({ onPlay, onContinue, onSettings, onDailyRewa
 
         <Text style={styles.subtitle}>{t('menu.subtitle')}</Text>
 
-        <View style={styles.ballRow}>
-          {TILE_COLORS.map((color, i) => (
-            <View key={i} style={[styles.ball, { backgroundColor: color }]} />
+        {/* Emoji satırı */}
+        <View style={styles.emojiRow}>
+          {['🍬', '🐙', '🔥', '🌟', '💎', '🍓'].map((e, i) => (
+            <View key={i} style={[styles.emojiBall, { backgroundColor: TILE_COLORS[i] + '30' }]}>
+              <Text style={styles.emojiBallText}>{e}</Text>
+            </View>
           ))}
         </View>
 
         <Animated.View style={btnAnimStyle}>
           <AnimatedButton style={styles.playBtn} onPress={onPlay}>
-            <Text style={styles.playText}>{t('menu.play')}</Text>
+            <LinearGradient
+              colors={['#FF6B9D', '#FF3366']}
+              style={styles.playBtnGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Ionicons name="play" size={24} color="#fff" />
+              <Text style={styles.playText}>{t('menu.play')}</Text>
+            </LinearGradient>
           </AnimatedButton>
         </Animated.View>
 
         {hasActiveGame && onContinue && (
           <AnimatedButton style={styles.continueBtn} onPress={onContinue}>
-            <Ionicons name="play-circle" size={20} color={SCORE_COLOR} />
+            <Ionicons name="play-circle" size={20} color="#F59E0B" />
             <Text style={styles.continueText}>
               {t('menu.continue', { level: activeLevel })}
             </Text>
@@ -158,11 +179,13 @@ export default function MenuScreen({ onPlay, onContinue, onSettings, onDailyRewa
 
         <View style={styles.bottomRow}>
           <AnimatedButton style={styles.settingsBtn} onPress={onSettings}>
+            <Ionicons name="settings-outline" size={18} color="rgba(255,255,255,0.7)" />
             <Text style={styles.settingsText}>{t('menu.settings')}</Text>
           </AnimatedButton>
 
           {canClaim && (
             <AnimatedButton style={styles.rewardBtn} onPress={onDailyReward}>
+              <Text style={styles.rewardEmoji}>🎁</Text>
               <Text style={styles.rewardText}>{t('menu.dailyReward')}</Text>
             </AnimatedButton>
           )}
@@ -179,11 +202,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 32,
   },
-  floatingBall: {
+  floatingEmoji: {
     position: 'absolute',
-    width: 24,
-    height: 24,
-    borderRadius: 12,
+  },
+  floatingEmojiText: {
+    fontSize: 32,
   },
   titleContainer: {
     flexDirection: 'row',
@@ -191,59 +214,64 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   titlePop: {
-    fontSize: 60,
+    fontSize: 64,
     fontWeight: '900',
-    color: ACCENT_COLOR,
+    color: '#fff',
     letterSpacing: 3,
-    textShadowColor: 'rgba(255,107,53,0.4)',
+    textShadowColor: 'rgba(0,0,0,0.3)',
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 12,
   },
   titleBlast: {
-    fontSize: 60,
+    fontSize: 64,
     fontWeight: '900',
-    color: SCORE_COLOR,
+    color: '#FBBF24',
     letterSpacing: 3,
     marginLeft: 6,
-    textShadowColor: 'rgba(255,215,0,0.4)',
+    textShadowColor: 'rgba(251,191,36,0.4)',
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 12,
   },
   subtitle: {
-    color: 'rgba(255,255,255,0.35)',
-    fontSize: 14,
+    color: 'rgba(255,255,255,0.6)',
+    fontSize: 13,
     letterSpacing: 5,
-    marginBottom: 48,
+    marginBottom: 40,
     textTransform: 'uppercase',
   },
-  ballRow: {
+  emojiRow: {
     flexDirection: 'row',
-    gap: 14,
-    marginBottom: 60,
+    gap: 10,
+    marginBottom: 48,
   },
-  ball: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 4,
+  emojiBall: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emojiBallText: {
+    fontSize: 22,
   },
   playBtn: {
-    backgroundColor: ACCENT_COLOR,
-    paddingHorizontal: 72,
-    paddingVertical: 18,
-    borderRadius: 24,
-    shadowColor: ACCENT_COLOR,
+    borderRadius: 28,
+    overflow: 'hidden',
+    shadowColor: '#FF3366',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.5,
     shadowRadius: 16,
     elevation: 10,
   },
+  playBtnGradient: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingHorizontal: 56,
+    paddingVertical: 18,
+  },
   playText: {
-    color: TEXT_COLOR,
+    color: '#fff',
     fontSize: 26,
     fontWeight: '900',
     letterSpacing: 6,
@@ -256,12 +284,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 16,
-    backgroundColor: 'rgba(255,215,0,0.08)',
+    backgroundColor: 'rgba(245,158,11,0.15)',
     borderWidth: 1,
-    borderColor: 'rgba(255,215,0,0.25)',
+    borderColor: 'rgba(245,158,11,0.3)',
   },
   continueText: {
-    color: SCORE_COLOR,
+    color: '#F59E0B',
     fontSize: 15,
     fontWeight: '700',
   },
@@ -271,26 +299,35 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   settingsBtn: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 12,
-    backgroundColor: 'rgba(255,255,255,0.06)',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255,255,255,0.12)',
   },
   settingsText: {
-    color: 'rgba(255,255,255,0.5)',
+    color: 'rgba(255,255,255,0.7)',
     fontSize: 13,
     fontWeight: '600',
   },
   rewardBtn: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 12,
-    backgroundColor: 'rgba(255,215,0,0.1)',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    borderRadius: 16,
+    backgroundColor: 'rgba(245,158,11,0.15)',
     borderWidth: 1,
-    borderColor: 'rgba(255,215,0,0.3)',
+    borderColor: 'rgba(245,158,11,0.3)',
+  },
+  rewardEmoji: {
+    fontSize: 16,
   },
   rewardText: {
-    color: SCORE_COLOR,
+    color: '#F59E0B',
     fontSize: 13,
     fontWeight: '600',
   },

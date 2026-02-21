@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "¡Bonus de racha activo!"
   },
+  "levelStart": {
+    "level": "NIVEL {{number}}",
+    "goal": "OBJETIVO",
+    "moves": "Movimientos",
+    "boosters": "Elige un Potenciador"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Cancelar",

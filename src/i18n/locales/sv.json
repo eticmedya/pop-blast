@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Svitbonus aktiv!"
   },
+  "levelStart": {
+    "level": "NIVÅ {{number}}",
+    "goal": "MÅL",
+    "moves": "Drag",
+    "boosters": "Välj en Booster"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Avbryt",

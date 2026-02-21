@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Rekkebonus aktiv!"
   },
+  "levelStart": {
+    "level": "NIVÅ {{number}}",
+    "goal": "MÅL",
+    "moves": "Trekk",
+    "boosters": "Velg en Booster"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Avbryt",

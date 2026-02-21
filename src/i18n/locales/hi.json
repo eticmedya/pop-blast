@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "स्ट्रीक बोनस सक्रिय!"
   },
+  "levelStart": {
+    "level": "लेवल {{number}}",
+    "goal": "लक्ष्य",
+    "moves": "चालें",
+    "boosters": "बूस्टर चुनें"
+  },
   "common": {
     "ok": "ठीक है",
     "cancel": "रद्द करें",

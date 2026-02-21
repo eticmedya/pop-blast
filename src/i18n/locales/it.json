@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Bonus Serie Attivo!"
   },
+  "levelStart": {
+    "level": "LIVELLO {{number}}",
+    "goal": "OBIETTIVO",
+    "moves": "Mosse",
+    "boosters": "Scegli un Potenziamento"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Annulla",

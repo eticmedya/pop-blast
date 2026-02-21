@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "連勝ボーナス発動中！"
   },
+  "levelStart": {
+    "level": "レベル {{number}}",
+    "goal": "目標",
+    "moves": "手数",
+    "boosters": "ブースターを選択"
+  },
   "common": {
     "ok": "OK",
     "cancel": "キャンセル",

@@ -118,6 +118,12 @@
     "multiplier": "x{{count}}",
     "bonusActive": "Serienbonus aktiv!"
   },
+  "levelStart": {
+    "level": "LEVEL {{number}}",
+    "goal": "ZIEL",
+    "moves": "Züge",
+    "boosters": "Wähle einen Booster"
+  },
   "common": {
     "ok": "OK",
     "cancel": "Abbrechen",
