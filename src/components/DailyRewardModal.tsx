@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDailyRewardStore } from '../stores/dailyRewardStore';
@@ -19,12 +19,19 @@ interface Props {
 
 export default function DailyRewardModal({ visible, onClose }: Props) {
   const { t } = useTranslation();
-  const rewards = useDailyRewardStore((s) => s.getRewards());
-  const canClaim = useDailyRewardStore((s) => s.canClaim());
+  const streakDay = useDailyRewardStore((s) => s.streakDay);
+  const lastClaimDate = useDailyRewardStore((s) => s.lastClaimDate);
   const claim = useDailyRewardStore((s) => s.claim);
+  const getRewards = useDailyRewardStore((s) => s.getRewards);
   const addPowerUp = usePowerUpStore((s) => s.addPowerUp);
   const addLife = useLivesStore((s) => s.addLife);
   const addBonusMoves = useGameStore((s) => s.addBonusMoves);
+
+  const rewards = useMemo(() => getRewards(), [streakDay, getRewards]);
+  const canClaim = useMemo(() => {
+    if (!lastClaimDate) return true;
+    return lastClaimDate !== new Date().toISOString().split('T')[0];
+  }, [lastClaimDate]);
 
   const handleClaim = () => {
     const reward = claim();
