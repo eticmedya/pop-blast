@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { useGameStore } from '../stores/gameStore';
-import { TILE_COLORS, ACCENT_COLOR, TEXT_COLOR } from '../constants/colors';
+import { useStatsStore } from '../stores/statsStore';
+import { TILE_COLORS, ACCENT_COLOR } from '../constants/colors';
 import {
   TILE_SIZE,
   BALL_RADIUS,
@@ -9,8 +11,10 @@ import {
   GRID_COLS,
   GRID_ROWS,
 } from '../constants/dimensions';
+import { soundManager } from '../services/SoundManager';
 
 export default function Cannon() {
+  const { t } = useTranslation();
   const comboMeter = useGameStore((s) => s.comboMeter);
   const grid = useGameStore((s) => s.grid);
   const phase = useGameStore((s) => s.phase);
@@ -18,15 +22,18 @@ export default function Cannon() {
   const setGrid = useGameStore((s) => s.setGrid);
   const addScore = useGameStore((s) => s.addScore);
   const resetCombo = useGameStore((s) => s.resetCombo);
+  const addCannonFired = useStatsStore((s) => s.addCannonFired);
 
   const [cannonColor] = useState(() => Math.floor(Math.random() * TILE_COLORS.length));
   const isActive = comboMeter >= 100 && phase === 'idle';
 
   function fireCannon(col: number) {
+    soundManager.play('cannon');
+    addCannonFired();
+
     const newGrid = grid.map((row) => [...row]);
     let destroyed = 0;
 
-    // Hedef sütundaki aynı renkleri patlatır
     for (let r = 0; r < GRID_ROWS; r++) {
       const tile = newGrid[r][col];
       if (tile && tile.color === cannonColor) {
@@ -35,7 +42,6 @@ export default function Cannon() {
       }
     }
 
-    // Çarpma noktasında 3x3 patlama
     let hitRow = GRID_ROWS - 1;
     for (let r = 0; r < GRID_ROWS; r++) {
       if (newGrid[r][col] !== null) {
@@ -67,7 +73,7 @@ export default function Cannon() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.readyText}>CANNON HAZIR! Sutuna dokun!</Text>
+      <Text style={styles.readyText}>{t('game.cannonReady')}</Text>
       <View style={styles.cannonRow}>
         {Array.from({ length: GRID_COLS }, (_, col) => (
           <TouchableOpacity
@@ -128,10 +134,15 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     backgroundColor: ACCENT_COLOR,
-    borderRadius: 8,
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 8,
+    shadowColor: ACCENT_COLOR,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 6,
   },
   cannonBall: {
     width: BALL_RADIUS * 2,

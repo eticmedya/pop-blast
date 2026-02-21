@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Puzzle Abbina e Spara",
+    "play": "GIOCA",
+    "settings": "Impostazioni",
+    "dailyReward": "Premio Giornaliero!"
+  },
+  "game": {
+    "score": "PUNTEGGIO",
+    "moves": "Mosse",
+    "level": "LVL {{number}}",
+    "target": "Obiettivo: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "CANNONE PRONTO! Tocca una colonna!",
+    "cannon": "CANNONE!"
+  },
+  "levelSelect": {
+    "title": "Seleziona Livello",
+    "back": "Indietro",
+    "locked": "Bloccato",
+    "world1": "Giardino dei Principianti",
+    "world2": "Profondità Oceaniche",
+    "world3": "Cime Vulcaniche",
+    "world4": "Nebulosa Stellare"
+  },
+  "levelComplete": {
+    "title": "Congratulazioni!",
+    "level": "Livello {{number}}",
+    "score": "Punteggio: {{score}}",
+    "nextLevel": "Livello Successivo",
+    "mainMenu": "Menu Principale"
+  },
+  "gameOver": {
+    "title": "Partita Finita!",
+    "subtitle": "Non hai raggiunto il punteggio obiettivo",
+    "yourScore": "Il tuo Punteggio: {{score}}",
+    "target": "Obiettivo: {{target}}",
+    "retry": "Riprova",
+    "mainMenu": "Menu Principale"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "sound": "Effetti Sonori",
+    "haptics": "Feedback Aptico",
+    "language": "Lingua",
+    "back": "Indietro",
+    "selectLanguage": "Seleziona Lingua"
+  },
+  "dailyReward": {
+    "title": "Premio Giornaliero",
+    "day": "Giorno {{number}}",
+    "claim": "Riscuoti!",
+    "claimed": "Riscosso",
+    "streak": "Serie di {{count}} Giorni!",
+    "bonusMoves": "+{{count}} Mosse",
+    "bonusLives": "+{{count}} Vite",
+    "powerup": "Potenziamento!"
+  },
+  "lives": {
+    "full": "Pieno",
+    "nextIn": "{{time}}",
+    "noLives": "Nessuna Vita!",
+    "waitMessage": "Prossima vita tra {{time}}",
+    "orWatch": "Oppure guarda una pubblicità per una vita gratis"
+  },
+  "powerups": {
+    "rowBomb": "Bomba Riga",
+    "colBomb": "Bomba Colonna",
+    "colorBomb": "Bomba Colore",
+    "shuffle": "Mescola",
+    "tapToUse": "Tocca una tessera per usare",
+    "selectRow": "Tocca una riga per esplodere",
+    "selectCol": "Tocca una colonna per esplodere"
+  },
+  "achievements": {
+    "title": "Traguardi",
+    "unlocked": "Traguardo Sbloccato!",
+    "firstMatch": "Prima Combinazione",
+    "firstMatchDesc": "Fai la tua prima combinazione",
+    "matchMaster": "Maestro delle Combinazioni",
+    "matchMasterDesc": "Fai 100 combinazioni",
+    "matchLegend": "Leggenda delle Combinazioni",
+    "matchLegendDesc": "Fai 1000 combinazioni",
+    "levelUp": "Livello Successivo",
+    "levelUpDesc": "Completa il livello 5",
+    "halfway": "A Metà Strada",
+    "halfwayDesc": "Completa il livello 10",
+    "champion": "Campione",
+    "championDesc": "Completa tutti i 20 livelli",
+    "cascadeKing": "Re della Cascata",
+    "cascadeKingDesc": "Ottieni una cascata 3x",
+    "cascadeLegend": "Leggenda della Cascata",
+    "cascadeLegendDesc": "Ottieni una cascata 5x",
+    "scorer": "Gran Punteggio",
+    "scorerDesc": "Raggiungi 5.000 punti totali",
+    "megaScorer": "Mega Punteggio",
+    "megaScorerDesc": "Raggiungi 50.000 punti totali",
+    "streakHot": "In Fiamme",
+    "streakHotDesc": "Vinci 3 livelli di fila",
+    "streakBlazing": "Serie Infuocata",
+    "streakBlazingDesc": "Vinci 10 livelli di fila",
+    "powerUser": "Esperto di Potenziamenti",
+    "powerUserDesc": "Usa 10 potenziamenti",
+    "cannoneer": "Cannoniere",
+    "cannoneerDesc": "Spara il cannone 5 volte",
+    "collector": "Collezionista",
+    "collectorDesc": "Ottieni 3 stelle in 10 livelli"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Bonus Serie Attivo!"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "loading": "Caricamento..."
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Match og skyt-puslespill",
+    "play": "SPILL",
+    "settings": "Innstillinger",
+    "dailyReward": "Daglig belønning!"
+  },
+  "game": {
+    "score": "POENG",
+    "moves": "Trekk",
+    "level": "NIVÅ {{number}}",
+    "target": "Mål: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "KANON KLAR! Trykk på en kolonne!",
+    "cannon": "KANON!"
+  },
+  "levelSelect": {
+    "title": "Velg nivå",
+    "back": "Tilbake",
+    "locked": "Låst",
+    "world1": "Nybegynnerhage",
+    "world2": "Havdypet",
+    "world3": "Vulkantopper",
+    "world4": "Stjernetåke"
+  },
+  "levelComplete": {
+    "title": "Gratulerer!",
+    "level": "Nivå {{number}}",
+    "score": "Poeng: {{score}}",
+    "nextLevel": "Neste nivå",
+    "mainMenu": "Hovedmeny"
+  },
+  "gameOver": {
+    "title": "Spillet er over!",
+    "subtitle": "Du nådde ikke målpoengsummen",
+    "yourScore": "Din poengsum: {{score}}",
+    "target": "Mål: {{target}}",
+    "retry": "Prøv igjen",
+    "mainMenu": "Hovedmeny"
+  },
+  "settings": {
+    "title": "Innstillinger",
+    "sound": "Lydeffekter",
+    "haptics": "Haptisk tilbakemelding",
+    "language": "Språk",
+    "back": "Tilbake",
+    "selectLanguage": "Velg språk"
+  },
+  "dailyReward": {
+    "title": "Daglig belønning",
+    "day": "Dag {{number}}",
+    "claim": "Hent!",
+    "claimed": "Hentet",
+    "streak": "{{count}} dagers rekke!",
+    "bonusMoves": "+{{count}} trekk",
+    "bonusLives": "+{{count}} liv",
+    "powerup": "Power-Up!"
+  },
+  "lives": {
+    "full": "Fullt",
+    "nextIn": "{{time}}",
+    "noLives": "Ingen liv!",
+    "waitMessage": "Neste liv om {{time}}",
+    "orWatch": "Eller se en annonse for et gratis liv"
+  },
+  "powerups": {
+    "rowBomb": "Radbombe",
+    "colBomb": "Kolonnebombe",
+    "colorBomb": "Fargebombe",
+    "shuffle": "Bland",
+    "tapToUse": "Trykk på en brikke for å bruke",
+    "selectRow": "Trykk på en rad for å sprenge",
+    "selectCol": "Trykk på en kolonne for å sprenge"
+  },
+  "achievements": {
+    "title": "Prestasjoner",
+    "unlocked": "Prestasjon låst opp!",
+    "firstMatch": "Første match",
+    "firstMatchDesc": "Gjør din første match",
+    "matchMaster": "Matchmester",
+    "matchMasterDesc": "Gjør 100 matcher",
+    "matchLegend": "Matchlegende",
+    "matchLegendDesc": "Gjør 1000 matcher",
+    "levelUp": "Nivå opp",
+    "levelUpDesc": "Fullfør nivå 5",
+    "halfway": "Halvveis",
+    "halfwayDesc": "Fullfør nivå 10",
+    "champion": "Mester",
+    "championDesc": "Fullfør alle 20 nivåer",
+    "cascadeKing": "Kaskadekonge",
+    "cascadeKingDesc": "Oppnå en 3x kaskade",
+    "cascadeLegend": "Kaskadelegende",
+    "cascadeLegendDesc": "Oppnå en 5x kaskade",
+    "scorer": "Poengjeger",
+    "scorerDesc": "Nå 5 000 totalpoeng",
+    "megaScorer": "Megapoengjeger",
+    "megaScorerDesc": "Nå 50 000 totalpoeng",
+    "streakHot": "I fyr og flamme",
+    "streakHotDesc": "Vinn 3 nivåer på rad",
+    "streakBlazing": "Brennende rekke",
+    "streakBlazingDesc": "Vinn 10 nivåer på rad",
+    "powerUser": "Power-bruker",
+    "powerUserDesc": "Bruk 10 power-ups",
+    "cannoneer": "Kanonier",
+    "cannoneerDesc": "Fyr av kanonen 5 ganger",
+    "collector": "Samler",
+    "collectorDesc": "Oppnå 3 stjerner på 10 nivåer"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Rekkebonus aktiv!"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Avbryt",
+    "close": "Lukk",
+    "loading": "Laster..."
+  }
+}

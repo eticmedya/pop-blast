@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Puzzle : Associer & Tirer",
+    "play": "JOUER",
+    "settings": "Paramètres",
+    "dailyReward": "Récompense quotidienne !"
+  },
+  "game": {
+    "score": "SCORE",
+    "moves": "Coups",
+    "level": "NIV {{number}}",
+    "target": "Objectif : {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "CANON PRÊT ! Touchez une colonne !",
+    "cannon": "CANON !"
+  },
+  "levelSelect": {
+    "title": "Choisir un niveau",
+    "back": "Retour",
+    "locked": "Verrouillé",
+    "world1": "Jardin des débutants",
+    "world2": "Profondeurs océaniques",
+    "world3": "Pics volcaniques",
+    "world4": "Nébuleuse stellaire"
+  },
+  "levelComplete": {
+    "title": "Félicitations !",
+    "level": "Niveau {{number}}",
+    "score": "Score : {{score}}",
+    "nextLevel": "Niveau suivant",
+    "mainMenu": "Menu principal"
+  },
+  "gameOver": {
+    "title": "Partie terminée !",
+    "subtitle": "Vous n'avez pas atteint le score cible",
+    "yourScore": "Votre score : {{score}}",
+    "target": "Objectif : {{target}}",
+    "retry": "Réessayer",
+    "mainMenu": "Menu principal"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "sound": "Effets sonores",
+    "haptics": "Retour haptique",
+    "language": "Langue",
+    "back": "Retour",
+    "selectLanguage": "Choisir la langue"
+  },
+  "dailyReward": {
+    "title": "Récompense quotidienne",
+    "day": "Jour {{number}}",
+    "claim": "Récupérer !",
+    "claimed": "Récupéré",
+    "streak": "Série de {{count}} jours !",
+    "bonusMoves": "+{{count}} Coups",
+    "bonusLives": "+{{count}} Vies",
+    "powerup": "Power-Up !"
+  },
+  "lives": {
+    "full": "Plein",
+    "nextIn": "{{time}}",
+    "noLives": "Plus de vies !",
+    "waitMessage": "Prochaine vie dans {{time}}",
+    "orWatch": "Ou regardez une pub pour une vie gratuite"
+  },
+  "powerups": {
+    "rowBomb": "Bombe de ligne",
+    "colBomb": "Bombe de colonne",
+    "colorBomb": "Bombe de couleur",
+    "shuffle": "Mélanger",
+    "tapToUse": "Touchez une case pour utiliser",
+    "selectRow": "Touchez une ligne pour exploser",
+    "selectCol": "Touchez une colonne pour exploser"
+  },
+  "achievements": {
+    "title": "Succès",
+    "unlocked": "Succès débloqué !",
+    "firstMatch": "Premier match",
+    "firstMatchDesc": "Faites votre premier match",
+    "matchMaster": "Maître des matchs",
+    "matchMasterDesc": "Faites 100 matchs",
+    "matchLegend": "Légende des matchs",
+    "matchLegendDesc": "Faites 1000 matchs",
+    "levelUp": "Monter de niveau",
+    "levelUpDesc": "Terminez le niveau 5",
+    "halfway": "À mi-chemin",
+    "halfwayDesc": "Terminez le niveau 10",
+    "champion": "Champion",
+    "championDesc": "Terminez les 20 niveaux",
+    "cascadeKing": "Roi des cascades",
+    "cascadeKingDesc": "Obtenez une cascade x3",
+    "cascadeLegend": "Légende des cascades",
+    "cascadeLegendDesc": "Obtenez une cascade x5",
+    "scorer": "Grand marqueur",
+    "scorerDesc": "Atteignez 5 000 points au total",
+    "megaScorer": "Méga marqueur",
+    "megaScorerDesc": "Atteignez 50 000 points au total",
+    "streakHot": "En feu",
+    "streakHotDesc": "Gagnez 3 niveaux d'affilée",
+    "streakBlazing": "Série ardente",
+    "streakBlazingDesc": "Gagnez 10 niveaux d'affilée",
+    "powerUser": "Expert Power-Up",
+    "powerUserDesc": "Utilisez 10 power-ups",
+    "cannoneer": "Canonnier",
+    "cannoneerDesc": "Tirez le canon 5 fois",
+    "collector": "Collectionneur",
+    "collectorDesc": "Obtenez 3 étoiles sur 10 niveaux"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Bonus de série actif !"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "loading": "Chargement..."
+  }
+}

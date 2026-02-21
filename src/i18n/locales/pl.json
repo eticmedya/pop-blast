@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Dopasuj i strzelaj",
+    "play": "GRAJ",
+    "settings": "Ustawienia",
+    "dailyReward": "Dzienna nagroda!"
+  },
+  "game": {
+    "score": "WYNIK",
+    "moves": "Ruchy",
+    "level": "POZ {{number}}",
+    "target": "Cel: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "ARMATA GOTOWA! Stuknij kolumnę!",
+    "cannon": "ARMATA!"
+  },
+  "levelSelect": {
+    "title": "Wybierz poziom",
+    "back": "Wstecz",
+    "locked": "Zablokowany",
+    "world1": "Ogród początkujących",
+    "world2": "Głębiny oceanu",
+    "world3": "Szczyty wulkanów",
+    "world4": "Mgławica gwiezdna"
+  },
+  "levelComplete": {
+    "title": "Gratulacje!",
+    "level": "Poziom {{number}}",
+    "score": "Wynik: {{score}}",
+    "nextLevel": "Następny poziom",
+    "mainMenu": "Menu główne"
+  },
+  "gameOver": {
+    "title": "Koniec gry!",
+    "subtitle": "Nie osiągnąłeś docelowego wyniku",
+    "yourScore": "Twój wynik: {{score}}",
+    "target": "Cel: {{target}}",
+    "retry": "Spróbuj ponownie",
+    "mainMenu": "Menu główne"
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "sound": "Efekty dźwiękowe",
+    "haptics": "Wibracje",
+    "language": "Język",
+    "back": "Wstecz",
+    "selectLanguage": "Wybierz język"
+  },
+  "dailyReward": {
+    "title": "Dzienna nagroda",
+    "day": "Dzień {{number}}",
+    "claim": "Odbierz!",
+    "claimed": "Odebrano",
+    "streak": "{{count}} dni z rzędu!",
+    "bonusMoves": "+{{count}} ruchów",
+    "bonusLives": "+{{count}} żyć",
+    "powerup": "Bonus!"
+  },
+  "lives": {
+    "full": "Pełne",
+    "nextIn": "{{time}}",
+    "noLives": "Brak żyć!",
+    "waitMessage": "Następne życie za {{time}}",
+    "orWatch": "Lub obejrzyj reklamę, aby otrzymać darmowe życie"
+  },
+  "powerups": {
+    "rowBomb": "Bomba rzędowa",
+    "colBomb": "Bomba kolumnowa",
+    "colorBomb": "Bomba kolorowa",
+    "shuffle": "Przetasuj",
+    "tapToUse": "Stuknij kafelek, aby użyć",
+    "selectRow": "Stuknij rząd, aby wysadzić",
+    "selectCol": "Stuknij kolumnę, aby wysadzić"
+  },
+  "achievements": {
+    "title": "Osiągnięcia",
+    "unlocked": "Osiągnięcie odblokowane!",
+    "firstMatch": "Pierwsze dopasowanie",
+    "firstMatchDesc": "Wykonaj pierwsze dopasowanie",
+    "matchMaster": "Mistrz dopasowań",
+    "matchMasterDesc": "Wykonaj 100 dopasowań",
+    "matchLegend": "Legenda dopasowań",
+    "matchLegendDesc": "Wykonaj 1000 dopasowań",
+    "levelUp": "Awans",
+    "levelUpDesc": "Ukończ poziom 5",
+    "halfway": "W połowie drogi",
+    "halfwayDesc": "Ukończ poziom 10",
+    "champion": "Mistrz",
+    "championDesc": "Ukończ wszystkie 20 poziomów",
+    "cascadeKing": "Król kaskad",
+    "cascadeKingDesc": "Uzyskaj kaskadę 3x",
+    "cascadeLegend": "Legenda kaskad",
+    "cascadeLegendDesc": "Uzyskaj kaskadę 5x",
+    "scorer": "Zdobywca punktów",
+    "scorerDesc": "Osiągnij łączny wynik 5000",
+    "megaScorer": "Mega zdobywca",
+    "megaScorerDesc": "Osiągnij łączny wynik 50 000",
+    "streakHot": "W ogniu",
+    "streakHotDesc": "Wygraj 3 poziomy z rzędu",
+    "streakBlazing": "Płomienna seria",
+    "streakBlazingDesc": "Wygraj 10 poziomów z rzędu",
+    "powerUser": "Ekspert bonusów",
+    "powerUserDesc": "Użyj 10 bonusów",
+    "cannoneer": "Kanonier",
+    "cannoneerDesc": "Wystrzel armatę 5 razy",
+    "collector": "Kolekcjoner",
+    "collectorDesc": "Zdobądź 3 gwiazdki na 10 poziomach"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Bonus za serię aktywny!"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Anuluj",
+    "close": "Zamknij",
+    "loading": "Ładowanie..."
+  }
+}

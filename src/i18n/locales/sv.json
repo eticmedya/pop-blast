@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Matcha och skjut-pussel",
+    "play": "SPELA",
+    "settings": "Inställningar",
+    "dailyReward": "Daglig belöning!"
+  },
+  "game": {
+    "score": "POÄNG",
+    "moves": "Drag",
+    "level": "NIVÅ {{number}}",
+    "target": "Mål: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "KANON REDO! Tryck på en kolumn!",
+    "cannon": "KANON!"
+  },
+  "levelSelect": {
+    "title": "Välj nivå",
+    "back": "Tillbaka",
+    "locked": "Låst",
+    "world1": "Nybörjarträdgård",
+    "world2": "Havets djup",
+    "world3": "Vulkantoppar",
+    "world4": "Stjärnnebulosa"
+  },
+  "levelComplete": {
+    "title": "Grattis!",
+    "level": "Nivå {{number}}",
+    "score": "Poäng: {{score}}",
+    "nextLevel": "Nästa nivå",
+    "mainMenu": "Huvudmeny"
+  },
+  "gameOver": {
+    "title": "Spelet slut!",
+    "subtitle": "Du nådde inte målpoängen",
+    "yourScore": "Din poäng: {{score}}",
+    "target": "Mål: {{target}}",
+    "retry": "Försök igen",
+    "mainMenu": "Huvudmeny"
+  },
+  "settings": {
+    "title": "Inställningar",
+    "sound": "Ljudeffekter",
+    "haptics": "Haptisk feedback",
+    "language": "Språk",
+    "back": "Tillbaka",
+    "selectLanguage": "Välj språk"
+  },
+  "dailyReward": {
+    "title": "Daglig belöning",
+    "day": "Dag {{number}}",
+    "claim": "Hämta!",
+    "claimed": "Hämtad",
+    "streak": "{{count}} dagars svit!",
+    "bonusMoves": "+{{count}} drag",
+    "bonusLives": "+{{count}} liv",
+    "powerup": "Power-Up!"
+  },
+  "lives": {
+    "full": "Fullt",
+    "nextIn": "{{time}}",
+    "noLives": "Inga liv!",
+    "waitMessage": "Nästa liv om {{time}}",
+    "orWatch": "Eller titta på en annons för ett gratis liv"
+  },
+  "powerups": {
+    "rowBomb": "Radbomb",
+    "colBomb": "Kolumnbomb",
+    "colorBomb": "Färgbomb",
+    "shuffle": "Blanda",
+    "tapToUse": "Tryck på en bricka för att använda",
+    "selectRow": "Tryck på en rad för att spränga",
+    "selectCol": "Tryck på en kolumn för att spränga"
+  },
+  "achievements": {
+    "title": "Prestationer",
+    "unlocked": "Prestation upplåst!",
+    "firstMatch": "Första matchningen",
+    "firstMatchDesc": "Gör din första matchning",
+    "matchMaster": "Matchmästare",
+    "matchMasterDesc": "Gör 100 matchningar",
+    "matchLegend": "Matchlegend",
+    "matchLegendDesc": "Gör 1000 matchningar",
+    "levelUp": "Nivå upp",
+    "levelUpDesc": "Klara nivå 5",
+    "halfway": "Halvvägs",
+    "halfwayDesc": "Klara nivå 10",
+    "champion": "Mästare",
+    "championDesc": "Klara alla 20 nivåer",
+    "cascadeKing": "Kaskadkung",
+    "cascadeKingDesc": "Få en 3x kaskad",
+    "cascadeLegend": "Kaskadlegend",
+    "cascadeLegendDesc": "Få en 5x kaskad",
+    "scorer": "Poängjägare",
+    "scorerDesc": "Nå 5 000 totalpoäng",
+    "megaScorer": "Megapoängare",
+    "megaScorerDesc": "Nå 50 000 totalpoäng",
+    "streakHot": "På eld",
+    "streakHotDesc": "Vinn 3 nivåer i rad",
+    "streakBlazing": "Brinnande svit",
+    "streakBlazingDesc": "Vinn 10 nivåer i rad",
+    "powerUser": "Power-användare",
+    "powerUserDesc": "Använd 10 power-ups",
+    "cannoneer": "Kanonjär",
+    "cannoneerDesc": "Avfyra kanonen 5 gånger",
+    "collector": "Samlare",
+    "collectorDesc": "Få 3 stjärnor på 10 nivåer"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Svitbonus aktiv!"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Avbryt",
+    "close": "Stäng",
+    "loading": "Laddar..."
+  }
+}

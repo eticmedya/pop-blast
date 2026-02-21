@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Puzzle: Combinar e Disparar",
+    "play": "JOGAR",
+    "settings": "Configurações",
+    "dailyReward": "Recompensa diária!"
+  },
+  "game": {
+    "score": "PONTOS",
+    "moves": "Jogadas",
+    "level": "NIV {{number}}",
+    "target": "Meta: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "CANHÃO PRONTO! Toque em uma coluna!",
+    "cannon": "CANHÃO!"
+  },
+  "levelSelect": {
+    "title": "Selecionar nível",
+    "back": "Voltar",
+    "locked": "Bloqueado",
+    "world1": "Jardim iniciante",
+    "world2": "Profundezas oceânicas",
+    "world3": "Picos vulcânicos",
+    "world4": "Nebulosa estelar"
+  },
+  "levelComplete": {
+    "title": "Parabéns!",
+    "level": "Nível {{number}}",
+    "score": "Pontuação: {{score}}",
+    "nextLevel": "Próximo nível",
+    "mainMenu": "Menu principal"
+  },
+  "gameOver": {
+    "title": "Fim de jogo!",
+    "subtitle": "Você não alcançou a pontuação alvo",
+    "yourScore": "Sua pontuação: {{score}}",
+    "target": "Meta: {{target}}",
+    "retry": "Tentar novamente",
+    "mainMenu": "Menu principal"
+  },
+  "settings": {
+    "title": "Configurações",
+    "sound": "Efeitos sonoros",
+    "haptics": "Feedback háptico",
+    "language": "Idioma",
+    "back": "Voltar",
+    "selectLanguage": "Selecionar idioma"
+  },
+  "dailyReward": {
+    "title": "Recompensa diária",
+    "day": "Dia {{number}}",
+    "claim": "Resgatar!",
+    "claimed": "Resgatado",
+    "streak": "Sequência de {{count}} dias!",
+    "bonusMoves": "+{{count}} Jogadas",
+    "bonusLives": "+{{count}} Vidas",
+    "powerup": "Power-Up!"
+  },
+  "lives": {
+    "full": "Cheio",
+    "nextIn": "{{time}}",
+    "noLives": "Sem vidas!",
+    "waitMessage": "Próxima vida em {{time}}",
+    "orWatch": "Ou assista a um anúncio para uma vida grátis"
+  },
+  "powerups": {
+    "rowBomb": "Bomba de linha",
+    "colBomb": "Bomba de coluna",
+    "colorBomb": "Bomba de cor",
+    "shuffle": "Embaralhar",
+    "tapToUse": "Toque em uma peça para usar",
+    "selectRow": "Toque em uma linha para explodir",
+    "selectCol": "Toque em uma coluna para explodir"
+  },
+  "achievements": {
+    "title": "Conquistas",
+    "unlocked": "Conquista desbloqueada!",
+    "firstMatch": "Primeira combinação",
+    "firstMatchDesc": "Faça sua primeira combinação",
+    "matchMaster": "Mestre das combinações",
+    "matchMasterDesc": "Faça 100 combinações",
+    "matchLegend": "Lenda das combinações",
+    "matchLegendDesc": "Faça 1000 combinações",
+    "levelUp": "Subir de nível",
+    "levelUpDesc": "Complete o nível 5",
+    "halfway": "Na metade do caminho",
+    "halfwayDesc": "Complete o nível 10",
+    "champion": "Campeão",
+    "championDesc": "Complete todos os 20 níveis",
+    "cascadeKing": "Rei das cascatas",
+    "cascadeKingDesc": "Consiga uma cascata x3",
+    "cascadeLegend": "Lenda das cascatas",
+    "cascadeLegendDesc": "Consiga uma cascata x5",
+    "scorer": "Grande pontuador",
+    "scorerDesc": "Alcance 5.000 pontos no total",
+    "megaScorer": "Mega pontuador",
+    "megaScorerDesc": "Alcance 50.000 pontos no total",
+    "streakHot": "Pegando fogo",
+    "streakHotDesc": "Vença 3 níveis seguidos",
+    "streakBlazing": "Sequência ardente",
+    "streakBlazingDesc": "Vença 10 níveis seguidos",
+    "powerUser": "Especialista em Power-Ups",
+    "powerUserDesc": "Use 10 power-ups",
+    "cannoneer": "Canhoneiro",
+    "cannoneerDesc": "Dispare o canhão 5 vezes",
+    "collector": "Colecionador",
+    "collectorDesc": "Conquiste 3 estrelas em 10 níveis"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Bônus de sequência ativo!"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "loading": "Carregando..."
+  }
+}

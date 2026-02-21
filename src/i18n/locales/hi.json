@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "मिलान और शूट पहेली",
+    "play": "खेलें",
+    "settings": "सेटिंग्स",
+    "dailyReward": "दैनिक इनाम!"
+  },
+  "game": {
+    "score": "स्कोर",
+    "moves": "चालें",
+    "level": "लेवल {{number}}",
+    "target": "लक्ष्य: {{score}}",
+    "combo": "कॉम्बो",
+    "cannonReady": "तोप तैयार! किसी कॉलम पर टैप करें!",
+    "cannon": "तोप!"
+  },
+  "levelSelect": {
+    "title": "लेवल चुनें",
+    "back": "वापस",
+    "locked": "लॉक",
+    "world1": "शुरुआती बगीचा",
+    "world2": "सागर की गहराई",
+    "world3": "ज्वालामुखी चोटियाँ",
+    "world4": "तारा निहारिका"
+  },
+  "levelComplete": {
+    "title": "बधाई हो!",
+    "level": "लेवल {{number}}",
+    "score": "स्कोर: {{score}}",
+    "nextLevel": "अगला लेवल",
+    "mainMenu": "मुख्य मेनू"
+  },
+  "gameOver": {
+    "title": "गेम ओवर!",
+    "subtitle": "आप लक्ष्य स्कोर तक नहीं पहुँचे",
+    "yourScore": "आपका स्कोर: {{score}}",
+    "target": "लक्ष्य: {{target}}",
+    "retry": "फिर से कोशिश करें",
+    "mainMenu": "मुख्य मेनू"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "sound": "ध्वनि प्रभाव",
+    "haptics": "हैप्टिक फीडबैक",
+    "language": "भाषा",
+    "back": "वापस",
+    "selectLanguage": "भाषा चुनें"
+  },
+  "dailyReward": {
+    "title": "दैनिक इनाम",
+    "day": "दिन {{number}}",
+    "claim": "प्राप्त करें!",
+    "claimed": "प्राप्त किया",
+    "streak": "{{count}} दिन की स्ट्रीक!",
+    "bonusMoves": "+{{count}} चालें",
+    "bonusLives": "+{{count}} जीवन",
+    "powerup": "पावर-अप!"
+  },
+  "lives": {
+    "full": "पूर्ण",
+    "nextIn": "{{time}}",
+    "noLives": "कोई जीवन नहीं!",
+    "waitMessage": "अगला जीवन {{time}} में",
+    "orWatch": "या मुफ्त जीवन के लिए एक विज्ञापन देखें"
+  },
+  "powerups": {
+    "rowBomb": "पंक्ति बम",
+    "colBomb": "कॉलम बम",
+    "colorBomb": "रंग बम",
+    "shuffle": "शफल",
+    "tapToUse": "उपयोग करने के लिए टाइल पर टैप करें",
+    "selectRow": "विस्फोट करने के लिए पंक्ति पर टैप करें",
+    "selectCol": "विस्फोट करने के लिए कॉलम पर टैप करें"
+  },
+  "achievements": {
+    "title": "उपलब्धियाँ",
+    "unlocked": "उपलब्धि अनलॉक!",
+    "firstMatch": "पहला मिलान",
+    "firstMatchDesc": "अपना पहला मिलान करें",
+    "matchMaster": "मिलान मास्टर",
+    "matchMasterDesc": "100 मिलान करें",
+    "matchLegend": "मिलान लीजेंड",
+    "matchLegendDesc": "1000 मिलान करें",
+    "levelUp": "लेवल अप",
+    "levelUpDesc": "लेवल 5 पूरा करें",
+    "halfway": "आधे रास्ते में",
+    "halfwayDesc": "लेवल 10 पूरा करें",
+    "champion": "चैंपियन",
+    "championDesc": "सभी 20 लेवल पूरे करें",
+    "cascadeKing": "कैस्केड किंग",
+    "cascadeKingDesc": "3x कैस्केड प्राप्त करें",
+    "cascadeLegend": "कैस्केड लीजेंड",
+    "cascadeLegendDesc": "5x कैस्केड प्राप्त करें",
+    "scorer": "उच्च स्कोरर",
+    "scorerDesc": "कुल 5,000 स्कोर तक पहुँचें",
+    "megaScorer": "मेगा स्कोरर",
+    "megaScorerDesc": "कुल 50,000 स्कोर तक पहुँचें",
+    "streakHot": "आग पर",
+    "streakHotDesc": "लगातार 3 लेवल जीतें",
+    "streakBlazing": "धधकती स्ट्रीक",
+    "streakBlazingDesc": "लगातार 10 लेवल जीतें",
+    "powerUser": "पावर यूज़र",
+    "powerUserDesc": "10 पावर-अप का उपयोग करें",
+    "cannoneer": "तोपची",
+    "cannoneerDesc": "5 बार तोप चलाएँ",
+    "collector": "संग्रहकर्ता",
+    "collectorDesc": "10 लेवल पर 3 सितारे अर्जित करें"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "स्ट्रीक बोनस सक्रिय!"
+  },
+  "common": {
+    "ok": "ठीक है",
+    "cancel": "रद्द करें",
+    "close": "बंद करें",
+    "loading": "लोड हो रहा है..."
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Eşleştir ve Patlat Bulmaca",
+    "play": "OYNA",
+    "settings": "Ayarlar",
+    "dailyReward": "Günlük Ödül!"
+  },
+  "game": {
+    "score": "SKOR",
+    "moves": "Hamle",
+    "level": "SEVİYE {{number}}",
+    "target": "Hedef: {{score}}",
+    "combo": "KOMBO",
+    "cannonReady": "TOP HAZIR! Bir sütuna dokun!",
+    "cannon": "TOP!"
+  },
+  "levelSelect": {
+    "title": "Seviye Seç",
+    "back": "Geri",
+    "locked": "Kilitli",
+    "world1": "Başlangıç Bahçesi",
+    "world2": "Okyanus Derinlikleri",
+    "world3": "Volkanik Zirveler",
+    "world4": "Yıldız Bulutsusu"
+  },
+  "levelComplete": {
+    "title": "Tebrikler!",
+    "level": "Seviye {{number}}",
+    "score": "Skor: {{score}}",
+    "nextLevel": "Sonraki Seviye",
+    "mainMenu": "Ana Menü"
+  },
+  "gameOver": {
+    "title": "Oyun Bitti!",
+    "subtitle": "Hedef skora ulaşamadınız",
+    "yourScore": "Skorunuz: {{score}}",
+    "target": "Hedef: {{target}}",
+    "retry": "Tekrar Dene",
+    "mainMenu": "Ana Menü"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "sound": "Ses Efektleri",
+    "haptics": "Titreşim Geri Bildirimi",
+    "language": "Dil",
+    "back": "Geri",
+    "selectLanguage": "Dil Seçin"
+  },
+  "dailyReward": {
+    "title": "Günlük Ödül",
+    "day": "Gün {{number}}",
+    "claim": "Al!",
+    "claimed": "Alındı",
+    "streak": "{{count}} Günlük Seri!",
+    "bonusMoves": "+{{count}} Hamle",
+    "bonusLives": "+{{count}} Can",
+    "powerup": "Güçlendirici!"
+  },
+  "lives": {
+    "full": "Dolu",
+    "nextIn": "{{time}}",
+    "noLives": "Can Kalmadı!",
+    "waitMessage": "Sonraki can: {{time}}",
+    "orWatch": "Veya ücretsiz can için reklam izleyin"
+  },
+  "powerups": {
+    "rowBomb": "Satır Bombası",
+    "colBomb": "Sütun Bombası",
+    "colorBomb": "Renk Bombası",
+    "shuffle": "Karıştır",
+    "tapToUse": "Kullanmak için bir taşa dokun",
+    "selectRow": "Patlatmak için bir satıra dokun",
+    "selectCol": "Patlatmak için bir sütuna dokun"
+  },
+  "achievements": {
+    "title": "Başarımlar",
+    "unlocked": "Başarım Açıldı!",
+    "firstMatch": "İlk Eşleşme",
+    "firstMatchDesc": "İlk eşleşmeni yap",
+    "matchMaster": "Eşleşme Ustası",
+    "matchMasterDesc": "100 eşleşme yap",
+    "matchLegend": "Eşleşme Efsanesi",
+    "matchLegendDesc": "1000 eşleşme yap",
+    "levelUp": "Seviye Atla",
+    "levelUpDesc": "Seviye 5'i tamamla",
+    "halfway": "Yarı Yolda",
+    "halfwayDesc": "Seviye 10'u tamamla",
+    "champion": "Şampiyon",
+    "championDesc": "20 seviyenin tamamını bitir",
+    "cascadeKing": "Çağlayan Kralı",
+    "cascadeKingDesc": "3x çağlayan yap",
+    "cascadeLegend": "Çağlayan Efsanesi",
+    "cascadeLegendDesc": "5x çağlayan yap",
+    "scorer": "Yüksek Skorcu",
+    "scorerDesc": "Toplam 5.000 skora ulaş",
+    "megaScorer": "Mega Skorcu",
+    "megaScorerDesc": "Toplam 50.000 skora ulaş",
+    "streakHot": "Ateşte",
+    "streakHotDesc": "Arka arkaya 3 seviye kazan",
+    "streakBlazing": "Alevli Seri",
+    "streakBlazingDesc": "Arka arkaya 10 seviye kazan",
+    "powerUser": "Güç Kullanıcısı",
+    "powerUserDesc": "10 güçlendirici kullan",
+    "cannoneer": "Topçu",
+    "cannoneerDesc": "Topu 5 kez ateşle",
+    "collector": "Koleksiyoncu",
+    "collectorDesc": "10 seviyede 3 yıldız kazan"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Seri Bonusu Aktif!"
+  },
+  "common": {
+    "ok": "Tamam",
+    "cancel": "İptal",
+    "close": "Kapat",
+    "loading": "Yükleniyor..."
+  }
+}

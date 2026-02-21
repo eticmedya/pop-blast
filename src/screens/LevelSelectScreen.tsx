@@ -6,50 +6,110 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { useGameStore } from '../stores/gameStore';
 import { LEVELS } from '../game-engine/levels';
-import { BG_COLOR, TEXT_COLOR, ACCENT_COLOR, SCORE_COLOR } from '../constants/colors';
+import {
+  BG_COLOR,
+  TEXT_COLOR,
+  ACCENT_COLOR,
+  SCORE_COLOR,
+  WORLD_COLORS,
+} from '../constants/colors';
 
 interface Props {
   onSelectLevel: (level: number) => void;
   onBack: () => void;
 }
 
+const WORLD_NAMES: string[] = [
+  'levelSelect.world1',
+  'levelSelect.world2',
+  'levelSelect.world3',
+  'levelSelect.world4',
+];
+
 export default function LevelSelectScreen({ onSelectLevel, onBack }: Props) {
+  const { t } = useTranslation();
   const unlockedLevel = useGameStore((s) => s.unlockedLevel);
+  const highScores = useGameStore((s) => s.highScores);
+
+  const worlds = [
+    LEVELS.slice(0, 5),
+    LEVELS.slice(5, 10),
+    LEVELS.slice(10, 15),
+    LEVELS.slice(15, 20),
+  ];
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={onBack} style={styles.backBtn}>
-          <Text style={styles.backText}>{'<'} Geri</Text>
+          <Text style={styles.backText}>{'<'} {t('levelSelect.back')}</Text>
         </TouchableOpacity>
-        <Text style={styles.title}>Seviyeler</Text>
+        <Text style={styles.title}>{t('levelSelect.title')}</Text>
         <View style={styles.backBtn} />
       </View>
 
-      <ScrollView contentContainerStyle={styles.grid}>
-        {LEVELS.map((level) => {
-          const isLocked = level.level > unlockedLevel;
-
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        {worlds.map((world, worldIdx) => {
+          const theme = WORLD_COLORS[worldIdx];
           return (
-            <TouchableOpacity
-              key={level.level}
-              style={[
-                styles.levelBtn,
-                isLocked && styles.lockedBtn,
-              ]}
-              onPress={() => {
-                if (!isLocked) onSelectLevel(level.level);
-              }}
-              disabled={isLocked}
-            >
-              {isLocked ? (
-                <Text style={styles.lockIcon}>🔒</Text>
-              ) : (
-                <Text style={styles.levelNum}>{level.level}</Text>
-              )}
-            </TouchableOpacity>
+            <View key={worldIdx} style={styles.worldSection}>
+              <View style={[styles.worldHeader, { borderBottomColor: theme.primary }]}>
+                <Text style={[styles.worldTitle, { color: theme.primary }]}>
+                  {t(WORLD_NAMES[worldIdx])}
+                </Text>
+              </View>
+              <View style={styles.levelGrid}>
+                {world.map((level) => {
+                  const isLocked = level.level > unlockedLevel;
+                  const hs = highScores[level.level];
+                  const starCount = hs?.stars ?? 0;
+
+                  return (
+                    <TouchableOpacity
+                      key={level.level}
+                      style={[
+                        styles.levelBtn,
+                        {
+                          backgroundColor: isLocked
+                            ? 'rgba(255,255,255,0.05)'
+                            : theme.primary,
+                        },
+                        level.level === unlockedLevel && !isLocked && {
+                          borderWidth: 2,
+                          borderColor: '#fff',
+                          shadowColor: theme.primary,
+                          shadowOffset: { width: 0, height: 0 },
+                          shadowOpacity: 0.6,
+                          shadowRadius: 8,
+                          elevation: 8,
+                        },
+                      ]}
+                      onPress={() => {
+                        if (!isLocked) onSelectLevel(level.level);
+                      }}
+                      disabled={isLocked}
+                    >
+                      {isLocked ? (
+                        <Text style={styles.lockIcon}>🔒</Text>
+                      ) : (
+                        <>
+                          <Text style={styles.levelNum}>{level.level}</Text>
+                          {starCount > 0 && (
+                            <Text style={styles.miniStars}>
+                              {'★'.repeat(starCount)}
+                              {'☆'.repeat(3 - starCount)}
+                            </Text>
+                          )}
+                        </>
+                      )}
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
+            </View>
           );
         })}
       </ScrollView>
@@ -80,33 +140,56 @@ const styles = StyleSheet.create({
   },
   title: {
     color: TEXT_COLOR,
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 22,
+    fontWeight: '900',
+    letterSpacing: 1,
   },
-  grid: {
+  scrollContent: {
+    padding: 16,
+    paddingBottom: 40,
+  },
+  worldSection: {
+    marginBottom: 28,
+  },
+  worldHeader: {
+    borderBottomWidth: 2,
+    paddingBottom: 8,
+    marginBottom: 14,
+  },
+  worldTitle: {
+    fontSize: 16,
+    fontWeight: '800',
+    letterSpacing: 1,
+  },
+  levelGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    padding: 16,
     gap: 12,
   },
   levelBtn: {
-    width: 64,
-    height: 64,
+    width: 60,
+    height: 60,
     borderRadius: 16,
-    backgroundColor: ACCENT_COLOR,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  lockedBtn: {
-    backgroundColor: 'rgba(255,255,255,0.08)',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
   },
   levelNum: {
     color: TEXT_COLOR,
     fontSize: 22,
     fontWeight: 'bold',
   },
+  miniStars: {
+    color: SCORE_COLOR,
+    fontSize: 8,
+    marginTop: 1,
+  },
   lockIcon: {
-    fontSize: 20,
+    fontSize: 18,
   },
 });

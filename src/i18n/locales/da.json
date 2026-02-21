@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Match og skyd-puslespil",
+    "play": "SPIL",
+    "settings": "Indstillinger",
+    "dailyReward": "Daglig belønning!"
+  },
+  "game": {
+    "score": "POINT",
+    "moves": "Træk",
+    "level": "NIVEAU {{number}}",
+    "target": "Mål: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "KANON KLAR! Tryk på en kolonne!",
+    "cannon": "KANON!"
+  },
+  "levelSelect": {
+    "title": "Vælg niveau",
+    "back": "Tilbage",
+    "locked": "Låst",
+    "world1": "Begynderhave",
+    "world2": "Havets dyb",
+    "world3": "Vulkantoppe",
+    "world4": "Stjernetåge"
+  },
+  "levelComplete": {
+    "title": "Tillykke!",
+    "level": "Niveau {{number}}",
+    "score": "Point: {{score}}",
+    "nextLevel": "Næste niveau",
+    "mainMenu": "Hovedmenu"
+  },
+  "gameOver": {
+    "title": "Spillet er slut!",
+    "subtitle": "Du nåede ikke målscore",
+    "yourScore": "Din score: {{score}}",
+    "target": "Mål: {{target}}",
+    "retry": "Prøv igen",
+    "mainMenu": "Hovedmenu"
+  },
+  "settings": {
+    "title": "Indstillinger",
+    "sound": "Lydeffekter",
+    "haptics": "Haptisk feedback",
+    "language": "Sprog",
+    "back": "Tilbage",
+    "selectLanguage": "Vælg sprog"
+  },
+  "dailyReward": {
+    "title": "Daglig belønning",
+    "day": "Dag {{number}}",
+    "claim": "Hent!",
+    "claimed": "Hentet",
+    "streak": "{{count}} dages række!",
+    "bonusMoves": "+{{count}} træk",
+    "bonusLives": "+{{count}} liv",
+    "powerup": "Power-Up!"
+  },
+  "lives": {
+    "full": "Fuldt",
+    "nextIn": "{{time}}",
+    "noLives": "Ingen liv!",
+    "waitMessage": "Næste liv om {{time}}",
+    "orWatch": "Eller se en reklame for et gratis liv"
+  },
+  "powerups": {
+    "rowBomb": "Rækkebombe",
+    "colBomb": "Kolonnebombe",
+    "colorBomb": "Farvebombe",
+    "shuffle": "Bland",
+    "tapToUse": "Tryk på en brik for at bruge",
+    "selectRow": "Tryk på en række for at sprænge",
+    "selectCol": "Tryk på en kolonne for at sprænge"
+  },
+  "achievements": {
+    "title": "Præstationer",
+    "unlocked": "Præstation låst op!",
+    "firstMatch": "Første match",
+    "firstMatchDesc": "Lav dit første match",
+    "matchMaster": "Matchmester",
+    "matchMasterDesc": "Lav 100 matches",
+    "matchLegend": "Matchlegende",
+    "matchLegendDesc": "Lav 1000 matches",
+    "levelUp": "Niveau op",
+    "levelUpDesc": "Gennemfør niveau 5",
+    "halfway": "Halvvejs",
+    "halfwayDesc": "Gennemfør niveau 10",
+    "champion": "Mester",
+    "championDesc": "Gennemfør alle 20 niveauer",
+    "cascadeKing": "Kaskadekonge",
+    "cascadeKingDesc": "Opnå en 3x kaskade",
+    "cascadeLegend": "Kaskadelegende",
+    "cascadeLegendDesc": "Opnå en 5x kaskade",
+    "scorer": "Pointjæger",
+    "scorerDesc": "Nå 5.000 samlede point",
+    "megaScorer": "Megapointjæger",
+    "megaScorerDesc": "Nå 50.000 samlede point",
+    "streakHot": "I flammer",
+    "streakHotDesc": "Vind 3 niveauer i træk",
+    "streakBlazing": "Brændende række",
+    "streakBlazingDesc": "Vind 10 niveauer i træk",
+    "powerUser": "Power-bruger",
+    "powerUserDesc": "Brug 10 power-ups",
+    "cannoneer": "Kanonier",
+    "cannoneerDesc": "Affyr kanonen 5 gange",
+    "collector": "Samler",
+    "collectorDesc": "Opnå 3 stjerner på 10 niveauer"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Rækkebonus aktiv!"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Annuller",
+    "close": "Luk",
+    "loading": "Indlæser..."
+  }
+}

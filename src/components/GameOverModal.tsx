@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { useGameStore } from '../stores/gameStore';
-import { ACCENT_COLOR, TEXT_COLOR, BG_COLOR, SCORE_COLOR } from '../constants/colors';
+import { ACCENT_COLOR, TEXT_COLOR, SCORE_COLOR, DANGER_COLOR } from '../constants/colors';
 
 interface Props {
   visible: boolean;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function GameOverModal({ visible, onRestart, onMenu }: Props) {
+  const { t } = useTranslation();
   const score = useGameStore((s) => s.score);
   const levelConfig = useGameStore((s) => s.levelConfig);
 
@@ -17,25 +19,26 @@ export default function GameOverModal({ visible, onRestart, onMenu }: Props) {
     <Modal transparent visible={visible} animationType="fade">
       <View style={styles.overlay}>
         <View style={styles.modal}>
-          <Text style={styles.title}>Oyun Bitti!</Text>
-          <Text style={styles.subtitle}>Hedef skora ulaşamadın</Text>
+          <Text style={styles.icon}>😢</Text>
+          <Text style={styles.title}>{t('gameOver.title')}</Text>
+          <Text style={styles.subtitle}>{t('gameOver.subtitle')}</Text>
 
           <View style={styles.scoreRow}>
-            <Text style={styles.scoreLabel}>Skorun</Text>
+            <Text style={styles.scoreLabel}>{t('game.score')}</Text>
             <Text style={styles.scoreValue}>{score.toLocaleString()}</Text>
           </View>
           <View style={styles.scoreRow}>
-            <Text style={styles.scoreLabel}>Hedef</Text>
+            <Text style={styles.scoreLabel}>{t('gameOver.target', { target: '' })}</Text>
             <Text style={styles.targetValue}>
               {levelConfig?.targetScore.toLocaleString()}
             </Text>
           </View>
 
           <TouchableOpacity style={styles.retryBtn} onPress={onRestart}>
-            <Text style={styles.retryText}>Tekrar Dene</Text>
+            <Text style={styles.retryText}>{t('gameOver.retry')}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.menuBtn} onPress={onMenu}>
-            <Text style={styles.menuText}>Ana Menü</Text>
+            <Text style={styles.menuText}>{t('gameOver.mainMenu')}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -46,29 +49,34 @@ export default function GameOverModal({ visible, onRestart, onMenu }: Props) {
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.7)',
+    backgroundColor: 'rgba(0,0,0,0.8)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   modal: {
     backgroundColor: '#1A1A2E',
-    borderRadius: 24,
+    borderRadius: 28,
     padding: 32,
     alignItems: 'center',
     width: '80%',
     borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.1)',
+    borderColor: 'rgba(255,71,87,0.3)',
+  },
+  icon: {
+    fontSize: 48,
+    marginBottom: 8,
   },
   title: {
-    color: '#FF4757',
+    color: DANGER_COLOR,
     fontSize: 28,
-    fontWeight: 'bold',
+    fontWeight: '900',
     marginBottom: 4,
   },
   subtitle: {
     color: 'rgba(255,255,255,0.5)',
     fontSize: 14,
     marginBottom: 24,
+    textAlign: 'center',
   },
   scoreRow: {
     flexDirection: 'row',
@@ -94,10 +102,15 @@ const styles = StyleSheet.create({
     backgroundColor: ACCENT_COLOR,
     paddingHorizontal: 40,
     paddingVertical: 14,
-    borderRadius: 16,
+    borderRadius: 18,
     marginTop: 24,
     width: '100%',
     alignItems: 'center',
+    shadowColor: ACCENT_COLOR,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 6,
   },
   retryText: {
     color: TEXT_COLOR,
@@ -109,7 +122,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   menuText: {
-    color: 'rgba(255,255,255,0.5)',
+    color: 'rgba(255,255,255,0.4)',
     fontSize: 14,
   },
 });

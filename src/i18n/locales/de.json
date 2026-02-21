@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Puzzle: Kombinieren & Schießen",
+    "play": "SPIELEN",
+    "settings": "Einstellungen",
+    "dailyReward": "Tägliche Belohnung!"
+  },
+  "game": {
+    "score": "PUNKTE",
+    "moves": "Züge",
+    "level": "LVL {{number}}",
+    "target": "Ziel: {{score}}",
+    "combo": "KOMBO",
+    "cannonReady": "KANONE BEREIT! Tippe auf eine Spalte!",
+    "cannon": "KANONE!"
+  },
+  "levelSelect": {
+    "title": "Level auswählen",
+    "back": "Zurück",
+    "locked": "Gesperrt",
+    "world1": "Anfängergarten",
+    "world2": "Meerestiefen",
+    "world3": "Vulkangipfel",
+    "world4": "Sternennebel"
+  },
+  "levelComplete": {
+    "title": "Glückwunsch!",
+    "level": "Level {{number}}",
+    "score": "Punkte: {{score}}",
+    "nextLevel": "Nächstes Level",
+    "mainMenu": "Hauptmenü"
+  },
+  "gameOver": {
+    "title": "Spiel vorbei!",
+    "subtitle": "Du hast die Zielpunktzahl nicht erreicht",
+    "yourScore": "Deine Punkte: {{score}}",
+    "target": "Ziel: {{target}}",
+    "retry": "Nochmal versuchen",
+    "mainMenu": "Hauptmenü"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "sound": "Soundeffekte",
+    "haptics": "Haptisches Feedback",
+    "language": "Sprache",
+    "back": "Zurück",
+    "selectLanguage": "Sprache auswählen"
+  },
+  "dailyReward": {
+    "title": "Tägliche Belohnung",
+    "day": "Tag {{number}}",
+    "claim": "Einlösen!",
+    "claimed": "Eingelöst",
+    "streak": "{{count}} Tage Serie!",
+    "bonusMoves": "+{{count}} Züge",
+    "bonusLives": "+{{count}} Leben",
+    "powerup": "Power-Up!"
+  },
+  "lives": {
+    "full": "Voll",
+    "nextIn": "{{time}}",
+    "noLives": "Keine Leben!",
+    "waitMessage": "Nächstes Leben in {{time}}",
+    "orWatch": "Oder sieh dir eine Werbung für ein kostenloses Leben an"
+  },
+  "powerups": {
+    "rowBomb": "Reihenbombe",
+    "colBomb": "Spaltenbombe",
+    "colorBomb": "Farbbombe",
+    "shuffle": "Mischen",
+    "tapToUse": "Tippe auf ein Feld zum Verwenden",
+    "selectRow": "Tippe auf eine Reihe zum Sprengen",
+    "selectCol": "Tippe auf eine Spalte zum Sprengen"
+  },
+  "achievements": {
+    "title": "Erfolge",
+    "unlocked": "Erfolg freigeschaltet!",
+    "firstMatch": "Erstes Match",
+    "firstMatchDesc": "Mache dein erstes Match",
+    "matchMaster": "Match-Meister",
+    "matchMasterDesc": "Mache 100 Matches",
+    "matchLegend": "Match-Legende",
+    "matchLegendDesc": "Mache 1000 Matches",
+    "levelUp": "Aufgestiegen",
+    "levelUpDesc": "Schließe Level 5 ab",
+    "halfway": "Halbzeit",
+    "halfwayDesc": "Schließe Level 10 ab",
+    "champion": "Champion",
+    "championDesc": "Schließe alle 20 Level ab",
+    "cascadeKing": "Kaskadenkönig",
+    "cascadeKingDesc": "Erreiche eine 3-fach-Kaskade",
+    "cascadeLegend": "Kaskadenlegende",
+    "cascadeLegendDesc": "Erreiche eine 5-fach-Kaskade",
+    "scorer": "Punktejäger",
+    "scorerDesc": "Erreiche 5.000 Gesamtpunkte",
+    "megaScorer": "Mega-Punktejäger",
+    "megaScorerDesc": "Erreiche 50.000 Gesamtpunkte",
+    "streakHot": "In Flammen",
+    "streakHotDesc": "Gewinne 3 Level in Folge",
+    "streakBlazing": "Flammende Serie",
+    "streakBlazingDesc": "Gewinne 10 Level in Folge",
+    "powerUser": "Power-Nutzer",
+    "powerUserDesc": "Verwende 10 Power-Ups",
+    "cannoneer": "Kanonier",
+    "cannoneerDesc": "Feuere die Kanone 5 Mal ab",
+    "collector": "Sammler",
+    "collectorDesc": "Erreiche 3 Sterne in 10 Leveln"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Serienbonus aktiv!"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "loading": "Laden..."
+  }
+}

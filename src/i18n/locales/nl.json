@@ -1,0 +1,120 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Match & Schiet Puzzel",
+    "play": "SPELEN",
+    "settings": "Instellingen",
+    "dailyReward": "Dagelijkse Beloning!"
+  },
+  "game": {
+    "score": "SCORE",
+    "moves": "Zetten",
+    "level": "LVL {{number}}",
+    "target": "Doel: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "KANON KLAAR! Tik op een kolom!",
+    "cannon": "KANON!"
+  },
+  "levelSelect": {
+    "title": "Kies Level",
+    "back": "Terug",
+    "locked": "Vergrendeld",
+    "world1": "Beginnerstuin",
+    "world2": "Oceaandiepten",
+    "world3": "Vulkanische Toppen",
+    "world4": "Sterrennevel"
+  },
+  "levelComplete": {
+    "title": "Gefeliciteerd!",
+    "level": "Level {{number}}",
+    "score": "Score: {{score}}",
+    "nextLevel": "Volgend Level",
+    "mainMenu": "Hoofdmenu"
+  },
+  "gameOver": {
+    "title": "Game Over!",
+    "subtitle": "Je hebt de doelscore niet bereikt",
+    "yourScore": "Jouw Score: {{score}}",
+    "target": "Doel: {{target}}",
+    "retry": "Opnieuw Proberen",
+    "mainMenu": "Hoofdmenu"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "sound": "Geluidseffecten",
+    "haptics": "Haptische Feedback",
+    "language": "Taal",
+    "back": "Terug",
+    "selectLanguage": "Kies Taal"
+  },
+  "dailyReward": {
+    "title": "Dagelijkse Beloning",
+    "day": "Dag {{number}}",
+    "claim": "Claim!",
+    "claimed": "Geclaimd",
+    "streak": "{{count}} Dagen Reeks!",
+    "bonusMoves": "+{{count}} Zetten",
+    "bonusLives": "+{{count}} Levens",
+    "powerup": "Power-Up!"
+  },
+  "lives": {
+    "full": "Vol",
+    "nextIn": "{{time}}",
+    "noLives": "Geen Levens!",
+    "waitMessage": "Volgend leven over {{time}}",
+    "orWatch": "Of bekijk een advertentie voor een gratis leven"
+  },
+  "powerups": {
+    "rowBomb": "Rijbom",
+    "colBomb": "Kolombom",
+    "colorBomb": "Kleurbom",
+    "shuffle": "Schudden",
+    "tapToUse": "Tik op een tegel om te gebruiken",
+    "selectRow": "Tik op een rij om op te blazen",
+    "selectCol": "Tik op een kolom om op te blazen"
+  },
+  "achievements": {
+    "title": "Prestaties",
+    "unlocked": "Prestatie Ontgrendeld!",
+    "firstMatch": "Eerste Match",
+    "firstMatchDesc": "Maak je eerste match",
+    "matchMaster": "Match Meester",
+    "matchMasterDesc": "Maak 100 matches",
+    "matchLegend": "Match Legende",
+    "matchLegendDesc": "Maak 1000 matches",
+    "levelUp": "Level Omhoog",
+    "levelUpDesc": "Voltooi level 5",
+    "halfway": "Halverwege",
+    "halfwayDesc": "Voltooi level 10",
+    "champion": "Kampioen",
+    "championDesc": "Voltooi alle 20 levels",
+    "cascadeKing": "Cascade Koning",
+    "cascadeKingDesc": "Behaal een 3x cascade",
+    "cascadeLegend": "Cascade Legende",
+    "cascadeLegendDesc": "Behaal een 5x cascade",
+    "scorer": "Hoge Scorer",
+    "scorerDesc": "Bereik 5.000 totale score",
+    "megaScorer": "Mega Scorer",
+    "megaScorerDesc": "Bereik 50.000 totale score",
+    "streakHot": "In Vuur en Vlam",
+    "streakHotDesc": "Win 3 levels op rij",
+    "streakBlazing": "Vlammende Reeks",
+    "streakBlazingDesc": "Win 10 levels op rij",
+    "powerUser": "Power Gebruiker",
+    "powerUserDesc": "Gebruik 10 power-ups",
+    "cannoneer": "Kanonnier",
+    "cannoneerDesc": "Schiet het kanon 5 keer af",
+    "collector": "Verzamelaar",
+    "collectorDesc": "Verdien 3 sterren op 10 levels"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Reeks Bonus Actief!"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "loading": "Laden..."
+  }
+}
