@@ -9,16 +9,19 @@ import DailyRewardModal from './src/components/DailyRewardModal';
 import { soundManager } from './src/services/SoundManager';
 import { useLivesStore } from './src/stores/livesStore';
 import { useSettingsStore } from './src/stores/settingsStore';
+import { useGameStore } from './src/stores/gameStore';
 
 type Screen = 'menu' | 'levelSelect' | 'game' | 'settings';
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('menu');
   const [selectedLevel, setSelectedLevel] = useState(1);
+  const [isResuming, setIsResuming] = useState(false);
   const [showDailyReward, setShowDailyReward] = useState(false);
 
   const checkRegen = useLivesStore((s) => s.checkRegen);
   const soundEnabled = useSettingsStore((s) => s.soundEnabled);
+  const activeLevel = useGameStore((s) => s.currentLevel);
 
   // Initialize on app start
   useEffect(() => {
@@ -28,19 +31,29 @@ export default function App() {
   }, []);
 
   const handlePlay = useCallback(() => {
+    setIsResuming(false);
     setScreen('levelSelect');
   }, []);
 
+  const handleContinue = useCallback(() => {
+    setSelectedLevel(activeLevel);
+    setIsResuming(true);
+    setScreen('game');
+  }, [activeLevel]);
+
   const handleSelectLevel = useCallback((level: number) => {
     setSelectedLevel(level);
+    setIsResuming(false);
     setScreen('game');
   }, []);
 
   const handleBack = useCallback(() => {
+    setIsResuming(false);
     setScreen('menu');
   }, []);
 
   const handleBackToLevels = useCallback(() => {
+    setIsResuming(false);
     setScreen('levelSelect');
   }, []);
 
@@ -58,6 +71,7 @@ export default function App() {
       {screen === 'menu' && (
         <MenuScreen
           onPlay={handlePlay}
+          onContinue={handleContinue}
           onSettings={handleSettings}
           onDailyReward={handleDailyReward}
         />
@@ -69,7 +83,11 @@ export default function App() {
         />
       )}
       {screen === 'game' && (
-        <GameScreen level={selectedLevel} onBack={handleBackToLevels} />
+        <GameScreen
+          level={selectedLevel}
+          resume={isResuming}
+          onBack={handleBackToLevels}
+        />
       )}
       {screen === 'settings' && (
         <SettingsScreen onBack={handleBack} />

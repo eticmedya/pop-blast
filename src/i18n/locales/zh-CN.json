@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "匹配射击益智游戏",
     "play": "开始游戏",
+    "continue": "继续 - 第{{level}}关",
     "settings": "设置",
     "dailyReward": "每日奖励！"
   },

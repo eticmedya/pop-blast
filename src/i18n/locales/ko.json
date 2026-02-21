@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "매치 & 슈팅 퍼즐",
     "play": "플레이",
+    "continue": "계속하기 - 레벨 {{level}}",
     "settings": "설정",
     "dailyReward": "일일 보상!"
   },

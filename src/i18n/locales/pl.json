@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Dopasuj i strzelaj",
     "play": "GRAJ",
+    "continue": "Kontynuuj - Poziom {{level}}",
     "settings": "Ustawienia",
     "dailyReward": "Dzienna nagroda!"
   },

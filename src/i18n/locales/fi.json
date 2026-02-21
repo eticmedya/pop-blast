@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Yhdistä ja ammu -peli",
     "play": "PELAA",
+    "continue": "Jatka - Taso {{level}}",
     "settings": "Asetukset",
     "dailyReward": "Päivittäinen palkinto!"
   },

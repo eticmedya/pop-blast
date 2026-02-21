@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "لغز المطابقة والتصويب",
     "play": "العب",
+    "continue": "متابعة - المستوى {{level}}",
     "settings": "الإعدادات",
     "dailyReward": "المكافأة اليومية!"
   },

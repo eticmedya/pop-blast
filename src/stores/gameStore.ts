@@ -55,6 +55,9 @@ interface GameState {
   consecutiveWins: number;
   streakMultiplier: number;
 
+  // Resume
+  hasActiveGame: boolean;
+
   // Actions
   startLevel: (level: number) => void;
   selectTile: (row: number, col: number) => void;
@@ -71,6 +74,7 @@ interface GameState {
   resetStreak: () => void;
   saveHighScore: () => void;
   getHighScore: (level: number) => HighScoreEntry | null;
+  clearActiveGame: () => void;
 }
 
 function getStreakMultiplier(wins: number): number {
@@ -99,6 +103,7 @@ export const useGameStore = create<GameState>()(
       highScores: {},
       consecutiveWins: 0,
       streakMultiplier: 1,
+      hasActiveGame: false,
 
       startLevel: (level: number) => {
         const config = getLevelConfig(level);
@@ -120,6 +125,7 @@ export const useGameStore = create<GameState>()(
           lastMatchCount: 0,
           lastCascadeCount: 0,
           selectedTile: null,
+          hasActiveGame: true,
         });
       },
 
@@ -268,6 +274,9 @@ export const useGameStore = create<GameState>()(
       getHighScore: (level: number) => {
         return get().highScores[level] ?? null;
       },
+
+      clearActiveGame: () =>
+        set({ hasActiveGame: false, grid: [], phase: 'idle', score: 0, movesLeft: 0, comboMeter: 0, levelConfig: null }),
     }),
     {
       name: 'popblast-game',
@@ -277,6 +286,14 @@ export const useGameStore = create<GameState>()(
         highScores: state.highScores,
         consecutiveWins: state.consecutiveWins,
         streakMultiplier: state.streakMultiplier,
+        // Aktif oyun durumu (devam et özelliği)
+        hasActiveGame: state.hasActiveGame,
+        grid: state.hasActiveGame ? state.grid : [],
+        currentLevel: state.currentLevel,
+        levelConfig: state.hasActiveGame ? state.levelConfig : null,
+        score: state.hasActiveGame ? state.score : 0,
+        movesLeft: state.hasActiveGame ? state.movesLeft : 0,
+        comboMeter: state.hasActiveGame ? state.comboMeter : 0,
       }),
     }
   )

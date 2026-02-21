@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Puzzle: Combinar y Disparar",
     "play": "JUGAR",
+    "continue": "Continuar - Nivel {{level}}",
     "settings": "Ajustes",
     "dailyReward": "¡Recompensa diaria!"
   },

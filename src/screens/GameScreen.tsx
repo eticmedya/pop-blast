@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet, StatusBar, Pressable } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import Board from '../components/Board';
 import ScoreBar from '../components/ScoreBar';
 import Cannon from '../components/Cannon';
@@ -10,19 +11,22 @@ import NoLivesModal from '../components/NoLivesModal';
 import AchievementPopup from '../components/AchievementPopup';
 import GradientBackground from '../components/GradientBackground';
 import { useGameStore } from '../stores/gameStore';
+import { useSettingsStore } from '../stores/settingsStore';
 import { useLivesStore } from '../stores/livesStore';
 import { useStatsStore } from '../stores/statsStore';
 import { useAchievementStore } from '../stores/achievementStore';
 import { BG_COLOR, WORLD_COLORS } from '../constants/colors';
 import { GRID_PADDING } from '../constants/dimensions';
 import { soundManager } from '../services/SoundManager';
+import { hapticService } from '../services/HapticService';
 
 interface Props {
   level?: number;
+  resume?: boolean;
   onBack?: () => void;
 }
 
-export default function GameScreen({ level = 1, onBack }: Props) {
+export default function GameScreen({ level = 1, resume = false, onBack }: Props) {
   const phase = useGameStore((s) => s.phase);
   const startLevel = useGameStore((s) => s.startLevel);
   const currentLevel = useGameStore((s) => s.currentLevel);
@@ -30,7 +34,11 @@ export default function GameScreen({ level = 1, onBack }: Props) {
   const incrementStreak = useGameStore((s) => s.incrementStreak);
   const resetStreak = useGameStore((s) => s.resetStreak);
   const saveHighScore = useGameStore((s) => s.saveHighScore);
+  const clearActiveGame = useGameStore((s) => s.clearActiveGame);
   const stars = useGameStore((s) => s.stars);
+
+  const soundEnabled = useSettingsStore((s) => s.soundEnabled);
+  const setSoundEnabled = useSettingsStore((s) => s.setSoundEnabled);
 
   const hasLives = useLivesStore((s) => s.hasLives());
   const loseLife = useLivesStore((s) => s.loseLife);
@@ -50,8 +58,11 @@ export default function GameScreen({ level = 1, onBack }: Props) {
   const gradientColors: [string, string, string] = [worldTheme.bg, BG_COLOR, '#0A0A1A'];
 
   useEffect(() => {
-    startLevel(level);
-  }, [level, startLevel]);
+    // Devam ediyorsa yeni seviye başlatma
+    if (!resume) {
+      startLevel(level);
+    }
+  }, [level, resume, startLevel]);
 
   // Handle level complete
   useEffect(() => {
@@ -92,15 +103,44 @@ export default function GameScreen({ level = 1, onBack }: Props) {
   const handleMenu = useCallback(() => {
     if (phase === 'levelComplete') {
       unlockNextLevel();
+      clearActiveGame();
+    } else if (phase === 'gameOver') {
+      clearActiveGame();
     }
     onBack?.();
-  }, [phase, unlockNextLevel, onBack]);
+  }, [phase, unlockNextLevel, clearActiveGame, onBack]);
+
+  const handleHome = useCallback(() => {
+    hapticService.buttonPress();
+    onBack?.();
+  }, [onBack]);
+
+  const toggleSound = useCallback(() => {
+    hapticService.buttonPress();
+    const newValue = !soundEnabled;
+    setSoundEnabled(newValue);
+    soundManager.setMuted(!newValue);
+  }, [soundEnabled, setSoundEnabled]);
 
   const isPlaying = phase === 'idle' || phase === 'swapping' || phase === 'matching' || phase === 'falling';
 
   return (
     <GradientBackground colors={gradientColors}>
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+
+      {/* Üst aksiyon butonları */}
+      <View style={styles.actionBar}>
+        <Pressable style={styles.actionBtn} onPress={handleHome}>
+          <Ionicons name="home-outline" size={22} color="rgba(255,255,255,0.7)" />
+        </Pressable>
+        <Pressable style={styles.actionBtn} onPress={toggleSound}>
+          <Ionicons
+            name={soundEnabled ? 'volume-high' : 'volume-mute'}
+            size={22}
+            color={soundEnabled ? 'rgba(255,255,255,0.7)' : 'rgba(255,80,80,0.7)'}
+          />
+        </Pressable>
+      </View>
 
       <ScoreBar />
 
@@ -134,6 +174,20 @@ export default function GameScreen({ level = 1, onBack }: Props) {
 }
 
 const styles = StyleSheet.create({
+  actionBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingTop: 4,
+  },
+  actionBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255,255,255,0.08)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   boardWrapper: {
     flex: 1,
     justifyContent: 'center',

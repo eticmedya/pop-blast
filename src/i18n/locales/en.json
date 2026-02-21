@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Match & Shoot Puzzle",
     "play": "PLAY",
+    "continue": "Continue - Level {{level}}",
     "settings": "Settings",
     "dailyReward": "Daily Reward!"
   },

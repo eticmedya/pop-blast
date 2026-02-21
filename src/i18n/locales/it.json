@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Puzzle Abbina e Spara",
     "play": "GIOCA",
+    "continue": "Continua - Livello {{level}}",
     "settings": "Impostazioni",
     "dailyReward": "Premio Giornaliero!"
   },

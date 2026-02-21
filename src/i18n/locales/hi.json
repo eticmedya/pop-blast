@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "मिलान और शूट पहेली",
     "play": "खेलें",
+    "continue": "जारी रखें - लेवल {{level}}",
     "settings": "सेटिंग्स",
     "dailyReward": "दैनिक इनाम!"
   },

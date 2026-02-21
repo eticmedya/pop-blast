@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -11,13 +11,16 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
+import { Ionicons } from '@expo/vector-icons';
 import { TEXT_COLOR, ACCENT_COLOR, SCORE_COLOR, TILE_COLORS } from '../constants/colors';
 import { useDailyRewardStore } from '../stores/dailyRewardStore';
+import { useGameStore } from '../stores/gameStore';
 import GradientBackground from '../components/GradientBackground';
 import AnimatedButton from '../components/AnimatedButton';
 
 interface Props {
   onPlay: () => void;
+  onContinue?: () => void;
   onSettings: () => void;
   onDailyReward: () => void;
 }
@@ -69,9 +72,16 @@ function FloatingBall({ color, delay, x, y }: { color: string; delay: number; x:
   );
 }
 
-export default function MenuScreen({ onPlay, onSettings, onDailyReward }: Props) {
+export default function MenuScreen({ onPlay, onContinue, onSettings, onDailyReward }: Props) {
   const { t } = useTranslation();
-  const canClaim = useDailyRewardStore((s) => s.canClaim());
+  const lastClaimDate = useDailyRewardStore((s) => s.lastClaimDate);
+  const hasActiveGame = useGameStore((s) => s.hasActiveGame);
+  const activeLevel = useGameStore((s) => s.currentLevel);
+
+  const canClaim = useMemo(() => {
+    if (!lastClaimDate) return true;
+    return lastClaimDate !== new Date().toISOString().split('T')[0];
+  }, [lastClaimDate]);
 
   const titleScale = useSharedValue(0.8);
   const titleOpacity = useSharedValue(0);
@@ -136,6 +146,15 @@ export default function MenuScreen({ onPlay, onSettings, onDailyReward }: Props)
             <Text style={styles.playText}>{t('menu.play')}</Text>
           </AnimatedButton>
         </Animated.View>
+
+        {hasActiveGame && onContinue && (
+          <AnimatedButton style={styles.continueBtn} onPress={onContinue}>
+            <Ionicons name="play-circle" size={20} color={SCORE_COLOR} />
+            <Text style={styles.continueText}>
+              {t('menu.continue', { level: activeLevel })}
+            </Text>
+          </AnimatedButton>
+        )}
 
         <View style={styles.bottomRow}>
           <AnimatedButton style={styles.settingsBtn} onPress={onSettings}>
@@ -228,6 +247,23 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: '900',
     letterSpacing: 6,
+  },
+  continueBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 16,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255,215,0,0.08)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,215,0,0.25)',
+  },
+  continueText: {
+    color: SCORE_COLOR,
+    fontSize: 15,
+    fontWeight: '700',
   },
   bottomRow: {
     flexDirection: 'row',

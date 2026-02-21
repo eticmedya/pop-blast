@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "マッチ＆シュートパズル",
     "play": "プレイ",
+    "continue": "続ける - レベル {{level}}",
     "settings": "設定",
     "dailyReward": "デイリー報酬！"
   },

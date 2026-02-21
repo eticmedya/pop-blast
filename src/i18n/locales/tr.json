@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Eşleştir ve Patlat Bulmaca",
     "play": "OYNA",
+    "continue": "Devam Et - Seviye {{level}}",
     "settings": "Ayarlar",
     "dailyReward": "Günlük Ödül!"
   },

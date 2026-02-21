@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Match & Schiet Puzzel",
     "play": "SPELEN",
+    "continue": "Doorgaan - Niveau {{level}}",
     "settings": "Instellingen",
     "dailyReward": "Dagelijkse Beloning!"
   },

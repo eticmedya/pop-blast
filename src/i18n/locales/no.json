@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Match og skyt-puslespill",
     "play": "SPILL",
+    "continue": "Fortsett - Nivå {{level}}",
     "settings": "Innstillinger",
     "dailyReward": "Daglig belønning!"
   },

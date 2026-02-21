@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Puzzle : Associer & Tirer",
     "play": "JOUER",
+    "continue": "Continuer - Niveau {{level}}",
     "settings": "Paramètres",
     "dailyReward": "Récompense quotidienne !"
   },

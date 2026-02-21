@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Собирай и стреляй",
     "play": "ИГРАТЬ",
+    "continue": "Продолжить - Уровень {{level}}",
     "settings": "Настройки",
     "dailyReward": "Ежедневная награда!"
   },

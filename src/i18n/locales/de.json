@@ -3,6 +3,7 @@
     "title": "POP BLAST",
     "subtitle": "Puzzle: Kombinieren & Schießen",
     "play": "SPIELEN",
+    "continue": "Weiter - Level {{level}}",
     "settings": "Einstellungen",
     "dailyReward": "Tägliche Belohnung!"
   },
