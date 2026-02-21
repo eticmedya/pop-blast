@@ -8,11 +8,12 @@ import LevelCompleteModal from '../components/LevelCompleteModal';
 import GameOverModal from '../components/GameOverModal';
 import NoLivesModal from '../components/NoLivesModal';
 import AchievementPopup from '../components/AchievementPopup';
+import GradientBackground from '../components/GradientBackground';
 import { useGameStore } from '../stores/gameStore';
 import { useLivesStore } from '../stores/livesStore';
 import { useStatsStore } from '../stores/statsStore';
 import { useAchievementStore } from '../stores/achievementStore';
-import { BG_COLOR } from '../constants/colors';
+import { BG_COLOR, WORLD_COLORS } from '../constants/colors';
 import { GRID_PADDING } from '../constants/dimensions';
 import { soundManager } from '../services/SoundManager';
 
@@ -42,6 +43,11 @@ export default function GameScreen({ level = 1, onBack }: Props) {
   const checkAchievements = useAchievementStore((s) => s.checkAchievements);
 
   const [showNoLives, setShowNoLives] = useState(false);
+
+  // Determine world theme based on level
+  const worldIndex = Math.floor((currentLevel - 1) / 5);
+  const worldTheme = WORLD_COLORS[worldIndex % WORLD_COLORS.length];
+  const gradientColors: [string, string, string] = [worldTheme.bg, BG_COLOR, '#0A0A1A'];
 
   useEffect(() => {
     startLevel(level);
@@ -93,8 +99,8 @@ export default function GameScreen({ level = 1, onBack }: Props) {
   const isPlaying = phase === 'idle' || phase === 'swapping' || phase === 'matching' || phase === 'falling';
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={BG_COLOR} />
+    <GradientBackground colors={gradientColors}>
+      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
       <ScoreBar />
 
@@ -123,15 +129,11 @@ export default function GameScreen({ level = 1, onBack }: Props) {
       />
 
       <AchievementPopup />
-    </View>
+    </GradientBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: BG_COLOR,
-  },
   boardWrapper: {
     flex: 1,
     justifyContent: 'center',

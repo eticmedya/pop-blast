@@ -35,7 +35,8 @@ function AnimatedTileInner({
   isNew,
   entryDelay,
 }: AnimatedTileProps) {
-  const scale = useSharedValue(isNew ? 0 : 1);
+  const scaleX = useSharedValue(isNew ? 0 : 1);
+  const scaleY = useSharedValue(isNew ? 0 : 1);
   const opacity = useSharedValue(isNew ? 0 : 1);
   const translateY = useSharedValue(isNew ? -TILE_SIZE * 2 : fallDistance > 0 ? -fallDistance * TILE_SIZE : 0);
   const selectionScale = useSharedValue(1);
@@ -43,28 +44,54 @@ function AnimatedTileInner({
   // Entry animation for new tiles
   useEffect(() => {
     if (isNew) {
-      scale.value = withDelay(entryDelay, withSpring(1, { damping: 12, stiffness: 120 }));
+      scaleX.value = withDelay(entryDelay, withSpring(1, { damping: 12, stiffness: 120 }));
+      scaleY.value = withDelay(entryDelay, withSpring(1, { damping: 12, stiffness: 120 }));
       opacity.value = withDelay(entryDelay, withTiming(1, { duration: 200 }));
       translateY.value = withDelay(entryDelay, withSpring(0, { damping: 14, stiffness: 100 }));
     }
   }, [isNew, entryDelay]);
 
-  // Fall animation
+  // Fall animation with squash & stretch on landing
   useEffect(() => {
     if (fallDistance > 0 && !isNew) {
       translateY.value = -fallDistance * TILE_SIZE;
       translateY.value = withSpring(0, { damping: 12, stiffness: 100 });
+
+      // Squash & stretch: brief squash on landing, then spring back
+      const fallDuration = Math.min(fallDistance * 80, 300);
+      scaleX.value = withDelay(
+        fallDuration,
+        withSequence(
+          withTiming(1.15, { duration: 60, easing: Easing.out(Easing.quad) }),
+          withSpring(1, { damping: 8, stiffness: 200 })
+        )
+      );
+      scaleY.value = withDelay(
+        fallDuration,
+        withSequence(
+          withTiming(0.85, { duration: 60, easing: Easing.out(Easing.quad) }),
+          withSpring(1, { damping: 8, stiffness: 200 })
+        )
+      );
     }
   }, [fallDistance]);
 
-  // Match explosion
+  // Match explosion with anticipation
   useEffect(() => {
     if (isMatched) {
-      scale.value = withSequence(
-        withTiming(1.3, { duration: 150, easing: Easing.out(Easing.quad) }),
-        withTiming(0, { duration: 150, easing: Easing.in(Easing.quad) })
+      // Anticipation: shrink first, then overshoot expand, then disappear
+      scaleX.value = withSequence(
+        withTiming(0.85, { duration: 60, easing: Easing.in(Easing.quad) }),
+        withTiming(1.4, { duration: 120, easing: Easing.out(Easing.back(2)) }),
+        withTiming(0, { duration: 120, easing: Easing.in(Easing.quad) })
       );
-      opacity.value = withDelay(150, withTiming(0, { duration: 150 }));
+      scaleY.value = withSequence(
+        withTiming(0.85, { duration: 60, easing: Easing.in(Easing.quad) }),
+        withTiming(1.4, { duration: 120, easing: Easing.out(Easing.back(2)) }),
+        withTiming(0, { duration: 120, easing: Easing.in(Easing.quad) })
+      );
+      // Fade out aligned with the final shrink phase (starts after anticipation + expand)
+      opacity.value = withDelay(180, withTiming(0, { duration: 120 }));
     }
   }, [isMatched]);
 
@@ -87,7 +114,8 @@ function AnimatedTileInner({
   const animStyle = useAnimatedStyle(() => ({
     transform: [
       { translateY: translateY.value },
-      { scale: scale.value * selectionScale.value },
+      { scaleX: scaleX.value * selectionScale.value },
+      { scaleY: scaleY.value * selectionScale.value },
     ],
     opacity: opacity.value,
   }));

@@ -1,18 +1,101 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withRepeat,
+  withSequence,
+  withTiming,
+  Easing,
+} from 'react-native-reanimated';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { usePowerUpStore, PowerUpType } from '../stores/powerupStore';
 import { POWERUP_COLORS, TEXT_COLOR } from '../constants/colors';
+import AnimatedButton from './AnimatedButton';
 
-const POWERUPS: { type: PowerUpType; icon: string; colorKey: keyof typeof POWERUP_COLORS }[] = [
-  { type: 'rowBomb', icon: '💥', colorKey: 'rowBomb' },
-  { type: 'colBomb', icon: '⚡', colorKey: 'colBomb' },
-  { type: 'colorBomb', icon: '🌈', colorKey: 'colorBomb' },
-  { type: 'shuffle', icon: '🔀', colorKey: 'shuffle' },
+const POWERUPS: {
+  type: PowerUpType;
+  iconName: keyof typeof MaterialCommunityIcons.glyphMap;
+  colorKey: keyof typeof POWERUP_COLORS;
+}[] = [
+  { type: 'rowBomb', iconName: 'bomb', colorKey: 'rowBomb' },
+  { type: 'colBomb', iconName: 'lightning-bolt', colorKey: 'colBomb' },
+  { type: 'colorBomb', iconName: 'palette', colorKey: 'colorBomb' },
+  { type: 'shuffle', iconName: 'shuffle-variant', colorKey: 'shuffle' },
 ];
 
 interface Props {
   disabled: boolean;
+}
+
+function PowerUpButton({
+  type,
+  iconName,
+  colorKey,
+  count,
+  isActive,
+  disabled,
+  onPress,
+}: {
+  type: PowerUpType;
+  iconName: keyof typeof MaterialCommunityIcons.glyphMap;
+  colorKey: keyof typeof POWERUP_COLORS;
+  count: number;
+  isActive: boolean;
+  disabled: boolean;
+  onPress: () => void;
+}) {
+  const color = POWERUP_COLORS[colorKey];
+  const glowOpacity = useSharedValue(0);
+
+  useEffect(() => {
+    if (isActive) {
+      glowOpacity.value = withRepeat(
+        withSequence(
+          withTiming(0.6, { duration: 600, easing: Easing.inOut(Easing.ease) }),
+          withTiming(0.2, { duration: 600, easing: Easing.inOut(Easing.ease) })
+        ),
+        -1,
+        true
+      );
+    } else {
+      glowOpacity.value = withTiming(0, { duration: 200 });
+    }
+  }, [isActive]);
+
+  const glowStyle = useAnimatedStyle(() => ({
+    opacity: glowOpacity.value,
+  }));
+
+  return (
+    <AnimatedButton
+      style={[
+        styles.button,
+        isActive && { borderColor: color, borderWidth: 2 },
+        (count === 0 || disabled) && styles.disabled,
+      ]}
+      onPress={onPress}
+      disabled={disabled || count === 0}
+    >
+      {/* Glow layer */}
+      <Animated.View
+        style={[
+          styles.glowLayer,
+          { backgroundColor: color },
+          glowStyle,
+        ]}
+      />
+      <MaterialCommunityIcons
+        name={iconName}
+        size={24}
+        color={isActive ? color : 'rgba(255,255,255,0.8)'}
+      />
+      <View style={[styles.badge, { backgroundColor: color }]}>
+        <Text style={styles.badgeText}>{count}</Text>
+      </View>
+    </AnimatedButton>
+  );
 }
 
 export default function PowerUpBar({ disabled }: Props) {
@@ -23,30 +106,24 @@ export default function PowerUpBar({ disabled }: Props) {
 
   return (
     <View style={styles.container}>
-      {POWERUPS.map(({ type, icon, colorKey }) => {
+      {POWERUPS.map(({ type, iconName, colorKey }) => {
         const count = inventory[type];
         const isActive = activePowerUp === type;
-        const color = POWERUP_COLORS[colorKey];
 
         return (
-          <TouchableOpacity
+          <PowerUpButton
             key={type}
-            style={[
-              styles.button,
-              isActive && { borderColor: color, borderWidth: 2 },
-              (count === 0 || disabled) && styles.disabled,
-            ]}
+            type={type}
+            iconName={iconName}
+            colorKey={colorKey}
+            count={count}
+            isActive={isActive}
+            disabled={disabled}
             onPress={() => {
               if (disabled || count === 0) return;
               setActivePowerUp(isActive ? null : type);
             }}
-            disabled={disabled || count === 0}
-          >
-            <Text style={styles.icon}>{icon}</Text>
-            <View style={[styles.badge, { backgroundColor: color }]}>
-              <Text style={styles.badgeText}>{count}</Text>
-            </View>
-          </TouchableOpacity>
+          />
         );
       })}
     </View>
@@ -70,12 +147,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.1)',
+    overflow: 'hidden',
   },
   disabled: {
     opacity: 0.35,
   },
-  icon: {
-    fontSize: 22,
+  glowLayer: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: 14,
   },
   badge: {
     position: 'absolute',

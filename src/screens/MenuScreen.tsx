@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -11,8 +11,10 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
-import { BG_COLOR, TEXT_COLOR, ACCENT_COLOR, SCORE_COLOR, TILE_COLORS } from '../constants/colors';
+import { TEXT_COLOR, ACCENT_COLOR, SCORE_COLOR, TILE_COLORS } from '../constants/colors';
 import { useDailyRewardStore } from '../stores/dailyRewardStore';
+import GradientBackground from '../components/GradientBackground';
+import AnimatedButton from '../components/AnimatedButton';
 
 interface Props {
   onPlay: () => void;
@@ -110,49 +112,50 @@ export default function MenuScreen({ onPlay, onSettings, onDailyReward }: Props)
   ];
 
   return (
-    <View style={styles.container}>
-      {floatingBalls.map((ball, i) => (
-        <FloatingBall key={i} {...ball} />
-      ))}
-
-      <Animated.View style={[styles.titleContainer, titleAnimStyle]}>
-        <Text style={styles.titlePop}>POP</Text>
-        <Text style={styles.titleBlast}>BLAST</Text>
-      </Animated.View>
-
-      <Text style={styles.subtitle}>{t('menu.subtitle')}</Text>
-
-      <View style={styles.ballRow}>
-        {TILE_COLORS.map((color, i) => (
-          <View key={i} style={[styles.ball, { backgroundColor: color }]} />
+    <GradientBackground colors={['#1A0533', '#0F0F23', '#0A1628']}>
+      <View style={styles.content}>
+        {floatingBalls.map((ball, i) => (
+          <FloatingBall key={i} {...ball} />
         ))}
+
+        <Animated.View style={[styles.titleContainer, titleAnimStyle]}>
+          <Text style={styles.titlePop}>POP</Text>
+          <Text style={styles.titleBlast}>BLAST</Text>
+        </Animated.View>
+
+        <Text style={styles.subtitle}>{t('menu.subtitle')}</Text>
+
+        <View style={styles.ballRow}>
+          {TILE_COLORS.map((color, i) => (
+            <View key={i} style={[styles.ball, { backgroundColor: color }]} />
+          ))}
+        </View>
+
+        <Animated.View style={btnAnimStyle}>
+          <AnimatedButton style={styles.playBtn} onPress={onPlay}>
+            <Text style={styles.playText}>{t('menu.play')}</Text>
+          </AnimatedButton>
+        </Animated.View>
+
+        <View style={styles.bottomRow}>
+          <AnimatedButton style={styles.settingsBtn} onPress={onSettings}>
+            <Text style={styles.settingsText}>{t('menu.settings')}</Text>
+          </AnimatedButton>
+
+          {canClaim && (
+            <AnimatedButton style={styles.rewardBtn} onPress={onDailyReward}>
+              <Text style={styles.rewardText}>{t('menu.dailyReward')}</Text>
+            </AnimatedButton>
+          )}
+        </View>
       </View>
-
-      <Animated.View style={btnAnimStyle}>
-        <TouchableOpacity style={styles.playBtn} onPress={onPlay}>
-          <Text style={styles.playText}>{t('menu.play')}</Text>
-        </TouchableOpacity>
-      </Animated.View>
-
-      <View style={styles.bottomRow}>
-        <TouchableOpacity style={styles.settingsBtn} onPress={onSettings}>
-          <Text style={styles.settingsText}>⚙️ {t('menu.settings')}</Text>
-        </TouchableOpacity>
-
-        {canClaim && (
-          <TouchableOpacity style={styles.rewardBtn} onPress={onDailyReward}>
-            <Text style={styles.rewardText}>🎁 {t('menu.dailyReward')}</Text>
-          </TouchableOpacity>
-        )}
-      </View>
-    </View>
+    </GradientBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  content: {
     flex: 1,
-    backgroundColor: BG_COLOR,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 32,

@@ -22,7 +22,13 @@
     "world1": "Jardim iniciante",
     "world2": "Profundezas oceânicas",
     "world3": "Picos vulcânicos",
-    "world4": "Nebulosa estelar"
+    "world4": "Nebulosa estelar",
+    "world5": "Caverna de cristal",
+    "world6": "Vale do pôr do sol",
+    "world7": "Espaço profundo",
+    "world8": "Reino da neve",
+    "world9": "Ilha do dragão",
+    "world10": "Floresta encantada"
   },
   "levelComplete": {
     "title": "Parabéns!",

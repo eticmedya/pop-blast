@@ -22,18 +22,28 @@
     "world1": "Beginner Garden",
     "world2": "Ocean Depths",
     "world3": "Volcanic Peaks",
-    "world4": "Star Nebula"
+    "world4": "Star Nebula",
+    "world5": "Crystal Cave",
+    "world6": "Sunset Valley",
+    "world7": "Deep Space",
+    "world8": "Snow Kingdom",
+    "world9": "Dragon Island",
+    "world10": "Enchanted Forest"
   },
   "levelComplete": {
     "title": "Congratulations!",
     "level": "Level {{number}}",
     "score": "Score: {{score}}",
     "nextLevel": "Next Level",
-    "mainMenu": "Main Menu"
+    "mainMenu": "Main Menu",
+    "newRecord": "NEW RECORD!"
   },
   "gameOver": {
     "title": "Game Over!",
     "subtitle": "You didn't reach the target score",
+    "soClose": "SO CLOSE!",
+    "almostThere": "Almost there!",
+    "goodTry": "Good try!",
     "yourScore": "Your Score: {{score}}",
     "target": "Target: {{target}}",
     "retry": "Try Again",

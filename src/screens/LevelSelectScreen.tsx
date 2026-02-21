@@ -27,6 +27,12 @@ const WORLD_NAMES: string[] = [
   'levelSelect.world2',
   'levelSelect.world3',
   'levelSelect.world4',
+  'levelSelect.world5',
+  'levelSelect.world6',
+  'levelSelect.world7',
+  'levelSelect.world8',
+  'levelSelect.world9',
+  'levelSelect.world10',
 ];
 
 export default function LevelSelectScreen({ onSelectLevel, onBack }: Props) {
@@ -34,12 +40,11 @@ export default function LevelSelectScreen({ onSelectLevel, onBack }: Props) {
   const unlockedLevel = useGameStore((s) => s.unlockedLevel);
   const highScores = useGameStore((s) => s.highScores);
 
-  const worlds = [
-    LEVELS.slice(0, 5),
-    LEVELS.slice(5, 10),
-    LEVELS.slice(10, 15),
-    LEVELS.slice(15, 20),
-  ];
+  const LEVELS_PER_WORLD = 5;
+  const worlds = Array.from(
+    { length: Math.ceil(LEVELS.length / LEVELS_PER_WORLD) },
+    (_, i) => LEVELS.slice(i * LEVELS_PER_WORLD, (i + 1) * LEVELS_PER_WORLD),
+  );
 
   return (
     <View style={styles.container}>

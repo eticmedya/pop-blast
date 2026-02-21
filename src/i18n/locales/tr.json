@@ -22,18 +22,28 @@
     "world1": "Başlangıç Bahçesi",
     "world2": "Okyanus Derinlikleri",
     "world3": "Volkanik Zirveler",
-    "world4": "Yıldız Bulutsusu"
+    "world4": "Yıldız Bulutsusu",
+    "world5": "Kristal Mağara",
+    "world6": "Gün Batımı Vadisi",
+    "world7": "Derin Uzay",
+    "world8": "Kar Krallığı",
+    "world9": "Ejderha Adası",
+    "world10": "Büyülü Orman"
   },
   "levelComplete": {
     "title": "Tebrikler!",
     "level": "Seviye {{number}}",
     "score": "Skor: {{score}}",
     "nextLevel": "Sonraki Seviye",
-    "mainMenu": "Ana Menü"
+    "mainMenu": "Ana Menü",
+    "newRecord": "YENİ REKOR!"
   },
   "gameOver": {
     "title": "Oyun Bitti!",
     "subtitle": "Hedef skora ulaşamadınız",
+    "soClose": "AZ KALIYORDU!",
+    "almostThere": "Neredeyse!",
+    "goodTry": "İyi Deneme!",
     "yourScore": "Skorunuz: {{score}}",
     "target": "Hedef: {{target}}",
     "retry": "Tekrar Dene",

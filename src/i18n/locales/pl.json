@@ -22,7 +22,13 @@
     "world1": "Ogród początkujących",
     "world2": "Głębiny oceanu",
     "world3": "Szczyty wulkanów",
-    "world4": "Mgławica gwiezdna"
+    "world4": "Mgławica gwiezdna",
+    "world5": "Kryształowa jaskinia",
+    "world6": "Dolina zachodu słońca",
+    "world7": "Głęboki kosmos",
+    "world8": "Królestwo śniegu",
+    "world9": "Wyspa smoka",
+    "world10": "Zaczarowany las"
   },
   "levelComplete": {
     "title": "Gratulacje!",

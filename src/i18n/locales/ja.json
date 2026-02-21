@@ -22,7 +22,13 @@
     "world1": "ビギナーガーデン",
     "world2": "深海",
     "world3": "火山の頂",
-    "world4": "星雲"
+    "world4": "星雲",
+    "world5": "クリスタルの洞窟",
+    "world6": "夕焼けの谷",
+    "world7": "深宇宙",
+    "world8": "雪の王国",
+    "world9": "ドラゴン島",
+    "world10": "魔法の森"
   },
   "levelComplete": {
     "title": "おめでとうございます！",

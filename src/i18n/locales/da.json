@@ -22,7 +22,13 @@
     "world1": "Begynderhave",
     "world2": "Havets dyb",
     "world3": "Vulkantoppe",
-    "world4": "Stjernetåge"
+    "world4": "Stjernetåge",
+    "world5": "Krystalgrotten",
+    "world6": "Solnedgangsdalen",
+    "world7": "Det dybe rum",
+    "world8": "Sneriget",
+    "world9": "Drageøen",
+    "world10": "Fortryllet skov"
   },
   "levelComplete": {
     "title": "Tillykke!",

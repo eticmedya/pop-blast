@@ -22,7 +22,13 @@
     "world1": "Giardino dei Principianti",
     "world2": "Profondità Oceaniche",
     "world3": "Cime Vulcaniche",
-    "world4": "Nebulosa Stellare"
+    "world4": "Nebulosa Stellare",
+    "world5": "Grotta di Cristallo",
+    "world6": "Valle del Tramonto",
+    "world7": "Spazio Profondo",
+    "world8": "Regno delle Nevi",
+    "world9": "Isola del Drago",
+    "world10": "Foresta Incantata"
   },
   "levelComplete": {
     "title": "Congratulazioni!",

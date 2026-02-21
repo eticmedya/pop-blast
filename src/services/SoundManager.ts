@@ -53,6 +53,32 @@ class SoundManager {
     return this.muted;
   }
 
+  private cascadeCount: number = 0;
+
+  /** Cascade sayacını sıfırla (yeni hamle başında) */
+  resetCascade(): void {
+    this.cascadeCount = 0;
+  }
+
+  /** Cascade match sesi - her cascade'de ton yükselir */
+  async playMatchCascade(): Promise<void> {
+    if (this.muted || !this.loaded) return;
+
+    const player = this.players['match'];
+    if (!player) return;
+
+    try {
+      // Her cascade adımında playbackRate artır (yükselen ton)
+      const rate = Math.min(1.0 + this.cascadeCount * 0.15, 1.6);
+      player.setPlaybackRate(rate);
+      await player.seekTo(0);
+      player.play();
+      this.cascadeCount++;
+    } catch {
+      // Playback error
+    }
+  }
+
   async play(name: SoundName): Promise<void> {
     if (this.muted || !this.loaded) return;
 
@@ -60,6 +86,10 @@ class SoundManager {
     if (!player) return;
 
     try {
+      // Match sesi dışında normal hızda çal
+      if (name !== 'match') {
+        player.setPlaybackRate(1.0);
+      }
       await player.seekTo(0);
       player.play();
     } catch {

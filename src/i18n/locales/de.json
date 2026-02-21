@@ -22,7 +22,13 @@
     "world1": "Anfängergarten",
     "world2": "Meerestiefen",
     "world3": "Vulkangipfel",
-    "world4": "Sternennebel"
+    "world4": "Sternennebel",
+    "world5": "Kristallhöhle",
+    "world6": "Sonnenuntergangstal",
+    "world7": "Tiefer Weltraum",
+    "world8": "Schneereich",
+    "world9": "Dracheninsel",
+    "world10": "Zauberwald"
   },
   "levelComplete": {
     "title": "Glückwunsch!",

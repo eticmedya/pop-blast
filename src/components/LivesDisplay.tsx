@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useLivesStore } from '../stores/livesStore';
-import { DANGER_COLOR, TEXT_COLOR } from '../constants/colors';
+import { DANGER_COLOR } from '../constants/colors';
 
 export default function LivesDisplay() {
   const { t } = useTranslation();
@@ -33,9 +34,13 @@ export default function LivesDisplay() {
     <View style={styles.container}>
       <View style={styles.heartsRow}>
         {Array.from({ length: maxLives }, (_, i) => (
-          <Text key={i} style={[styles.heart, i >= lives && styles.emptyHeart]}>
-            {i < lives ? '❤️' : '🖤'}
-          </Text>
+          <FontAwesome
+            key={i}
+            name="heart"
+            size={14}
+            color={i < lives ? DANGER_COLOR : 'rgba(255,255,255,0.2)'}
+            style={i >= lives && styles.emptyHeart}
+          />
         ))}
       </View>
       {timeStr ? (
@@ -54,10 +59,7 @@ const styles = StyleSheet.create({
   },
   heartsRow: {
     flexDirection: 'row',
-    gap: 2,
-  },
-  heart: {
-    fontSize: 14,
+    gap: 3,
   },
   emptyHeart: {
     opacity: 0.4,

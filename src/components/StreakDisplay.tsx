@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useGameStore } from '../stores/gameStore';
 import { ACCENT_COLOR, SCORE_COLOR } from '../constants/colors';
 
@@ -11,7 +12,7 @@ export default function StreakDisplay() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.flame}>🔥</Text>
+      <MaterialCommunityIcons name="fire" size={14} color={ACCENT_COLOR} />
       <Text style={styles.multiplier}>x{streakMultiplier}</Text>
     </View>
   );
@@ -26,9 +27,6 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
     borderRadius: 10,
     gap: 2,
-  },
-  flame: {
-    fontSize: 12,
   },
   multiplier: {
     color: SCORE_COLOR,

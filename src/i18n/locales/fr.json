@@ -22,7 +22,13 @@
     "world1": "Jardin des débutants",
     "world2": "Profondeurs océaniques",
     "world3": "Pics volcaniques",
-    "world4": "Nébuleuse stellaire"
+    "world4": "Nébuleuse stellaire",
+    "world5": "Grotte de cristal",
+    "world6": "Vallée du couchant",
+    "world7": "Espace profond",
+    "world8": "Royaume des neiges",
+    "world9": "Île du dragon",
+    "world10": "Forêt enchantée"
   },
   "levelComplete": {
     "title": "Félicitations !",

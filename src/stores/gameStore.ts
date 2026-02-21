@@ -5,6 +5,7 @@ import { Grid, createGrid, swapTiles, areAdjacent } from '../game-engine/grid';
 import { findAllMatches, wouldSwapCreateMatch, hasValidMoves } from '../game-engine/matcher';
 import { processBoard } from '../game-engine/gravity';
 import { getLevelConfig, getStars, LevelConfig } from '../game-engine/levels';
+import { usePowerUpStore, PowerUpType } from './powerupStore';
 
 export type GamePhase =
   | 'idle'
@@ -183,6 +184,15 @@ export const useGameStore = create<GameState>()(
         }
 
         const result = processBoard(grid, matches);
+
+        // Power-up düşürme: en uzun eşleşmeye göre
+        const maxMatchLen = Math.max(...matches.map((m) => m.length));
+        const dropChance = maxMatchLen >= 5 ? 0.6 : maxMatchLen >= 4 ? 0.3 : 0;
+        if (dropChance > 0 && Math.random() < dropChance) {
+          const types: PowerUpType[] = ['rowBomb', 'colBomb', 'colorBomb', 'shuffle'];
+          const randomType = types[Math.floor(Math.random() * types.length)];
+          usePowerUpStore.getState().addPowerUp(randomType, 1);
+        }
 
         const comboGain = matches.length * 15 + result.cascadeCount * 25;
         const newCombo = Math.min(100, comboMeter + comboGain);

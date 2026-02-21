@@ -22,7 +22,13 @@
     "world1": "Aloittelijan puutarha",
     "world2": "Meren syvyydet",
     "world3": "Tulivuoren huiput",
-    "world4": "Tähtisumu"
+    "world4": "Tähtisumu",
+    "world5": "Kristalliluola",
+    "world6": "Auringonlaskun laakso",
+    "world7": "Syvä avaruus",
+    "world8": "Lumikuningaskunta",
+    "world9": "Lohikäärmesaari",
+    "world10": "Lumottu metsä"
   },
   "levelComplete": {
     "title": "Onnittelut!",

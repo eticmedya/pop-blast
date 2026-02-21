@@ -22,7 +22,13 @@
     "world1": "Beginnerstuin",
     "world2": "Oceaandiepten",
     "world3": "Vulkanische Toppen",
-    "world4": "Sterrennevel"
+    "world4": "Sterrennevel",
+    "world5": "Kristalgrot",
+    "world6": "Zonsondergangvallei",
+    "world7": "Diepe Ruimte",
+    "world8": "Sneeuwrijk",
+    "world9": "Drakeneiland",
+    "world10": "Betoverd Bos"
   },
   "levelComplete": {
     "title": "Gefeliciteerd!",

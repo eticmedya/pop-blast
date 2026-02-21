@@ -22,7 +22,13 @@
     "world1": "Nybegynnerhage",
     "world2": "Havdypet",
     "world3": "Vulkantopper",
-    "world4": "Stjernetåke"
+    "world4": "Stjernetåke",
+    "world5": "Krystallgrotten",
+    "world6": "Solnedgangsdalen",
+    "world7": "Det dype rom",
+    "world8": "Snøriket",
+    "world9": "Drageøya",
+    "world10": "Forhekset skog"
   },
   "levelComplete": {
     "title": "Gratulerer!",

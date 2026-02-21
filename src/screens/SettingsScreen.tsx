@@ -8,11 +8,13 @@ import {
   ScrollView,
   Modal,
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useSettingsStore } from '../stores/settingsStore';
 import { SUPPORTED_LANGUAGES } from '../i18n';
-import { BG_COLOR, TEXT_COLOR, ACCENT_COLOR } from '../constants/colors';
+import { TEXT_COLOR, ACCENT_COLOR } from '../constants/colors';
 import { soundManager } from '../services/SoundManager';
+import GradientBackground from '../components/GradientBackground';
 
 interface Props {
   onBack: () => void;
@@ -38,7 +40,7 @@ export default function SettingsScreen({ onBack }: Props) {
   };
 
   return (
-    <View style={styles.container}>
+    <GradientBackground>
       <View style={styles.header}>
         <TouchableOpacity onPress={onBack} style={styles.backBtn}>
           <Text style={styles.backText}>{'<'} {t('settings.back')}</Text>
@@ -50,7 +52,10 @@ export default function SettingsScreen({ onBack }: Props) {
       <View style={styles.section}>
         {/* Sound */}
         <View style={styles.row}>
-          <Text style={styles.rowLabel}>🔊 {t('settings.sound')}</Text>
+          <View style={styles.rowLabelContainer}>
+            <Ionicons name="volume-high" size={20} color={TEXT_COLOR} style={styles.rowIcon} />
+            <Text style={styles.rowLabel}>{t('settings.sound')}</Text>
+          </View>
           <Switch
             value={soundEnabled}
             onValueChange={handleSoundToggle}
@@ -61,7 +66,10 @@ export default function SettingsScreen({ onBack }: Props) {
 
         {/* Haptics */}
         <View style={styles.row}>
-          <Text style={styles.rowLabel}>📳 {t('settings.haptics')}</Text>
+          <View style={styles.rowLabelContainer}>
+            <Ionicons name="phone-portrait-outline" size={20} color={TEXT_COLOR} style={styles.rowIcon} />
+            <Text style={styles.rowLabel}>{t('settings.haptics')}</Text>
+          </View>
           <Switch
             value={hapticsEnabled}
             onValueChange={setHapticsEnabled}
@@ -75,7 +83,10 @@ export default function SettingsScreen({ onBack }: Props) {
           style={styles.row}
           onPress={() => setShowLangModal(true)}
         >
-          <Text style={styles.rowLabel}>🌐 {t('settings.language')}</Text>
+          <View style={styles.rowLabelContainer}>
+            <Ionicons name="globe-outline" size={20} color={TEXT_COLOR} style={styles.rowIcon} />
+            <Text style={styles.rowLabel}>{t('settings.language')}</Text>
+          </View>
           <Text style={styles.rowValue}>{currentLangName} ›</Text>
         </TouchableOpacity>
       </View>
@@ -123,15 +134,11 @@ export default function SettingsScreen({ onBack }: Props) {
           </View>
         </View>
       </Modal>
-    </View>
+    </GradientBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: BG_COLOR,
-  },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -168,6 +175,13 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255,255,255,0.05)',
+  },
+  rowLabelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  rowIcon: {
+    marginRight: 10,
   },
   rowLabel: {
     color: TEXT_COLOR,

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withRepeat,
+  withSequence,
+  withTiming,
+  Easing,
+} from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 import { useGameStore } from '../stores/gameStore';
-import { ACCENT_COLOR, SCORE_COLOR, TEXT_COLOR } from '../constants/colors';
+import { ACCENT_COLOR, SCORE_COLOR, TEXT_COLOR, DANGER_COLOR } from '../constants/colors';
 import LivesDisplay from './LivesDisplay';
 import StreakDisplay from './StreakDisplay';
 
@@ -16,6 +24,31 @@ export default function ScoreBar() {
 
   const targetScore = levelConfig?.targetScore ?? 0;
   const progress = Math.min(1, score / Math.max(1, targetScore));
+
+  const pulseScale = useSharedValue(1);
+
+  // Pulse animation when moves <= 3
+  useEffect(() => {
+    if (movesLeft <= 3 && movesLeft > 0) {
+      pulseScale.value = withRepeat(
+        withSequence(
+          withTiming(1.15, { duration: 400, easing: Easing.inOut(Easing.ease) }),
+          withTiming(1, { duration: 400, easing: Easing.inOut(Easing.ease) })
+        ),
+        -1,
+        true
+      );
+    } else {
+      pulseScale.value = withTiming(1, { duration: 200 });
+    }
+  }, [movesLeft]);
+
+  const movesPulseStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: pulseScale.value }],
+  }));
+
+  // Determine moves color
+  const movesColor = movesLeft <= 5 ? DANGER_COLOR : TEXT_COLOR;
 
   // Combo bar color changes as it fills
   const comboColor =
@@ -46,7 +79,11 @@ export default function ScoreBar() {
 
         <View style={styles.rightCol}>
           <View style={styles.movesContainer}>
-            <Text style={styles.movesValue}>{movesLeft}</Text>
+            <Animated.View style={movesPulseStyle}>
+              <Text style={[styles.movesValue, { color: movesColor }]}>
+                {movesLeft}
+              </Text>
+            </Animated.View>
             <Text style={styles.movesLabel}>{t('game.moves')}</Text>
           </View>
           <LivesDisplay />
@@ -149,9 +186,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   movesValue: {
-    color: TEXT_COLOR,
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 28,
+    fontWeight: '900',
   },
   movesLabel: {
     color: 'rgba(255,255,255,0.5)',

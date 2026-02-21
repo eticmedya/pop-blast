@@ -22,7 +22,13 @@
     "world1": "초보자 정원",
     "world2": "심해",
     "world3": "화산 봉우리",
-    "world4": "별 성운"
+    "world4": "별 성운",
+    "world5": "크리스탈 동굴",
+    "world6": "석양의 계곡",
+    "world7": "심우주",
+    "world8": "눈의 왕국",
+    "world9": "드래곤 섬",
+    "world10": "마법의 숲"
   },
   "levelComplete": {
     "title": "축하합니다!",

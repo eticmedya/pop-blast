@@ -22,7 +22,13 @@
     "world1": "新手花園",
     "world2": "海洋深處",
     "world3": "火山之巔",
-    "world4": "星雲世界"
+    "world4": "星雲世界",
+    "world5": "水晶洞窟",
+    "world6": "夕陽谷",
+    "world7": "深空",
+    "world8": "冰雪王國",
+    "world9": "龍之島",
+    "world10": "魔法森林"
   },
   "levelComplete": {
     "title": "恭喜！",

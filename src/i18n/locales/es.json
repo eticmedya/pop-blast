@@ -22,7 +22,13 @@
     "world1": "Jardín principiante",
     "world2": "Profundidades oceánicas",
     "world3": "Picos volcánicos",
-    "world4": "Nebulosa estelar"
+    "world4": "Nebulosa estelar",
+    "world5": "Cueva de cristal",
+    "world6": "Valle del atardecer",
+    "world7": "Espacio profundo",
+    "world8": "Reino de nieve",
+    "world9": "Isla del dragón",
+    "world10": "Bosque encantado"
   },
   "levelComplete": {
     "title": "¡Felicidades!",

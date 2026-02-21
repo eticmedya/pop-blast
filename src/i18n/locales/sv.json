@@ -22,7 +22,13 @@
     "world1": "Nybörjarträdgård",
     "world2": "Havets djup",
     "world3": "Vulkantoppar",
-    "world4": "Stjärnnebulosa"
+    "world4": "Stjärnnebulosa",
+    "world5": "Kristallgrottan",
+    "world6": "Solnedgångsdalen",
+    "world7": "Djupa rymden",
+    "world8": "Snöriket",
+    "world9": "Drakön",
+    "world10": "Förtrollad skog"
   },
   "levelComplete": {
     "title": "Grattis!",
