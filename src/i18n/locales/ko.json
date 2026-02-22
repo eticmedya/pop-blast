@@ -1,0 +1,133 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "매치 & 슈팅 퍼즐",
+    "play": "플레이",
+    "continue": "계속하기 - 레벨 {{level}}",
+    "settings": "설정",
+    "dailyReward": "일일 보상!"
+  },
+  "game": {
+    "score": "점수",
+    "moves": "이동 횟수",
+    "level": "레벨 {{number}}",
+    "target": "목표: {{score}}",
+    "combo": "콤보",
+    "cannonReady": "대포 준비 완료! 열을 탭하세요!",
+    "cannon": "대포!"
+  },
+  "levelSelect": {
+    "title": "레벨 선택",
+    "back": "뒤로",
+    "locked": "잠김",
+    "world1": "초보자 정원",
+    "world2": "심해",
+    "world3": "화산 봉우리",
+    "world4": "별 성운",
+    "world5": "크리스탈 동굴",
+    "world6": "석양의 계곡",
+    "world7": "심우주",
+    "world8": "눈의 왕국",
+    "world9": "드래곤 섬",
+    "world10": "마법의 숲"
+  },
+  "levelComplete": {
+    "title": "축하합니다!",
+    "level": "레벨 {{number}}",
+    "score": "점수: {{score}}",
+    "nextLevel": "다음 레벨",
+    "mainMenu": "메인 메뉴"
+  },
+  "gameOver": {
+    "title": "게임 오버!",
+    "subtitle": "목표 점수에 도달하지 못했습니다",
+    "yourScore": "내 점수: {{score}}",
+    "target": "목표: {{target}}",
+    "retry": "다시 시도",
+    "mainMenu": "메인 메뉴"
+  },
+  "settings": {
+    "title": "설정",
+    "sound": "효과음",
+    "haptics": "진동 피드백",
+    "language": "언어",
+    "back": "뒤로",
+    "selectLanguage": "언어 선택"
+  },
+  "dailyReward": {
+    "title": "일일 보상",
+    "day": "{{number}}일차",
+    "claim": "받기!",
+    "claimed": "수령 완료",
+    "streak": "{{count}}일 연속!",
+    "bonusMoves": "+{{count}} 이동",
+    "bonusLives": "+{{count}} 생명",
+    "powerup": "파워업!"
+  },
+  "lives": {
+    "full": "가득 참",
+    "nextIn": "{{time}}",
+    "noLives": "생명이 없습니다!",
+    "waitMessage": "다음 생명까지 {{time}}",
+    "orWatch": "광고를 보고 무료 생명을 받으세요"
+  },
+  "powerups": {
+    "rowBomb": "행 폭탄",
+    "colBomb": "열 폭탄",
+    "colorBomb": "컬러 폭탄",
+    "shuffle": "섞기",
+    "tapToUse": "타일을 탭하여 사용",
+    "selectRow": "행을 탭하여 폭파",
+    "selectCol": "열을 탭하여 폭파"
+  },
+  "achievements": {
+    "title": "업적",
+    "unlocked": "업적 달성!",
+    "firstMatch": "첫 매치",
+    "firstMatchDesc": "첫 번째 매치를 달성하세요",
+    "matchMaster": "매치 마스터",
+    "matchMasterDesc": "100번 매치를 달성하세요",
+    "matchLegend": "매치 레전드",
+    "matchLegendDesc": "1000번 매치를 달성하세요",
+    "levelUp": "레벨 업",
+    "levelUpDesc": "레벨 5를 클리어하세요",
+    "halfway": "절반 달성",
+    "halfwayDesc": "레벨 10을 클리어하세요",
+    "champion": "챔피언",
+    "championDesc": "모든 20개 레벨을 클리어하세요",
+    "cascadeKing": "캐스케이드 킹",
+    "cascadeKingDesc": "3연쇄를 달성하세요",
+    "cascadeLegend": "캐스케이드 레전드",
+    "cascadeLegendDesc": "5연쇄를 달성하세요",
+    "scorer": "하이 스코어러",
+    "scorerDesc": "총 5,000점을 달성하세요",
+    "megaScorer": "메가 스코어러",
+    "megaScorerDesc": "총 50,000점을 달성하세요",
+    "streakHot": "불꽃 연승",
+    "streakHotDesc": "3레벨 연속 클리어",
+    "streakBlazing": "대연승",
+    "streakBlazingDesc": "10레벨 연속 클리어",
+    "powerUser": "파워 유저",
+    "powerUserDesc": "파워업을 10번 사용하세요",
+    "cannoneer": "포수",
+    "cannoneerDesc": "대포를 5번 발사하세요",
+    "collector": "수집가",
+    "collectorDesc": "10개 레벨에서 별 3개를 획득하세요"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "연승 보너스 활성화!"
+  },
+  "levelStart": {
+    "level": "레벨 {{number}}",
+    "goal": "목표",
+    "moves": "이동 횟수",
+    "boosters": "부스터 선택"
+  },
+  "common": {
+    "ok": "확인",
+    "cancel": "취소",
+    "close": "닫기",
+    "loading": "로딩 중..."
+  }
+}

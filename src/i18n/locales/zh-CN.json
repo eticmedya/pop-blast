@@ -1,0 +1,133 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "匹配射击益智游戏",
+    "play": "开始游戏",
+    "continue": "继续 - 第{{level}}关",
+    "settings": "设置",
+    "dailyReward": "每日奖励！"
+  },
+  "game": {
+    "score": "得分",
+    "moves": "步数",
+    "level": "关卡 {{number}}",
+    "target": "目标: {{score}}",
+    "combo": "连击",
+    "cannonReady": "大炮就绪！点击一列！",
+    "cannon": "大炮！"
+  },
+  "levelSelect": {
+    "title": "选择关卡",
+    "back": "返回",
+    "locked": "已锁定",
+    "world1": "新手花园",
+    "world2": "深海世界",
+    "world3": "火山之巅",
+    "world4": "星际星云",
+    "world5": "水晶洞穴",
+    "world6": "夕阳谷",
+    "world7": "深空",
+    "world8": "冰雪王国",
+    "world9": "龙之岛",
+    "world10": "魔法森林"
+  },
+  "levelComplete": {
+    "title": "恭喜！",
+    "level": "关卡 {{number}}",
+    "score": "得分: {{score}}",
+    "nextLevel": "下一关",
+    "mainMenu": "主菜单"
+  },
+  "gameOver": {
+    "title": "游戏结束！",
+    "subtitle": "未达到目标分数",
+    "yourScore": "你的得分: {{score}}",
+    "target": "目标: {{target}}",
+    "retry": "再试一次",
+    "mainMenu": "主菜单"
+  },
+  "settings": {
+    "title": "设置",
+    "sound": "音效",
+    "haptics": "触觉反馈",
+    "language": "语言",
+    "back": "返回",
+    "selectLanguage": "选择语言"
+  },
+  "dailyReward": {
+    "title": "每日奖励",
+    "day": "第 {{number}} 天",
+    "claim": "领取！",
+    "claimed": "已领取",
+    "streak": "连续 {{count}} 天！",
+    "bonusMoves": "+{{count}} 步数",
+    "bonusLives": "+{{count}} 生命",
+    "powerup": "强化道具！"
+  },
+  "lives": {
+    "full": "已满",
+    "nextIn": "{{time}}",
+    "noLives": "没有生命了！",
+    "waitMessage": "下一条生命在 {{time}} 后",
+    "orWatch": "或观看广告获得免费生命"
+  },
+  "powerups": {
+    "rowBomb": "行炸弹",
+    "colBomb": "列炸弹",
+    "colorBomb": "颜色炸弹",
+    "shuffle": "重新排列",
+    "tapToUse": "点击方块使用",
+    "selectRow": "点击一行进行爆破",
+    "selectCol": "点击一列进行爆破"
+  },
+  "achievements": {
+    "title": "成就",
+    "unlocked": "成就解锁！",
+    "firstMatch": "初次匹配",
+    "firstMatchDesc": "完成第一次匹配",
+    "matchMaster": "匹配大师",
+    "matchMasterDesc": "完成100次匹配",
+    "matchLegend": "匹配传奇",
+    "matchLegendDesc": "完成1000次匹配",
+    "levelUp": "升级",
+    "levelUpDesc": "通过第5关",
+    "halfway": "半程达成",
+    "halfwayDesc": "通过第10关",
+    "champion": "冠军",
+    "championDesc": "通过全部20关",
+    "cascadeKing": "连锁之王",
+    "cascadeKingDesc": "达成3连锁",
+    "cascadeLegend": "连锁传奇",
+    "cascadeLegendDesc": "达成5连锁",
+    "scorer": "高分达人",
+    "scorerDesc": "累计获得5,000分",
+    "megaScorer": "超级得分手",
+    "megaScorerDesc": "累计获得50,000分",
+    "streakHot": "火力全开",
+    "streakHotDesc": "连续通过3关",
+    "streakBlazing": "势如破竹",
+    "streakBlazingDesc": "连续通过10关",
+    "powerUser": "道具达人",
+    "powerUserDesc": "使用10次强化道具",
+    "cannoneer": "炮手",
+    "cannoneerDesc": "发射大炮5次",
+    "collector": "收藏家",
+    "collectorDesc": "在10个关卡中获得3星"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "连胜加成生效中！"
+  },
+  "levelStart": {
+    "level": "关卡 {{number}}",
+    "goal": "目标",
+    "moves": "步数",
+    "boosters": "选择增强道具"
+  },
+  "common": {
+    "ok": "确定",
+    "cancel": "取消",
+    "close": "关闭",
+    "loading": "加载中..."
+  }
+}

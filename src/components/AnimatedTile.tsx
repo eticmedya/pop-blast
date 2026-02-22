@@ -1,0 +1,221 @@
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  withSpring,
+  withSequence,
+  withRepeat,
+  withDelay,
+  Easing,
+} from 'react-native-reanimated';
+import { TILE_COLORS, TILE_GLOW_COLORS } from '../constants/colors';
+import { TILE_SIZE, BALL_RADIUS } from '../constants/dimensions';
+
+interface AnimatedTileProps {
+  color: number;
+  isSelected: boolean;
+  isMatched: boolean;
+  onPress: () => void;
+  fallDistance: number;
+  isNew: boolean;
+  entryDelay: number;
+  /** Tema emojisi (opsiyonel, yoksa klasik top gösterilir) */
+  emoji?: string;
+  /** Tile şekli */
+  shape?: 'circle' | 'rounded_square';
+}
+
+const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
+
+function AnimatedTileInner({
+  color,
+  isSelected,
+  isMatched,
+  onPress,
+  fallDistance,
+  isNew,
+  entryDelay,
+  emoji,
+  shape = 'circle',
+}: AnimatedTileProps) {
+  const scaleX = useSharedValue(isNew ? 0 : 1);
+  const scaleY = useSharedValue(isNew ? 0 : 1);
+  const opacity = useSharedValue(isNew ? 0 : 1);
+  const translateY = useSharedValue(isNew ? -TILE_SIZE * 2 : fallDistance > 0 ? -fallDistance * TILE_SIZE : 0);
+  const selectionScale = useSharedValue(1);
+
+  // Entry animation for new tiles
+  useEffect(() => {
+    if (isNew) {
+      scaleX.value = withDelay(entryDelay, withSpring(1, { damping: 12, stiffness: 120 }));
+      scaleY.value = withDelay(entryDelay, withSpring(1, { damping: 12, stiffness: 120 }));
+      opacity.value = withDelay(entryDelay, withTiming(1, { duration: 200 }));
+      translateY.value = withDelay(entryDelay, withSpring(0, { damping: 14, stiffness: 100 }));
+    }
+  }, [isNew, entryDelay]);
+
+  // Fall animation with squash & stretch on landing
+  useEffect(() => {
+    if (fallDistance > 0 && !isNew) {
+      translateY.value = -fallDistance * TILE_SIZE;
+      translateY.value = withSpring(0, { damping: 12, stiffness: 100 });
+
+      const fallDuration = Math.min(fallDistance * 80, 300);
+      scaleX.value = withDelay(
+        fallDuration,
+        withSequence(
+          withTiming(1.15, { duration: 60, easing: Easing.out(Easing.quad) }),
+          withSpring(1, { damping: 8, stiffness: 200 })
+        )
+      );
+      scaleY.value = withDelay(
+        fallDuration,
+        withSequence(
+          withTiming(0.85, { duration: 60, easing: Easing.out(Easing.quad) }),
+          withSpring(1, { damping: 8, stiffness: 200 })
+        )
+      );
+    }
+  }, [fallDistance]);
+
+  // Match explosion with anticipation
+  useEffect(() => {
+    if (isMatched) {
+      scaleX.value = withSequence(
+        withTiming(0.85, { duration: 60, easing: Easing.in(Easing.quad) }),
+        withTiming(1.4, { duration: 120, easing: Easing.out(Easing.back(2)) }),
+        withTiming(0, { duration: 120, easing: Easing.in(Easing.quad) })
+      );
+      scaleY.value = withSequence(
+        withTiming(0.85, { duration: 60, easing: Easing.in(Easing.quad) }),
+        withTiming(1.4, { duration: 120, easing: Easing.out(Easing.back(2)) }),
+        withTiming(0, { duration: 120, easing: Easing.in(Easing.quad) })
+      );
+      opacity.value = withDelay(180, withTiming(0, { duration: 120 }));
+    }
+  }, [isMatched]);
+
+  // Selection pulse
+  useEffect(() => {
+    if (isSelected) {
+      selectionScale.value = withRepeat(
+        withSequence(
+          withTiming(1.12, { duration: 400, easing: Easing.inOut(Easing.ease) }),
+          withTiming(1.0, { duration: 400, easing: Easing.inOut(Easing.ease) })
+        ),
+        -1,
+        true
+      );
+    } else {
+      selectionScale.value = withTiming(1, { duration: 150 });
+    }
+  }, [isSelected]);
+
+  const animStyle = useAnimatedStyle(() => ({
+    transform: [
+      { translateY: translateY.value },
+      { scaleX: scaleX.value * selectionScale.value },
+      { scaleY: scaleY.value * selectionScale.value },
+    ],
+    opacity: opacity.value,
+  }));
+
+  const baseColor = TILE_COLORS[color] ?? TILE_COLORS[0];
+  const glowColor = TILE_GLOW_COLORS[color] ?? TILE_GLOW_COLORS[0];
+  const isSquare = shape === 'rounded_square';
+  const tileRadius = isSquare ? BALL_RADIUS * 0.5 : BALL_RADIUS;
+
+  return (
+    <AnimatedTouchable
+      onPress={onPress}
+      activeOpacity={0.7}
+      style={[styles.cell, animStyle]}
+    >
+      {isSelected && (
+        <Animated.View
+          style={[
+            styles.selectionRing,
+            {
+              borderColor: baseColor,
+              shadowColor: baseColor,
+              borderRadius: isSquare ? tileRadius + 4 : BALL_RADIUS + 6,
+              width: BALL_RADIUS * 2 + 12,
+              height: BALL_RADIUS * 2 + 12,
+            },
+          ]}
+        />
+      )}
+      <Animated.View
+        style={[
+          styles.ball,
+          {
+            backgroundColor: baseColor,
+            width: BALL_RADIUS * 2,
+            height: BALL_RADIUS * 2,
+            borderRadius: isSquare ? tileRadius : BALL_RADIUS,
+            shadowColor: baseColor,
+          },
+        ]}
+      >
+        {emoji ? (
+          <Text style={styles.emoji}>{emoji}</Text>
+        ) : (
+          <>
+            <Animated.View style={styles.highlight} />
+            <Animated.View style={styles.bottomShadow} />
+          </>
+        )}
+      </Animated.View>
+    </AnimatedTouchable>
+  );
+}
+
+export default React.memo(AnimatedTileInner);
+
+const styles = StyleSheet.create({
+  cell: {
+    width: TILE_SIZE,
+    height: TILE_SIZE,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  selectionRing: {
+    position: 'absolute',
+    borderWidth: 2.5,
+    zIndex: 2,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.8,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  ball: {
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.5,
+    shadowRadius: 6,
+    elevation: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  highlight: {
+    width: '60%',
+    height: '30%',
+    backgroundColor: 'rgba(255,255,255,0.35)',
+    borderRadius: 100,
+    marginTop: 3,
+  },
+  bottomShadow: {
+    position: 'absolute',
+    bottom: 2,
+    width: '70%',
+    height: '20%',
+    backgroundColor: 'rgba(0,0,0,0.15)',
+    borderRadius: 100,
+  },
+  emoji: {
+    fontSize: BALL_RADIUS * 1.3,
+    textAlign: 'center',
+  },
+});

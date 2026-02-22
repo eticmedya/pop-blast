@@ -1,0 +1,133 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "配對射擊益智遊戲",
+    "play": "開始遊戲",
+    "continue": "繼續 - 第{{level}}關",
+    "settings": "設定",
+    "dailyReward": "每日獎勵！"
+  },
+  "game": {
+    "score": "分數",
+    "moves": "步數",
+    "level": "關卡 {{number}}",
+    "target": "目標：{{score}}",
+    "combo": "連擊",
+    "cannonReady": "大砲就緒！點擊一個欄位！",
+    "cannon": "大砲！"
+  },
+  "levelSelect": {
+    "title": "選擇關卡",
+    "back": "返回",
+    "locked": "已鎖定",
+    "world1": "新手花園",
+    "world2": "海洋深處",
+    "world3": "火山之巔",
+    "world4": "星雲世界",
+    "world5": "水晶洞窟",
+    "world6": "夕陽谷",
+    "world7": "深空",
+    "world8": "冰雪王國",
+    "world9": "龍之島",
+    "world10": "魔法森林"
+  },
+  "levelComplete": {
+    "title": "恭喜！",
+    "level": "關卡 {{number}}",
+    "score": "分數：{{score}}",
+    "nextLevel": "下一關",
+    "mainMenu": "主選單"
+  },
+  "gameOver": {
+    "title": "遊戲結束！",
+    "subtitle": "您未達到目標分數",
+    "yourScore": "您的分數：{{score}}",
+    "target": "目標：{{target}}",
+    "retry": "再試一次",
+    "mainMenu": "主選單"
+  },
+  "settings": {
+    "title": "設定",
+    "sound": "音效",
+    "haptics": "觸覺回饋",
+    "language": "語言",
+    "back": "返回",
+    "selectLanguage": "選擇語言"
+  },
+  "dailyReward": {
+    "title": "每日獎勵",
+    "day": "第 {{number}} 天",
+    "claim": "領取！",
+    "claimed": "已領取",
+    "streak": "連續 {{count}} 天！",
+    "bonusMoves": "+{{count}} 步",
+    "bonusLives": "+{{count}} 生命",
+    "powerup": "強化道具！"
+  },
+  "lives": {
+    "full": "滿",
+    "nextIn": "{{time}}",
+    "noLives": "沒有生命！",
+    "waitMessage": "下一條生命在 {{time}} 後",
+    "orWatch": "或觀看廣告獲得免費生命"
+  },
+  "powerups": {
+    "rowBomb": "橫排炸彈",
+    "colBomb": "直排炸彈",
+    "colorBomb": "顏色炸彈",
+    "shuffle": "重新排列",
+    "tapToUse": "點擊方塊使用",
+    "selectRow": "點擊一行進行爆破",
+    "selectCol": "點擊一列進行爆破"
+  },
+  "achievements": {
+    "title": "成就",
+    "unlocked": "成就解鎖！",
+    "firstMatch": "首次配對",
+    "firstMatchDesc": "完成你的第一次配對",
+    "matchMaster": "配對大師",
+    "matchMasterDesc": "完成 100 次配對",
+    "matchLegend": "配對傳奇",
+    "matchLegendDesc": "完成 1000 次配對",
+    "levelUp": "升級",
+    "levelUpDesc": "完成關卡 5",
+    "halfway": "過半了",
+    "halfwayDesc": "完成關卡 10",
+    "champion": "冠軍",
+    "championDesc": "完成全部 20 個關卡",
+    "cascadeKing": "連鎖之王",
+    "cascadeKingDesc": "達成 3 倍連鎖",
+    "cascadeLegend": "連鎖傳奇",
+    "cascadeLegendDesc": "達成 5 倍連鎖",
+    "scorer": "高分達人",
+    "scorerDesc": "累計達到 5,000 分",
+    "megaScorer": "超級得分手",
+    "megaScorerDesc": "累計達到 50,000 分",
+    "streakHot": "火力全開",
+    "streakHotDesc": "連續通過 3 個關卡",
+    "streakBlazing": "勢不可擋",
+    "streakBlazingDesc": "連續通過 10 個關卡",
+    "powerUser": "道具達人",
+    "powerUserDesc": "使用 10 個強化道具",
+    "cannoneer": "砲手",
+    "cannoneerDesc": "發射大砲 5 次",
+    "collector": "收藏家",
+    "collectorDesc": "在 10 個關卡中獲得 3 顆星"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "連勝加成啟動！"
+  },
+  "levelStart": {
+    "level": "關卡 {{number}}",
+    "goal": "目標",
+    "moves": "步數",
+    "boosters": "選擇增強道具"
+  },
+  "common": {
+    "ok": "確定",
+    "cancel": "取消",
+    "close": "關閉",
+    "loading": "載入中..."
+  }
+}

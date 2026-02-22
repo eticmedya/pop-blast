@@ -1,0 +1,133 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Собирай и стреляй",
+    "play": "ИГРАТЬ",
+    "continue": "Продолжить - Уровень {{level}}",
+    "settings": "Настройки",
+    "dailyReward": "Ежедневная награда!"
+  },
+  "game": {
+    "score": "СЧЁТ",
+    "moves": "Ходы",
+    "level": "УР. {{number}}",
+    "target": "Цель: {{score}}",
+    "combo": "КОМБО",
+    "cannonReady": "ПУШКА ГОТОВА! Нажмите на столбец!",
+    "cannon": "ПУШКА!"
+  },
+  "levelSelect": {
+    "title": "Выбор уровня",
+    "back": "Назад",
+    "locked": "Заблокировано",
+    "world1": "Сад новичка",
+    "world2": "Глубины океана",
+    "world3": "Вулканические вершины",
+    "world4": "Звёздная туманность",
+    "world5": "Хрустальная пещера",
+    "world6": "Долина заката",
+    "world7": "Глубокий космос",
+    "world8": "Снежное королевство",
+    "world9": "Остров дракона",
+    "world10": "Волшебный лес"
+  },
+  "levelComplete": {
+    "title": "Поздравляем!",
+    "level": "Уровень {{number}}",
+    "score": "Счёт: {{score}}",
+    "nextLevel": "Следующий уровень",
+    "mainMenu": "Главное меню"
+  },
+  "gameOver": {
+    "title": "Игра окончена!",
+    "subtitle": "Вы не достигли целевого счёта",
+    "yourScore": "Ваш счёт: {{score}}",
+    "target": "Цель: {{target}}",
+    "retry": "Попробовать снова",
+    "mainMenu": "Главное меню"
+  },
+  "settings": {
+    "title": "Настройки",
+    "sound": "Звуковые эффекты",
+    "haptics": "Тактильная отдача",
+    "language": "Язык",
+    "back": "Назад",
+    "selectLanguage": "Выберите язык"
+  },
+  "dailyReward": {
+    "title": "Ежедневная награда",
+    "day": "День {{number}}",
+    "claim": "Забрать!",
+    "claimed": "Получено",
+    "streak": "Серия {{count}} дней!",
+    "bonusMoves": "+{{count}} ходов",
+    "bonusLives": "+{{count}} жизней",
+    "powerup": "Усиление!"
+  },
+  "lives": {
+    "full": "Полные",
+    "nextIn": "{{time}}",
+    "noLives": "Нет жизней!",
+    "waitMessage": "Следующая жизнь через {{time}}",
+    "orWatch": "Или посмотрите рекламу для бесплатной жизни"
+  },
+  "powerups": {
+    "rowBomb": "Бомба ряда",
+    "colBomb": "Бомба столбца",
+    "colorBomb": "Цветная бомба",
+    "shuffle": "Перемешать",
+    "tapToUse": "Нажмите на плитку для использования",
+    "selectRow": "Нажмите на ряд для взрыва",
+    "selectCol": "Нажмите на столбец для взрыва"
+  },
+  "achievements": {
+    "title": "Достижения",
+    "unlocked": "Достижение разблокировано!",
+    "firstMatch": "Первое совпадение",
+    "firstMatchDesc": "Сделайте первое совпадение",
+    "matchMaster": "Мастер совпадений",
+    "matchMasterDesc": "Сделайте 100 совпадений",
+    "matchLegend": "Легенда совпадений",
+    "matchLegendDesc": "Сделайте 1000 совпадений",
+    "levelUp": "Повышение уровня",
+    "levelUpDesc": "Пройдите уровень 5",
+    "halfway": "Половина пути",
+    "halfwayDesc": "Пройдите уровень 10",
+    "champion": "Чемпион",
+    "championDesc": "Пройдите все 20 уровней",
+    "cascadeKing": "Король каскадов",
+    "cascadeKingDesc": "Получите каскад x3",
+    "cascadeLegend": "Легенда каскадов",
+    "cascadeLegendDesc": "Получите каскад x5",
+    "scorer": "Рекордсмен",
+    "scorerDesc": "Наберите 5 000 очков",
+    "megaScorer": "Мега-рекордсмен",
+    "megaScorerDesc": "Наберите 50 000 очков",
+    "streakHot": "В ударе",
+    "streakHotDesc": "Выиграйте 3 уровня подряд",
+    "streakBlazing": "Пылающая серия",
+    "streakBlazingDesc": "Выиграйте 10 уровней подряд",
+    "powerUser": "Эксперт усилений",
+    "powerUserDesc": "Используйте 10 усилений",
+    "cannoneer": "Канонир",
+    "cannoneerDesc": "Выстрелите из пушки 5 раз",
+    "collector": "Коллекционер",
+    "collectorDesc": "Получите 3 звезды на 10 уровнях"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Бонус серии активен!"
+  },
+  "levelStart": {
+    "level": "УРОВЕНЬ {{number}}",
+    "goal": "ЦЕЛЬ",
+    "moves": "Ходы",
+    "boosters": "Выберите усиление"
+  },
+  "common": {
+    "ok": "ОК",
+    "cancel": "Отмена",
+    "close": "Закрыть",
+    "loading": "Загрузка..."
+  }
+}

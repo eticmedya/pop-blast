@@ -1,0 +1,133 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Yhdistä ja ammu -peli",
+    "play": "PELAA",
+    "continue": "Jatka - Taso {{level}}",
+    "settings": "Asetukset",
+    "dailyReward": "Päivittäinen palkinto!"
+  },
+  "game": {
+    "score": "PISTEET",
+    "moves": "Siirrot",
+    "level": "TASO {{number}}",
+    "target": "Tavoite: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "TYKKI VALMIS! Napauta saraketta!",
+    "cannon": "TYKKI!"
+  },
+  "levelSelect": {
+    "title": "Valitse taso",
+    "back": "Takaisin",
+    "locked": "Lukittu",
+    "world1": "Aloittelijan puutarha",
+    "world2": "Meren syvyydet",
+    "world3": "Tulivuoren huiput",
+    "world4": "Tähtisumu",
+    "world5": "Kristalliluola",
+    "world6": "Auringonlaskun laakso",
+    "world7": "Syvä avaruus",
+    "world8": "Lumikuningaskunta",
+    "world9": "Lohikäärmesaari",
+    "world10": "Lumottu metsä"
+  },
+  "levelComplete": {
+    "title": "Onnittelut!",
+    "level": "Taso {{number}}",
+    "score": "Pisteet: {{score}}",
+    "nextLevel": "Seuraava taso",
+    "mainMenu": "Päävalikko"
+  },
+  "gameOver": {
+    "title": "Peli ohi!",
+    "subtitle": "Et saavuttanut tavoitepisteitä",
+    "yourScore": "Pisteesi: {{score}}",
+    "target": "Tavoite: {{target}}",
+    "retry": "Yritä uudelleen",
+    "mainMenu": "Päävalikko"
+  },
+  "settings": {
+    "title": "Asetukset",
+    "sound": "Äänitehosteet",
+    "haptics": "Haptinen palaute",
+    "language": "Kieli",
+    "back": "Takaisin",
+    "selectLanguage": "Valitse kieli"
+  },
+  "dailyReward": {
+    "title": "Päivittäinen palkinto",
+    "day": "Päivä {{number}}",
+    "claim": "Lunasta!",
+    "claimed": "Lunastettu",
+    "streak": "{{count}} päivän putki!",
+    "bonusMoves": "+{{count}} siirtoa",
+    "bonusLives": "+{{count}} elämää",
+    "powerup": "Tehostus!"
+  },
+  "lives": {
+    "full": "Täynnä",
+    "nextIn": "{{time}}",
+    "noLives": "Ei elämiä!",
+    "waitMessage": "Seuraava elämä {{time}} kuluttua",
+    "orWatch": "Tai katso mainos saadaksesi ilmaisen elämän"
+  },
+  "powerups": {
+    "rowBomb": "Rivipommi",
+    "colBomb": "Sarakepommi",
+    "colorBomb": "Väripommi",
+    "shuffle": "Sekoita",
+    "tapToUse": "Napauta laattaa käyttääksesi",
+    "selectRow": "Napauta riviä räjäyttääksesi",
+    "selectCol": "Napauta saraketta räjäyttääksesi"
+  },
+  "achievements": {
+    "title": "Saavutukset",
+    "unlocked": "Saavutus avattu!",
+    "firstMatch": "Ensimmäinen yhdistäminen",
+    "firstMatchDesc": "Tee ensimmäinen yhdistämisesi",
+    "matchMaster": "Yhdistämismestari",
+    "matchMasterDesc": "Tee 100 yhdistämistä",
+    "matchLegend": "Yhdistämislegenda",
+    "matchLegendDesc": "Tee 1000 yhdistämistä",
+    "levelUp": "Tasonnousu",
+    "levelUpDesc": "Läpäise taso 5",
+    "halfway": "Puolivälissä",
+    "halfwayDesc": "Läpäise taso 10",
+    "champion": "Mestari",
+    "championDesc": "Läpäise kaikki 20 tasoa",
+    "cascadeKing": "Ketjureaktiokuningas",
+    "cascadeKingDesc": "Saa 3x ketjureaktio",
+    "cascadeLegend": "Ketjureaktiolegenda",
+    "cascadeLegendDesc": "Saa 5x ketjureaktio",
+    "scorer": "Pisteiden kerääjä",
+    "scorerDesc": "Saavuta 5 000 kokonaispistettä",
+    "megaScorer": "Megapisteyttäjä",
+    "megaScorerDesc": "Saavuta 50 000 kokonaispistettä",
+    "streakHot": "Tulessa",
+    "streakHotDesc": "Voita 3 tasoa peräkkäin",
+    "streakBlazing": "Liekissä",
+    "streakBlazingDesc": "Voita 10 tasoa peräkkäin",
+    "powerUser": "Tehosteiden käyttäjä",
+    "powerUserDesc": "Käytä 10 tehostetta",
+    "cannoneer": "Tykkimies",
+    "cannoneerDesc": "Ammu tykillä 5 kertaa",
+    "collector": "Keräilijä",
+    "collectorDesc": "Ansaitse 3 tähteä 10 tasolla"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Putkibonus aktiivinen!"
+  },
+  "levelStart": {
+    "level": "TASO {{number}}",
+    "goal": "TAVOITE",
+    "moves": "Siirrot",
+    "boosters": "Valitse tehostus"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Peruuta",
+    "close": "Sulje",
+    "loading": "Ladataan..."
+  }
+}

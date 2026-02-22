@@ -1,0 +1,133 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "لغز المطابقة والتصويب",
+    "play": "العب",
+    "continue": "متابعة - المستوى {{level}}",
+    "settings": "الإعدادات",
+    "dailyReward": "المكافأة اليومية!"
+  },
+  "game": {
+    "score": "النقاط",
+    "moves": "الحركات",
+    "level": "المستوى {{number}}",
+    "target": "الهدف: {{score}}",
+    "combo": "كومبو",
+    "cannonReady": "المدفع جاهز! انقر على عمود!",
+    "cannon": "مدفع!"
+  },
+  "levelSelect": {
+    "title": "اختر المستوى",
+    "back": "رجوع",
+    "locked": "مقفل",
+    "world1": "حديقة المبتدئين",
+    "world2": "أعماق المحيط",
+    "world3": "القمم البركانية",
+    "world4": "سديم النجوم",
+    "world5": "كهف الكريستال",
+    "world6": "وادي الغروب",
+    "world7": "الفضاء العميق",
+    "world8": "مملكة الثلج",
+    "world9": "جزيرة التنين",
+    "world10": "الغابة المسحورة"
+  },
+  "levelComplete": {
+    "title": "تهانينا!",
+    "level": "المستوى {{number}}",
+    "score": "النقاط: {{score}}",
+    "nextLevel": "المستوى التالي",
+    "mainMenu": "القائمة الرئيسية"
+  },
+  "gameOver": {
+    "title": "انتهت اللعبة!",
+    "subtitle": "لم تصل إلى النقاط المطلوبة",
+    "yourScore": "نقاطك: {{score}}",
+    "target": "الهدف: {{target}}",
+    "retry": "حاول مجدداً",
+    "mainMenu": "القائمة الرئيسية"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "sound": "المؤثرات الصوتية",
+    "haptics": "الاستجابة اللمسية",
+    "language": "اللغة",
+    "back": "رجوع",
+    "selectLanguage": "اختر اللغة"
+  },
+  "dailyReward": {
+    "title": "المكافأة اليومية",
+    "day": "اليوم {{number}}",
+    "claim": "اجمع!",
+    "claimed": "تم الجمع",
+    "streak": "سلسلة {{count}} أيام!",
+    "bonusMoves": "+{{count}} حركات",
+    "bonusLives": "+{{count}} أرواح",
+    "powerup": "تعزيز!"
+  },
+  "lives": {
+    "full": "مكتمل",
+    "nextIn": "{{time}}",
+    "noLives": "لا أرواح!",
+    "waitMessage": "الروح التالية خلال {{time}}",
+    "orWatch": "أو شاهد إعلاناً للحصول على روح مجانية"
+  },
+  "powerups": {
+    "rowBomb": "قنبلة الصف",
+    "colBomb": "قنبلة العمود",
+    "colorBomb": "قنبلة الألوان",
+    "shuffle": "خلط",
+    "tapToUse": "انقر على بلاطة للاستخدام",
+    "selectRow": "انقر على صف لتفجيره",
+    "selectCol": "انقر على عمود لتفجيره"
+  },
+  "achievements": {
+    "title": "الإنجازات",
+    "unlocked": "تم فتح إنجاز!",
+    "firstMatch": "أول مطابقة",
+    "firstMatchDesc": "قم بأول مطابقة",
+    "matchMaster": "سيد المطابقة",
+    "matchMasterDesc": "قم بـ 100 مطابقة",
+    "matchLegend": "أسطورة المطابقة",
+    "matchLegendDesc": "قم بـ 1000 مطابقة",
+    "levelUp": "ارتقاء",
+    "levelUpDesc": "أكمل المستوى 5",
+    "halfway": "في منتصف الطريق",
+    "halfwayDesc": "أكمل المستوى 10",
+    "champion": "بطل",
+    "championDesc": "أكمل جميع المستويات العشرين",
+    "cascadeKing": "ملك التتابع",
+    "cascadeKingDesc": "احصل على تتابع 3 مرات",
+    "cascadeLegend": "أسطورة التتابع",
+    "cascadeLegendDesc": "احصل على تتابع 5 مرات",
+    "scorer": "محرز النقاط العالية",
+    "scorerDesc": "اجمع 5,000 نقطة إجمالية",
+    "megaScorer": "محرز النقاط الخارق",
+    "megaScorerDesc": "اجمع 50,000 نقطة إجمالية",
+    "streakHot": "مشتعل",
+    "streakHotDesc": "افز بـ 3 مستويات متتالية",
+    "streakBlazing": "سلسلة متوهجة",
+    "streakBlazingDesc": "افز بـ 10 مستويات متتالية",
+    "powerUser": "مستخدم التعزيزات",
+    "powerUserDesc": "استخدم 10 تعزيزات",
+    "cannoneer": "مدفعي",
+    "cannoneerDesc": "أطلق المدفع 5 مرات",
+    "collector": "جامع",
+    "collectorDesc": "احصل على 3 نجوم في 10 مستويات"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "مكافأة السلسلة مفعّلة!"
+  },
+  "levelStart": {
+    "level": "المستوى {{number}}",
+    "goal": "الهدف",
+    "moves": "الحركات",
+    "boosters": "اختر تعزيزاً"
+  },
+  "common": {
+    "ok": "حسناً",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "loading": "جارٍ التحميل..."
+  }
+}

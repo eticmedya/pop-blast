@@ -1,0 +1,133 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Puzzle: Combinar y Disparar",
+    "play": "JUGAR",
+    "continue": "Continuar - Nivel {{level}}",
+    "settings": "Ajustes",
+    "dailyReward": "¡Recompensa diaria!"
+  },
+  "game": {
+    "score": "PUNTOS",
+    "moves": "Movimientos",
+    "level": "NIV {{number}}",
+    "target": "Objetivo: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "¡CAÑÓN LISTO! ¡Toca una columna!",
+    "cannon": "¡CAÑÓN!"
+  },
+  "levelSelect": {
+    "title": "Seleccionar nivel",
+    "back": "Atrás",
+    "locked": "Bloqueado",
+    "world1": "Jardín principiante",
+    "world2": "Profundidades oceánicas",
+    "world3": "Picos volcánicos",
+    "world4": "Nebulosa estelar",
+    "world5": "Cueva de cristal",
+    "world6": "Valle del atardecer",
+    "world7": "Espacio profundo",
+    "world8": "Reino de nieve",
+    "world9": "Isla del dragón",
+    "world10": "Bosque encantado"
+  },
+  "levelComplete": {
+    "title": "¡Felicidades!",
+    "level": "Nivel {{number}}",
+    "score": "Puntuación: {{score}}",
+    "nextLevel": "Siguiente nivel",
+    "mainMenu": "Menú principal"
+  },
+  "gameOver": {
+    "title": "¡Fin del juego!",
+    "subtitle": "No alcanzaste la puntuación objetivo",
+    "yourScore": "Tu puntuación: {{score}}",
+    "target": "Objetivo: {{target}}",
+    "retry": "Intentar de nuevo",
+    "mainMenu": "Menú principal"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "sound": "Efectos de sonido",
+    "haptics": "Vibración háptica",
+    "language": "Idioma",
+    "back": "Atrás",
+    "selectLanguage": "Seleccionar idioma"
+  },
+  "dailyReward": {
+    "title": "Recompensa diaria",
+    "day": "Día {{number}}",
+    "claim": "¡Reclamar!",
+    "claimed": "Reclamado",
+    "streak": "¡Racha de {{count}} días!",
+    "bonusMoves": "+{{count}} Movimientos",
+    "bonusLives": "+{{count}} Vidas",
+    "powerup": "¡Power-Up!"
+  },
+  "lives": {
+    "full": "Lleno",
+    "nextIn": "{{time}}",
+    "noLives": "¡Sin vidas!",
+    "waitMessage": "Próxima vida en {{time}}",
+    "orWatch": "O mira un anuncio para una vida gratis"
+  },
+  "powerups": {
+    "rowBomb": "Bomba de fila",
+    "colBomb": "Bomba de columna",
+    "colorBomb": "Bomba de color",
+    "shuffle": "Mezclar",
+    "tapToUse": "Toca una casilla para usar",
+    "selectRow": "Toca una fila para explotar",
+    "selectCol": "Toca una columna para explotar"
+  },
+  "achievements": {
+    "title": "Logros",
+    "unlocked": "¡Logro desbloqueado!",
+    "firstMatch": "Primera combinación",
+    "firstMatchDesc": "Haz tu primera combinación",
+    "matchMaster": "Maestro de combinaciones",
+    "matchMasterDesc": "Haz 100 combinaciones",
+    "matchLegend": "Leyenda de combinaciones",
+    "matchLegendDesc": "Haz 1000 combinaciones",
+    "levelUp": "Subir de nivel",
+    "levelUpDesc": "Completa el nivel 5",
+    "halfway": "A mitad de camino",
+    "halfwayDesc": "Completa el nivel 10",
+    "champion": "Campeón",
+    "championDesc": "Completa los 20 niveles",
+    "cascadeKing": "Rey de las cascadas",
+    "cascadeKingDesc": "Consigue una cascada x3",
+    "cascadeLegend": "Leyenda de las cascadas",
+    "cascadeLegendDesc": "Consigue una cascada x5",
+    "scorer": "Gran anotador",
+    "scorerDesc": "Alcanza 5.000 puntos en total",
+    "megaScorer": "Mega anotador",
+    "megaScorerDesc": "Alcanza 50.000 puntos en total",
+    "streakHot": "En llamas",
+    "streakHotDesc": "Gana 3 niveles seguidos",
+    "streakBlazing": "Racha ardiente",
+    "streakBlazingDesc": "Gana 10 niveles seguidos",
+    "powerUser": "Experto en Power-Ups",
+    "powerUserDesc": "Usa 10 power-ups",
+    "cannoneer": "Cañonero",
+    "cannoneerDesc": "Dispara el cañón 5 veces",
+    "collector": "Coleccionista",
+    "collectorDesc": "Consigue 3 estrellas en 10 niveles"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "¡Bonus de racha activo!"
+  },
+  "levelStart": {
+    "level": "NIVEL {{number}}",
+    "goal": "OBJETIVO",
+    "moves": "Movimientos",
+    "boosters": "Elige un Potenciador"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "loading": "Cargando..."
+  }
+}

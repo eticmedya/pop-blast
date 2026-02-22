@@ -1,0 +1,137 @@
+{
+  "menu": {
+    "title": "POP BLAST",
+    "subtitle": "Match & Shoot Puzzle",
+    "play": "PLAY",
+    "continue": "Continue - Level {{level}}",
+    "settings": "Settings",
+    "dailyReward": "Daily Reward!"
+  },
+  "game": {
+    "score": "SCORE",
+    "moves": "Moves",
+    "level": "LVL {{number}}",
+    "target": "Target: {{score}}",
+    "combo": "COMBO",
+    "cannonReady": "CANNON READY! Tap a column!",
+    "cannon": "CANNON!"
+  },
+  "levelSelect": {
+    "title": "Select Level",
+    "back": "Back",
+    "locked": "Locked",
+    "world1": "Beginner Garden",
+    "world2": "Ocean Depths",
+    "world3": "Volcanic Peaks",
+    "world4": "Star Nebula",
+    "world5": "Crystal Cave",
+    "world6": "Sunset Valley",
+    "world7": "Deep Space",
+    "world8": "Snow Kingdom",
+    "world9": "Dragon Island",
+    "world10": "Enchanted Forest"
+  },
+  "levelComplete": {
+    "title": "Congratulations!",
+    "level": "Level {{number}}",
+    "score": "Score: {{score}}",
+    "nextLevel": "Next Level",
+    "mainMenu": "Main Menu",
+    "newRecord": "NEW RECORD!"
+  },
+  "gameOver": {
+    "title": "Game Over!",
+    "subtitle": "You didn't reach the target score",
+    "soClose": "SO CLOSE!",
+    "almostThere": "Almost there!",
+    "goodTry": "Good try!",
+    "yourScore": "Your Score: {{score}}",
+    "target": "Target: {{target}}",
+    "retry": "Try Again",
+    "mainMenu": "Main Menu"
+  },
+  "settings": {
+    "title": "Settings",
+    "sound": "Sound Effects",
+    "haptics": "Haptic Feedback",
+    "language": "Language",
+    "back": "Back",
+    "selectLanguage": "Select Language"
+  },
+  "dailyReward": {
+    "title": "Daily Reward",
+    "day": "Day {{number}}",
+    "claim": "Claim!",
+    "claimed": "Claimed",
+    "streak": "{{count}} Day Streak!",
+    "bonusMoves": "+{{count}} Moves",
+    "bonusLives": "+{{count}} Lives",
+    "powerup": "Power-Up!"
+  },
+  "lives": {
+    "full": "Full",
+    "nextIn": "{{time}}",
+    "noLives": "No Lives!",
+    "waitMessage": "Next life in {{time}}",
+    "orWatch": "Or watch an ad for a free life"
+  },
+  "powerups": {
+    "rowBomb": "Row Bomb",
+    "colBomb": "Column Bomb",
+    "colorBomb": "Color Bomb",
+    "shuffle": "Shuffle",
+    "tapToUse": "Tap a tile to use",
+    "selectRow": "Tap a row to blast",
+    "selectCol": "Tap a column to blast"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "unlocked": "Achievement Unlocked!",
+    "firstMatch": "First Match",
+    "firstMatchDesc": "Make your first match",
+    "matchMaster": "Match Master",
+    "matchMasterDesc": "Make 100 matches",
+    "matchLegend": "Match Legend",
+    "matchLegendDesc": "Make 1000 matches",
+    "levelUp": "Level Up",
+    "levelUpDesc": "Complete level 5",
+    "halfway": "Halfway There",
+    "halfwayDesc": "Complete level 10",
+    "champion": "Champion",
+    "championDesc": "Complete all 20 levels",
+    "cascadeKing": "Cascade King",
+    "cascadeKingDesc": "Get a 3x cascade",
+    "cascadeLegend": "Cascade Legend",
+    "cascadeLegendDesc": "Get a 5x cascade",
+    "scorer": "High Scorer",
+    "scorerDesc": "Reach 5,000 total score",
+    "megaScorer": "Mega Scorer",
+    "megaScorerDesc": "Reach 50,000 total score",
+    "streakHot": "On Fire",
+    "streakHotDesc": "Win 3 levels in a row",
+    "streakBlazing": "Blazing Streak",
+    "streakBlazingDesc": "Win 10 levels in a row",
+    "powerUser": "Power User",
+    "powerUserDesc": "Use 10 power-ups",
+    "cannoneer": "Cannoneer",
+    "cannoneerDesc": "Fire the cannon 5 times",
+    "collector": "Collector",
+    "collectorDesc": "Earn 3 stars on 10 levels"
+  },
+  "streak": {
+    "multiplier": "x{{count}}",
+    "bonusActive": "Streak Bonus Active!"
+  },
+  "levelStart": {
+    "level": "LEVEL {{number}}",
+    "goal": "GOAL",
+    "moves": "Moves",
+    "boosters": "Choose a Booster"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "close": "Close",
+    "loading": "Loading..."
+  }
+}
