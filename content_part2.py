@@ -327,7 +327,7 @@ def bolum2_devami(doc):
     doc.table(
         ['Araç',             'Tür',           'Model',         'Fiyat',           'En Iyi Alan'],
         [
-            ['Claude Code',      'Terminal ajan', 'Claude 3.7',    'Max plan ile',    'Buyuk proje, otonom gorev'],
+            ['Claude Code',      'Terminal ajan', 'Claude Sonnet 4.6', 'Max plan ile',    'Buyuk proje, otonom gorev'],
             ['Cursor',           'AI IDE',        'Claude/GPT-4o', '$20/ay Pro',       'Gunluk gelistirme'],
             ['GitHub Copilot',   'IDE eklenti',   'GPT-4o/Claude', '$10/ay',          'GitHub entegrasyonu'],
             ['Windsurf',         'AI IDE/ajan',   'Claude/GPT',    '$15/ay Pro',      'Agentic flows'],
@@ -357,7 +357,7 @@ def bolum2_devami(doc):
     doc.table(
         ['Gorev',                              'Tavsiye Edilen Araç',   'Alternatif'],
         [
-            ['Uzun belge analizi / hukuk / finans', 'Claude 3.7 Sonnet',     'Gemini 2.0 Pro'],
+            ['Uzun belge analizi / hukuk / finans', 'Claude Sonnet 4.6',     'Gemini 2.0 Pro'],
             ['Genel sohbet ve sorular',            'ChatGPT / Claude',       'Gemini Flash'],
             ['Kod yazma (IDE)',                    'Cursor + Claude',         'GitHub Copilot'],
             ['Otonom proje gelistirme',            'Claude Code',             'Windsurf'],
@@ -418,9 +418,9 @@ def bolum3_claude_ekosistemi(doc):
     doc.table(
         ['Model',              'Hız',     'Kapasite',  'Ideal Kullanım',              'API Fiyatı*'],
         [
-            ['Claude Haiku 3.5',   'En Hızlı','Orta',    'Chatbot, basit gorevler',     '$0.8/M token'],
-            ['Claude Sonnet 3.7',  'Hızlı',   'Yuksek',  'Genel AI, kod, analiz',       '$3/M token'],
-            ['Claude Opus 3.7',    'Yavas',   'En Yuksek','Karmasık muhakeme, arastırma','$15/M token'],
+            ['Claude Haiku 4.5',    'En Hızlı', 'Orta',     'Chatbot, basit gorevler',     '$0.8/M token'],
+            ['Claude Sonnet 4.6',  'Hızlı',    'Yuksek',   'Genel AI, kod, analiz',       '$3/M token'],
+            ['Claude Opus 4.7',    'Yavas',    'En Yuksek', 'Karmasık muhakeme, arastırma','$15/M token'],
         ],
         widths=[110, 55, 65, 155, 86]
     )
@@ -550,7 +550,7 @@ def bolum3_claude_ekosistemi(doc):
         'import anthropic\n'
         'client = anthropic.Anthropic(api_key="sk-ant-...")\n'
         'message = client.messages.create(\n'
-        '    model="claude-3-7-sonnet-20250219",\n'
+        '    model="claude-sonnet-4-6",\n'
         '    max_tokens=1024,\n'
         '    messages=[{"role": "user", "content": "Merhaba Claude!"}]\n'
         ')\n'

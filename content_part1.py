@@ -254,7 +254,7 @@ def bolum1_giris(doc):
         'butunudur. Klasik programlamada kural → veri → cıktı mantıgı islerken, makine '
         'ogreniminde veri + cıktı → kural mantıgı calisır. Derin ogrenme ise makine '
         'ogreniminin bir alt dalıdır ve cok katmanlı yapay sinir agları kullanır. GPT-4, '
-        'Claude 3 gibi modeller derin ogrenme temelli buyuk dil modelleridir (LLM).'
+        'Claude Sonnet 4.6 ve Opus 4.7 gibi modeller derin ogrenme temelli buyuk dil modelleridir (LLM).'
     )
     doc.sp(6)
 
@@ -279,8 +279,8 @@ def bolum1_giris(doc):
             ['2020', 'GPT-3 — 175B parametre', 'Dil modellerinde yeni cag'],
             ['2022', 'ChatGPT — 100M kullanıcı', 'AI ana akıma girdi'],
             ['2023', 'GPT-4, Claude 2, Gemini', 'Rekabet hızlandı'],
-            ['2024', 'Claude 3 Opus, GPT-4o, Gemini 1.5', 'Multimodal ve uzun context'],
-            ['2025', 'Claude 3.5, GPT-5 — AI ajanları', 'Otonom AI donemi basladi'],
+            ['2024', 'Claude 3.5 Sonnet, GPT-4o, Gemini 1.5', 'Multimodal ve uzun context'],
+            ['2025', 'Claude Sonnet 4.6, Opus 4.7, GPT-5', 'Otonom AI cagi, guclu modeller'],
             ['2026', 'AGI tartısmaları, AI her yerde', 'Herkes AI ile calısıyor'],
         ],
         widths=[45, 180, 246]
@@ -307,7 +307,7 @@ def bolum1_giris(doc):
     doc.table(
         ['Kategori', 'Sirket', 'Model', 'Guclu Oldugu Alan'],
         [
-            ['Kapalı Kaynak', 'Anthropic', 'Claude 3.7 Sonnet/Opus', 'Kod, analiz, guvenlik'],
+            ['Kapalı Kaynak', 'Anthropic', 'Claude Sonnet 4.6 / Opus 4.7', 'Kod, analiz, guvenlik'],
             ['Kapalı Kaynak', 'OpenAI', 'GPT-5, o3', 'Genel, goruntu, ses'],
             ['Kapalı Kaynak', 'Google', 'Gemini 2.0 Ultra', 'Multimodal, Workspace'],
             ['Kapalı Kaynak', 'xAI', 'Grok 3', 'Gercek zamanli X verisi'],
@@ -398,7 +398,7 @@ def bolum1_giris(doc):
         [
             ['GPT-3.5 Turbo', '16K token (~12K kelime)', 'Kısa sohbetler, basit gorevler'],
             ['GPT-4o', '128K token (~96K kelime)', 'Uzun belgeler, kod projeleri'],
-            ['Claude 3.7 Sonnet', '200K token (~150K kelime)', 'Dev kod tabanları, kitap analizi'],
+            ['Claude Sonnet 4.6', '200K token (~150K kelime)', 'Dev kod tabanları, kitap analizi'],
             ['Gemini 2.0 Ultra', '1M token (~750K kelime)', 'Tam kitap serisi, buyuk kod repo'],
             ['Gemini 2.0 Pro', '2M token (~1.5M kelime)', 'En buyuk context (2026 itibarıyla)'],
         ],
@@ -706,7 +706,7 @@ def bolum1_ek_ve_bolum2_baslangic(doc):
     doc.code(
         '// Tipik LLM API Cagri Yapısı (Claude Ornegi)\n'
         '{\n'
-        '  "model": "claude-3-7-sonnet-20250219",\n'
+        '  "model": "claude-sonnet-4-6",\n'
         '  "system": "Sen bir uzman yazılım mimarısın. Turkce yanıt ver.",\n'
         '  "messages": [\n'
         '    {"role": "user", "content": "REST API tasarımında best practice\'ler neler?"},\n'
@@ -744,7 +744,7 @@ def bolum1_ek_ve_bolum2_baslangic(doc):
     doc.table(
         ['Senaryo', 'Onerimiz'],
         [
-            ['Metin yazma ve analiz',         'Claude 3.7 Sonnet veya GPT-4o'],
+            ['Metin yazma ve analiz',         'Claude Sonnet 4.6 veya GPT-4o'],
             ['Kod yazma ve debug',             'Claude Code veya Cursor'],
             ['Gorsel olusturma',               'Midjourney v7 veya Flux 1.1'],
             ['Video uretimi',                  'Veo 3 veya Kling 2.0'],
@@ -785,13 +785,13 @@ def bolum1_ek_ve_bolum2_baslangic(doc):
     doc.text(
         'Anthropic\'in gelistirdigi Claude, ozellikle uzun belgeler, kod yazma ve kompleks '
         'muhakeme gerektiren gorevlerde buyuk farklılık yaratır. 2025 sonunda piyasaya '
-        'surulen Claude 3.7 Sonnet ve Opus modelleri, yazılım gelistirme ve analitik '
+        'surulen Claude Sonnet 4.6 ve Opus 4.7 modelleri, yazılım gelistirme ve analitik '
         'dusunme konularında rakiplerine gore belirgin avantaj saglamaktadır.'
     )
     doc.table(
         ['Kriter', 'Detay'],
         [
-            ['Model', 'Claude 3.7 Sonnet / Haiku / Opus (2026)'],
+            ['Model', 'Claude Sonnet 4.6 / Haiku 4.5 / Opus 4.7 (2026)'],
             ['Context Window', '200.000 token — yaklasık 150.000 kelime'],
             ['Guclu Yonleri', 'Uzun belge analizi, kod yazma, tutarlılık, guvenlik'],
             ['Zayıf Yonleri', 'Gorsel uretim yok, gercek zamanli web yok (bazi planlarda var)'],
