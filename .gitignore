@@ -1,42 +1,65 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+MemoryCaptures/
 
-# dependencies
-node_modules/
+# Asset meta files should be tracked (they contain GUIDs)
+# But never track auto-generated
+/[Aa]ssets/[Aa]sset[Ss]tore-5.x/
 
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
+# Unity3D auto-generated lock file
+/[Aa]ssets/[Ss]cripts/[Ee]ditor/
 
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
+# Auto-generated
+ProjectSettings/ProjectVersion.txt
 
-# Metro
-.metro-health-check*
+# Visual Studio / Rider
+.vs/
+.idea/
+*.csproj
+*.sln
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
 
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
+# OS generated
 .DS_Store
-*.pem
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
 
-# local env files
-.env*.local
+# JetBrains
+.idea/
 
-# typescript
-*.tsbuildinfo
+# Crashlytics
+crashlytics-build.properties
 
-# generated native folders
-/ios
-/android
-__pycache__/
+# UGS / Cloud Project Settings (Project ID buraya yazılmaz — .env.local kullan)
+ProjectSettings/ProjectSettings.asset
+
+# Build artifacts
+*.apk
+*.ipa
+*.aab
+*.exe
+*.x86
+*.x86_64
+*.bc
+
+# Nuget
+[Nn]uget/
+packages/
